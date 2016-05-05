@@ -7,7 +7,6 @@ title: Home
 ENSIME brings Scala and Java IDE features to your favourite text editor:
 
 - Show the type of the symbol under the cursor.
-- Add type to the symbol under the cursor.
 - Contextual completion for values and methods.
 - Semantic highlighting with `implicit` expansion.
 - Add an import for the symbol under the cursor.
