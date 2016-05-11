@@ -35,3 +35,7 @@ It would be consistent, and fair to contributors, for the Scala distribution to 
 # Simple Streaming Framework
 
 TODO: Akka isn't typesafe, Streams are too heavyweight, Spark is a beast, Futures aren't powerful enough, we need something with a very limited scope like `clojure.async` in Scala.
+
+# Investment in SBT
+
+TODO: The amount of work happening on SBT is very low compared to the number of organisations using it. It needs help, especially on migrating to use NIO (especially important for performance on Windows).
