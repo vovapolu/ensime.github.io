@@ -16,7 +16,7 @@ It is concerning that Dotty does not yet have a presentation compiler. Without a
 
 ENSIME and Scala IDE share several common backends including the `PresentationCompiler` and `scala-refactoring`. We committed to expand the collaboration through the recently awarded Google Summer of Code project on Source Code Preserving ASTs.
 
-In contrast, IntelliJ IDEA provides Scala editing support via an independently developed type-aware parser. Although the GSoC could allow for collaboration, it is highly likely that IDEA will continue to autonomous. IDEA's commercial backing allows for development on features, such as Dotty support, and could see it become the only editor for Dotty.
+In contrast, IntelliJ IDEA provides Scala editing support via an independently developed type-aware parser. Although the GSoC could allow for collaboration, it is highly likely that IDEA will continue autonomously. IDEA's commercial backing allows for development on features that could see it become the only editor for Dotty.
 
 We hope that Dotty will shortly provide a replacement for the interactive PresentationCompiler (and something like scalap for TASTY), addressing the shortcomings of the current presentation compiler. We are aware that the amount of effort required to do this is significant. Indeed, it is too much for the volunteers at ENSIME to take on. This initiative requires an experienced full time developer in EPFL / Scala Center, with close access to the Dotty team, in order to complete.
 
