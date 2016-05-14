@@ -35,7 +35,7 @@ Once you have [a `.ensime` file][ensimeConfig] for your project, start an ENSIME
 2. Next you need to add SBT to your Sublime path, within Sublime Text, go to the Preferences > Package Settings > Settings > Ensime and select Settings - User to open the Ensime.sublime-settings file. Now add the following to this file.
    ```json
    {
-	"sbt_binary": "<PATH TO YOUR SBT INSTALLATION>"
+	"sbt_binary": "/path/to/sbt"
    }
    ```
 3. [Optional] You may find it helpful to open the console view to see the output and when dependencies are downloaded upon starting Ensime. You do this in the Sublime View menu and selecting Show Console.
