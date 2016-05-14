@@ -252,3 +252,19 @@ val x = try "1".toInt
 val xs = for (i <- 1 to 10)
          yield i
 ```
+## Prettify-Symbols
+Scala-mode has a preconfigured list of prettify-symbols rules.
+The `prettify-symbols-mode` minor-mode (included with emacs from version 24.4 onwards) displays text in your buffer as (usually) unicode symbols that express the same thing to improve readability. A good example would be displaying the boolean operators as their unicode equivalents.
+
+To enable the feature just add these lines to the `scala-mode-hook`:
+
+```lisp
+(setq prettify-symbols-alist scala-prettify-symbols-alist)
+(prettify-symbols-mode)
+```
+
+Also feel free to customice the prettify rules by adding or removing from the `scala-prettify-symbols-alist` alist.
+
+Libre fonts that seems to work well with this feature are: 
+[Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
+[Hack](https://github.com/chrissimpkins/Hack)
