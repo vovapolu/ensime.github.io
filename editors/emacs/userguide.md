@@ -161,6 +161,10 @@ Displays a hierarchical view of a package, including all top-level types. Select
 
 Lists the interfaces that contribute members to the inspected type. List each interface's methods, with full type signatures. If the type has a companion object/class, a link to the companion will appear under the heading.
 
+## Helm
+
+To enable helm support use `(setq ensime-use-helm t)` in your configuration. Alas not a lot is changed by this option. This will hopefully change in the future.
+
 ## Debugging
 
 ### Break Points
