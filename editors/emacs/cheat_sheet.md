@@ -63,7 +63,6 @@ To customise your ENSIME Emacs experience, don't forget to read through the user
 | `M-p` | Go to the previous compilation note in the current buffer |
 | `C-c C-v .` | Select the surrounding syntactic context. Subsequent taps of '.' and ',' will grow and shrink the selection, respectively |
 | `C-c C-v v` | Search globally for methods or types |
-| `C-c C-v s` | Search for methods and types using the Scalex search engine |
 
 ## Documentation
 
