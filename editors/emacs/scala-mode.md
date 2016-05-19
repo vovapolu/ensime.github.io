@@ -22,7 +22,7 @@ This mode will be installed automatically if you use ENSIME.
 However, if you want to install separately, the preferred mechanism is via MELPA and `use-package` as per our [Learning Emacs](/editors/emacs/learning) guide:
 
 ```elisp
-(use-package scala-mode2
+(use-package scala-mode
   :interpreter
   ("scala" . scala-mode))
 ```
@@ -100,7 +100,7 @@ Very complex scala files may need the following in your emacs init (.emacs, etc)
 
 ENSIME users have access to the compiler's summary of the file and this `scala-mode` functionality is overridden.
 
-scala-mode2 supports imenu, a library for accessing locations in documents that is included in emacs 24. The custom variable `scala-imenu:should-flatten-index` controls whether or not the imenu index will be hierarchical or completely flat. The current iMenu implementation only goes one level deep i.e. nested classes are not traversed. scala-mode2's imenu support depends heavily on the `scala-syntax:end-of-definition` and `scala-syntax:beginning-of-definition` functions, and as such, it shares their limitations.
+scala-mode supports imenu, a library for accessing locations in documents that is included in emacs 24. The custom variable `scala-imenu:should-flatten-index` controls whether or not the imenu index will be hierarchical or completely flat. The current iMenu implementation only goes one level deep i.e. nested classes are not traversed. scala-mode's imenu support depends heavily on the `scala-syntax:end-of-definition` and `scala-syntax:beginning-of-definition` functions, and as such, it shares their limitations.
 
 ## Joinin lines (delete indentation) and removing horizontal whitespace
 

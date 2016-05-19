@@ -118,7 +118,7 @@ sleep 2 ; recordmydesktop --no-sound --on-the-fly-encoding --no-frame -o ensime.
 
 Rough script, for a walkthrough:
 
-0. start with =scala-mode2= and show regex syntax highlighting.
+0. start with =scala-mode= and show regex syntax highlighting.
 1. turn on =ensime= and comment on the =sbt= deploy process.
 2. wait for the funny and announce that we'll have a call for new
    funnies for the 1.0 release, with a prize for the best.
