@@ -105,7 +105,7 @@ Because we are at the forefront of the development cycle for new versions of Sca
 
 ### Manual QA Testing
 
-If an `-assembly.jar` file exists in your `.emacs.d/ensime` or `.atom/packages/Ensime` directory (for the expected binary version of scala and ENSIME) then it will be used in preference to the `sbt` auto-update procedure. This is advantageous for developing on ENSIME and also to enable a simple install of the ENSIME server in restricted environments. SNAPSHOT assembly jars are provided at http://ensime.typelevel.org/ (with many thanks to typelevel for the use of their servers).
+If an `-assembly.jar` file exists in your `.emacs.d/ensime`, `.atom/packages/Ensime` or `.config/ensime-vim` directory (for the expected binary version of scala and ENSIME) then it will be used in preference to the `sbt` auto-update procedure. This is advantageous for developing on ENSIME and also to enable a simple install of the ENSIME server in restricted environments. SNAPSHOT assembly jars are provided at http://ensime.typelevel.org/ (with many thanks to typelevel for the use of their servers).
 
 To build your own server jars, do this:
 
