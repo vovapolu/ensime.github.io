@@ -268,5 +268,6 @@ To enable the feature just add these lines to the `scala-mode-hook`:
 Also feel free to customice the prettify rules by adding or removing from the `scala-prettify-symbols-alist` alist.
 
 Libre fonts that seems to work well with this feature are: 
-[Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
-[Hack](https://github.com/chrissimpkins/Hack)
+
+- [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
+- [Hack](https://github.com/chrissimpkins/Hack)
