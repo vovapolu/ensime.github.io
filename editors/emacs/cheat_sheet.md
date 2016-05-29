@@ -119,7 +119,7 @@ Much of this is a wrapper over [`sbt-mode`](https://github.com/hvesalai/sbt-mode
 |-------------|-------------|
 | `C-c C-v z` | Start the Scala REPL or switch to it |
 | `C-c C-v C-r` | Send the region to the REPL |
-| `C-c C-v v` | Evaluate the current buffer in the REPL |
+| `C-c C-v b` | Evaluate the current buffer in the REPL |
 | `C-c C-v l` | Prompt for a file and load it in the REPL |
 
 ## Miscellaneous
