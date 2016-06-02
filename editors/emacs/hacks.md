@@ -399,7 +399,7 @@ Some people find it useful to add the following function to their `scala-mode-ho
 
 ### Example
 
-Don't forget to add all these wonderful packages to your scala mode! Here's a fully worked example with a custom `company-mode` setup that works without an ENSIME server, which might give you some ideas.
+Don't forget to add all these wonderful packages to your scala mode! Here's a fully worked example which might give you some ideas.
 
 ```elisp
 (add-hook 'scala-mode-hook
@@ -410,12 +410,6 @@ Don't forget to add all these wonderful packages to your scala mode! Here's a fu
             (git-gutter-mode)
             (company-mode)
             (ensime-mode)
-
-            (make-local-variable 'company-backends)
-            (projectile-visit-project-tags-table)
-            (setq company-backends
-               '(ensime-company (company-keywords company-dabbrev-code company-etags company-yasnippet)))
-
             (scala-mode:goto-start-of-code)))
 ```
 
