@@ -34,19 +34,19 @@ It would be consistent, and fair to contributors, for the Scala distribution to 
 
 # Investment in PresentationCompiler
 
-The current `PresentationCompiler` is sadly lacking in the area of macro support and is unable to keep up with the many boilerplate removal macro libraries that are becoming more common. As an example, the presentation compiler cannot cope with the macros used in the `sbt` API.
+The current `PresentationCompiler` is sadly lacking in the area of macro support and is unable to keep up with the many boilerplate-removal macro libraries that are becoming more common. As examples, the presentation compiler cannot cope with the macros used in the `sbt` API (introduced to reduce repetition), or the Typelevel macro projects that reduce boilerplate when using the typeclass / functional style.
 
-The ENSIME authors have set up an exploratory project, with the goal of raising awareness of this limitation to macro authors: https://github.com/fommil/imaginary-friend A possible short term workaround may be that some macro authors provide "presentation compiler plugins" that act only in the earlier phases of the compile.
+The ENSIME authors have set up an exploratory project, with the goal of raising awareness of this limitation to macro authors: https://github.com/fommil/imaginary-friend A possible short term workaround may be that some macro authors provide a "presentation compiler plugin" that acts only in the earlier phases of the compile.
 
-It would be in the benefit of all ENSIME and Scala IDE users if the Scala Center were to become involved in improving the support for macros in the presentation compiler. The first step could be to create a lightweight testing library that macro authors can use to test the behaviour of their macros in the presentation compiler. Once tests can be written, a standalone regression suite could be produced, allowing for improvements in the presentation compiler itself.
+It would be beneficial to all ENSIME and Scala IDE users if the Scala Center were to improve the support for macros inside the presentation compiler. The first step could be to create a lightweight testing library that macro authors use to test the behaviour of their macros in the presentation compiler. Once tests are easy to write, a standalone regression suite could be produced, allowing for improvements in the presentation compiler itself.
 
 
 # Investment in SBT
 
-It is no secret that the Scala compiler is slow. An efficient incremental compiler is the low hanging fruit that could speed up the workflow for many developers. There are many avenues to explore, from improved I/O and caching to better management and persistence of the dependency structure (perhaps between developers and continuous integration servers).
+It is no secret that the Scala compiler is slow. An efficient incremental compiler is the low hanging fruit that could speed up the workflow for developers.
 
-sbt is a critical part of most build pipelines and that includes an incremental compiler, Zinc. However, independent work on incremental compilation is being undertaken inside IntelliJ and behind closed doors with proprietary and lesser known build tools.
+`sbt` is a critical part of most build pipelines and it includes an incremental compiler, Zinc. However, independent work on incremental compilation is being undertaken inside IntelliJ and behind closed doors in proprietary and lesser known build tools.
 
-If all hands were improving a single code base, we could avoid duplication of efforts and bring down everybody's build times. Key to this is the concept of sbt as a server, which is the key enabling technology for IntelliJ, Scala IDE and (to a lesser extend) ENSIME.
+If all hands were improving a single code base, we could avoid duplication of efforts, focus on the bottlenecks, and bring down everybody's build times. Key to this is the concept of sbt as a server, which is the enabling technology for IntelliJ, Scala IDE and (to a lesser extent) ENSIME.
 
-It would be in the benefit of all Scala developers if the Scala Center could provide the resource to help sbt and IDEs integrate with each other via sbt-server, and for the incremental compiler itself to receive further performance improvements.
+It would be beneficial to all Scala developers if the Scala Center could provide the resource to help `sbt` and IDEs integrate with each other via `sbt-server`, and for the incremental compiler itself to receive further performance improvements. There are many avenues to explore, from improved I/O and caching to better management and persistence of the inter-file dependency structure (perhaps sharing information between developers and a continuous integration server).
