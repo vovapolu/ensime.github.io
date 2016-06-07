@@ -47,6 +47,6 @@ It is no secret that the Scala compiler is slow. An efficient incremental compil
 
 `sbt` is a critical part of most build pipelines and it includes an incremental compiler, Zinc. However, independent work on incremental compilation is being undertaken inside IntelliJ and behind closed doors in proprietary and lesser known build tools.
 
-If all hands were improving a single code base, we could avoid duplication of efforts, focus on the bottlenecks, and bring down everybody's build times. Key to this is the concept of sbt as a server, which is the enabling technology for IntelliJ, Scala IDE and (to a lesser extent) ENSIME.
+If all hands were improving a single code base, we could avoid duplication of efforts, focus on the bottlenecks, and bring down everybody's build times. Key to this is the concept of sbt as a server, which is the enabling technology for IntelliJ, Scala IDE and ENSIME.
 
 It would be beneficial to all Scala developers if the Scala Center could provide the resource to help `sbt` and IDEs integrate with each other via `sbt-server`, and for the incremental compiler itself to receive further performance improvements. There are many avenues to explore, from improved I/O and caching to better management and persistence of the inter-file dependency structure (perhaps sharing information between developers and a continuous integration server).
