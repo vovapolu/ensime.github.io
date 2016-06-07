@@ -32,7 +32,7 @@ However, the Scala distribution is made available under the Scala License, a 3-C
 It would be consistent, and fair to contributors, for the Scala distribution to be made available under the terms of the Apache 2.0 License. We trust that the Apache 2.0 is a better reflection of EPFL's approach so far, so this is simply a formal commitment to continue doing the same thing!
 
 
-# Investment in current PresentationCompiler
+# Investment in PresentationCompiler
 
 The current `PresentationCompiler` is sadly lacking in the area of macro support and is unable to keep up with the many boilerplate removal macro libraries that are becoming more common. As an example, the presentation compiler cannot cope with the macros used in the `sbt` API.
 
@@ -43,10 +43,10 @@ It would be in the benefit of all ENSIME and Scala IDE users if the Scala Center
 
 # Investment in SBT
 
-The amount of work happening on SBT is very small compared to the number of organisations and free / libre contributors using it. The reason for the lack of community engagement is simple: the sbt codebase is notoriously complicated and beyond the grasp of most volunteers who would otherwise be able to dip in and out with a simple patch. To make a difference requires an experienced full time developer.
+It is no secret that the Scala compiler is slow. An efficient incremental compiler is the low hanging fruit that could speed up the workflow for many developers. There are many avenues to explore, from improved I/O and caching to better management and persistence of the dependency structure (perhaps between developers and continuous integration servers).
 
-It is no secret that the Scala compiler is slow. An efficient incremental compiler is the low hanging fruit that could speed up the workflow for many developers. There are many avenues to explore, from improved I/O and caching to better management and persistence of the graph structure (perhaps between developers and continuous integration servers).
+sbt is a critical part of most build pipelines and that includes an incremental compiler, Zinc. However, independent work on incremental compilation is being undertaken inside IntelliJ and behind closed doors with proprietary and lesser known build tools.
 
-The independent work on incremental compilation that is being undertaken by IntelliJ is, unfortunately, independent. If IntelliJ were to use the sbt incremental compiler, all hands could be working on improving the same code base. It is therefore vital that the technical hurdles of using sbt's incremental compiler are overcome.
+If all hands were improving a single code base, we could avoid duplication of efforts and bring down everybody's build times. Key to this is the concept of sbt as a server, which is the key enabling technology for IntelliJ, Scala IDE and (to a lesser extend) ENSIME.
 
-It would be in the benefit of all Scala developers if the Scala Center could provide the resource to help sbt and IntelliJ integrate with each other and for the incremental compiler itself to receive a lot more attention.
+It would be in the benefit of all Scala developers if the Scala Center could provide the resource to help sbt and IDEs integrate with each other via sbt-server, and for the incremental compiler itself to receive further performance improvements.
