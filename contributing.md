@@ -12,13 +12,13 @@ The general architecture of ENSIME looks like this:
 
 ![architecture](/talks/scalasphere16/images/architecture.png)
 
-which is explained in a recent [talk about ENSIME](/talks/scalasphere16/images/architecture.png) by @rorygraves and @fommil. All our code is hosted at [github.com/ensime](https://github.com/ensime/).
+which is explained in a recent [talk about ENSIME](/talks/scalasphere16/) by @rorygraves and @fommil. All our code is hosted at [github.com/ensime](https://github.com/ensime/).
 
 ## Where to Start
 
 The first thing to do is to decide what you want to contribute!
 
-If you are looking for a small task to pick up, have a look at our [waffle board](https://waffle.io/ensime/ensime-server). If that's too intimidating, restrict it to just the [1.0 Stable Milestone](https://waffle.io/ensime/ensime-server?milestone=Stable%201.0).
+If you are looking for a small task to pick up, have a look at our [waffle board](https://waffle.io/ensime/ensime-server). If that's too intimidating, restrict it to just the [2.0 Milestone](https://waffle.io/ensime/ensime-server?milestone=Big%20Crunch%202.0).
 
 Anything under the **Low Hanging Fruit** or **Needs Reproduction** columns are suitable for a new contributor. Please contact us on the github issue directly if you want to contribute something: this avoids duplication of efforts, and also lets us discuss the best way to do it.
 
