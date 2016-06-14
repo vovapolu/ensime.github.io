@@ -21,10 +21,18 @@ addSbtPlugin("org.ensime" % "sbt-ensime" % "0.5.1")
 
 **One more check** we've undergone a few artefact name changes - make sure you copied the full line.
 
+**Now create the .emsime** do this by running the ensimeConfig command at the shell prompt
+```sh
+sh> sbt ensimeConfig
+```
 Alternatively, copy the `EnsimePlugin.scala` into your `project` directory and make sure you have `scalariform` and `scalap` on your project definition's classpath. This approach works well in environments that do not have access to maven central.
 
 
-## Commands
+## sbt Commands
+These commands are "executed" at the UNIX command line.  e.g., 
+```sh
+sh> sbt ensimeConfig
+```
 
 * `ensimeConfig` --- Generate a `.ensime` for the project (takes space-separated parameters to restrict to subprojects).
 * `ensimeConfigProject` --- Generate a `project/.ensime` for the project definition.
