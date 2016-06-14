@@ -14,8 +14,9 @@ It is important to realise that ENSIME is not an IDE, it is just one tool in a t
 1. You must have a `.ensime` file describing your project layout. To generate this file, [see which build tools we support](/build_tools/).
 2. You must be using a text editor that is supported. To install the appropriate plugin, [learn about which editors we support](/editors/).
 
-If things don't work as you expected, please read the [Getting Help](/getting_help) guide before asking for help from the community.
+If things don't work as you expected, please read the [Getting Help](/getting_help) guide before asking for help.
 
-We are all volunteers with our own priorities. Our approach to feature requests is "we will help you to implement or fix it". The ENSIME codebase is surprisingly easy to understand and you are invited to read our [Contributing Guide](/contributing). If you are coming from a corporate-sponsored IDE, it will be very liberating for you.
+We are all volunteers with our own priorities to improve ENSIME. Our approach to feature requests is "we will help you to implement or fix it".
+The ENSIME codebase is surprisingly easy to understand and you are invited to read our [Contributing Guide](/contributing) and jump in.
 
 All interactions in ENSIME are governed by the [Typelevel Code of Conduct](http://typelevel.org/conduct.html).

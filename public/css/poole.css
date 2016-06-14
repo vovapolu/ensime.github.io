@@ -163,7 +163,7 @@ abbr[title] {
 /* Code */
 code,
 pre {
-  font-family: Inconsolata, Consolas, Menlo, Monaco, "Courier New", monospace;
+  font-family: Hack, Inconsolata, Consolas, Menlo, Monaco, "Courier New", monospace;
 }
 code {
   padding: .25em .5em;

@@ -21,14 +21,13 @@ addSbtPlugin("org.ensime" % "sbt-ensime" % "0.5.1")
 
 **One more check** we've undergone a few artefact name changes - make sure you copied the full line.
 
-Create the `.ensime` file by running the `ensimeConfig` command. e.g. if you are in a terminal, type
+Create the `.ensime` file by starting `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
 
-```
-sh> sbt ensimeConfig
-```
+If you are unable to install the plugin due to your firewall restrictions, copy the `EnsimePlugin.scala` into your `project` directory and make sure you have `scalariform` and `scalap` on your project definition's classpath.
 
-If you are unable to install the plugin due to firewall restrictions, copy the `EnsimePlugin.scala` into your `project` directory and make sure you have `scalariform` and `scalap` on your project definition's classpath.
+## Learn to use SBT
 
+If you've come from an IDE you might not be aware of the power of `sbt`. Please take the time to read the [sbt Getting Started Guide](http://www.scala-sbt.org/0.13/docs/Getting-Started.html) before proceeding and appreciate that `sbt` is responsible for building your project, not ENSIME.
 
 ## Commands
 
