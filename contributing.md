@@ -24,6 +24,8 @@ Anything under the **Low Hanging Fruit** or **Needs Reproduction** columns are s
 
 We have regular [Hack Days in London](http://hackthetower.co.uk/). If you can set aside the time to join us, they are a fun and exciting way to contribute to ENSIME.
 
+If you can't come to a hack day but you'd really like to have some live help from somebody, please ask. We can use the libre software [meet.jit.si](https://meet.jit.si/) to screen share and discuss tickets anytime that is convenient.
+
 If you'd like an ENSIME logo sticker for your laptop, let us know in your PR and privately email your postal address (or feel literally [free](http://www.gnu.org/philosophy/free-sw.en.html) to print your own, the logo is [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) and is not trademarked).
 
 
