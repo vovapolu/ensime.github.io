@@ -17,4 +17,4 @@ ENSIME is for hackers and aficionados, the engineers and artists who build their
 
 If you would like to learn more, please read our [Getting Started](getting_started) section.
 
-If you're complete beginner, our [Learning Scala](learning_scala) section has some excellent resources for you, and will help you get set up with a basic project.
+If you're a Scala beginner, our [Learning Scala](learning_scala) section has some excellent resources for you, and will help you get set up with a basic project.
