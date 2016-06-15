@@ -13,7 +13,7 @@ ENSIME brings Scala and Java IDE-like features to your favourite text editor:
 - Refactorings (rename, organise imports).
 - Errors and warnings in your code: *red squigglies*.
 
-ENSIME appeals to hackers, minimalists and aficionados - engineers and artists who craft their own exquisite tools and help their neighbour. If you would rather use a more mainstream IDE, you might prefer [IntelliJ IDEA](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-scala-application.html). We don't claim to be better, just different.
+ENSIME appeals to hackers, minimalists and connoisseurs - engineers and artists who craft their own exquisite tools and help their neighbour. If you would rather use a more mainstream IDE, you might prefer [IntelliJ IDEA](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-scala-application.html). We don't claim to be better, just different.
 
 If you would like to learn more, please read our [Getting Started](getting_started) section.
 
