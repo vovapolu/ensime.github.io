@@ -14,7 +14,7 @@ This [sbt](http://github.com/sbt/sbt) plugin generates a `.ensime` file and prov
 Add these lines to `~/.sbt/0.13/plugins/plugins.sbt` as opposed to `project/plugins.sbt` (the decision to use ENSIME is per-user, rather than per-project):
 
 ```scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "0.5.1")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "0.6.0")
 ```
 
 **Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
@@ -35,7 +35,7 @@ If you've come from an IDE you might not be aware of the power of `sbt`. Please 
 * `ensimeConfigProject` --- Generate a `project/.ensime` for the project definition.
 * `debugging` --- Add debugging flags to all forked JVM processes.
 * `debuggingOff` --- Remove debugging flags from all forked JVM processes.
-* `my_project/compileOnly` --- Compile a single fully qualified `.scala` file using `my_project`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, EnsimeKeys.compileOnly) ++= Seq("-Xshow-phases")`
+* `my_project/ensimeCompileOnly` --- Compile a single fully qualified `.scala` file using `my_project`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, EnsimeKeys.ensimeCompileOnly) ++= Seq("-Xshow-phases")`
 
 Note that downloading and resolving the sources and javadocs can take some time on first use, so we recommend that you use [coursier](http://get-coursier.io).
 
@@ -69,7 +69,7 @@ Customising [EnsimeKeys](https://github.com/ensime/ensime-sbt/blob/master/src/ma
 ```scala
 import org.ensime.Imports.EnsimeKeys
 
-EnsimeKeys.debuggingPort := 1337
+EnsimeKeys.ensimeDebuggingPort := 1337
 ```
 
 For project-specific tailorings, you do not need to commit anything to your project. Simply create a file `project/EnsimeProjectSettings.scala` (which you should add to your personal `.gitignore`) containing the following:
@@ -103,7 +103,7 @@ You can follow snapshot releases by using the following instead of the stable re
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 // update to the latest development version, see project/EnsimeSbtBuild.scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "0.5.1-SNAPSHOT")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "0.6.1-SNAPSHOT")
 ```
 
 
@@ -123,7 +123,7 @@ Emacs users should recall that in order to send a control sequence to the `sbt-m
 Your `project/build.properties` needs to use a version newer than 0.13.5 of sbt due to a [breaking AutoPlugin change](https://github.com/ensime/ensime-server/issues/672), e.g.
 
 ```
-sbt.version=0.13.9
+sbt.version=0.13.11
 ```
 
 
