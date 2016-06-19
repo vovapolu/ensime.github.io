@@ -167,18 +167,6 @@ Add your own templates using the same format in your `~/.emacs.d/snippets` folde
 YAS can also be used to insert boilerplate when you create a new file. The following works well across projects when combined with [Local Variables](https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Variables.html)
 
 ```elisp
-(defvar-local yatemplate-owner user-full-name
-  ;; https://github.com/mineo/yatemplate/issues/4
-  "The copyright owner for the buffer.
-Particularly useful when combined with `dir-locals.el'.")
-(defvar-local yatemplate-license "http://www.gnu.org/licenses/gpl.html"
-  "The license (usually a URL) for the buffer.
-It is always better to explicitly list the license per file than
-to refer to the LICENSE file. Particularly useful when combined
-with `dir-locals.el'.")
-(put 'yatemplate-owner 'safe-local-variable #'stringp)
-(put 'yatemplate-license 'safe-local-variable #'stringp)
-
 (use-package yatemplate
   :defer 2 ;; WORKAROUND https://github.com/mineo/yatemplate/issues/3
   :config
