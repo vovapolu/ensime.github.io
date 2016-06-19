@@ -139,10 +139,13 @@ ENSIME uses the excellent [`company-mode`](http://company-mode.github.io/) for c
    company-minimum-prefix-length 4)
   :config
   ;; disables TAB in company-mode, freeing it for yasnippet
-  (define-key company-active-map [tab] nil))
+  (define-key company-active-map [tab] nil)
+  (define-key company-active-map (kbd "TAB") nil))
 ```
 
 Now all you need to do is enable `(company-mode)` in any buffer and you will get completions.
+
+Note that ensime overrides many of these settings in `ensime-company-enable` so you'll need to override them *again* in a `scala-mode-hook` if you want to customise further for scala.
 
 ### Snippets
 
