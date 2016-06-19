@@ -191,7 +191,8 @@ e.g. create a file called `.dir-locals.el` at the base of your `ensime-server` c
 
 ```elisp
 ((nil . ((yatemplate-owner . "https://github.com/ensime/ensime-server/graphs")
-         (yatemplate-license . "http://www.gnu.org/licenses/gpl.html"))))
+         (yatemplate-license . "http://www.gnu.org/licenses/gpl-3.0.en.html")
+         (ensime-auto-generate-config . t))))
 ```
 
 and create a template for scala files by creating `~/.emacs.d/templates/50:.*scala`
