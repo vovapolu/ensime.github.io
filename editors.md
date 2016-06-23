@@ -16,22 +16,22 @@ The following chart describes how well ENSIME supports each editor:
 | Homepage | [![Emacs](/talks/scalasphere16/images/emacs.svg)](http://www.gnu.org/software/emacs/) | [![Atom](/talks/scalasphere16/images/atom-logo.svg)](https://atom.io/) | [![Vim](/talks/scalasphere16/images/vim-logo.svg)](http://www.vim.org/) | [![VSC](https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png)](https://code.visualstudio.com/) | [![Sublime](/talks/scalasphere16/images/sublime-logo.svg)](https://www.sublimetext.com/) |
 | Main language                         | Emacs Lisp  | Coffeescript | Python | Typescript | Python |
 | Upstream Licence                      | [GPL](http://www.gnu.org/licenses/gpl.en.html) | [MIT](https://opensource.org/licenses/MIT) | [Charityware](http://vimdoc.sourceforge.net/htmldoc/uganda.html#license) | [MIT](https://opensource.org/licenses/MIT) | Proprietary |
-| Type at point                         | ✔ | ✔ | ✔ | | ✔ |
-| Contextual completion                 | ✔ | ✔ | ✔ | | ✔ |
-| Live errors / warnings                | ✔ | ✔ | ✔ | | ✔ |
-| Semantic highlighting                 | ✔ |   | | | |
-| Implicit conversions                  | ✔ | ✔ | ✔ | | |
-| Import class at point                 | ✔ | ✔ | | | ✔ |
-| Classpath search                      | ✔ | ✔ | ✔ | | |
-| Jump to source                        | ✔ | ✔ | ✔ | | ✔ |
-| Show documentation                    | ✔ | ✔ | ✔ | | ✔ |
-| Rename symbol                         | ✔ |   | ✔ | | ✔ |
-| Organise imports                      | ✔ | ✔ | ✔ | | ✔ |
-| Formatting                            | ✔ | ✔ | ✔ | | |
-| Debugging                             | ✔ |   |  | | ✔ |
-| Java Support: ENJIME                  | ✔ |   | | | |
-| REPL                                  | ✔ |   | | | |
-| SBT integration                       | ✔ |   | | | |
+| Type at point                         | ✔ | ✔ | ✔       | | ✔ |
+| Contextual completion                 | ✔ | ✔ | ✔       | | ✔ |
+| Live errors / warnings                | ✔ | ✔ | ✔       | | ✔ |
+| Semantic highlighting                 | ✔ |   |         | | |
+| Implicit conversions                  | ✔ | ✔ |         | | |
+| Import class at point                 | ✔ | ✔ | ✔       | | ✔ |
+| Classpath search                      | ✔ | ✔ | ✔       | | |
+| Jump to source                        | ✔ | ✔ | ✔       | | ✔ |
+| Show documentation                    | ✔ | ✔ | ✔       | | ✔ |
+| Rename symbol                         | ✔ |   | ✔       | | ✔ |
+| Organise imports                      | ✔ | ✔ | ✔       | | ✔ |
+| Formatting                            | ✔ | ✔ | ✔       | | |
+| Debugging                             | ✔ |   | Partial | | ✔ |
+| Java Support: ENJIME                  | ✔ |   |         | | |
+| REPL                                  | ✔ |   |         | | |
+| SBT integration                       | ✔ |   |         | | |
 | [Find usages](https://github.com/ensime/ensime-server/issues/425) | | | | | |
 | [Show implementations](https://github.com/ensime/ensime-server/issues/1131) | | | | | |
 | [Advanced type search](https://github.com/ensime/ensime-server/issues/472) | | | | | |
