@@ -5,9 +5,9 @@ title: Vim
 ---
 
 
-Vim is an extremely configurable/extensible text editor. The ENSIME plugin supports [Vim](http://www.vim.org/) and [NeoVim](https://neovim.io/).
+Vim is an extremely configurable/extensible text editor. The ENSIME plugin supports [Vim](http://www.vim.org/) and [Neovim](https://neovim.io/).
 
-If you're not already familiar with Vim, we recommend going through `:Tutor`, Vim's built-in tutorial.
+If you're not already familiar with Vim, we recommend going through `vimtutor`, Vim's built-in tutorial.
 
 ### Demos
 
