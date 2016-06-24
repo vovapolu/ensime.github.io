@@ -19,13 +19,10 @@ title: Installation
 
 We assume that you already have [MELPA](http://melpa.org) set up as per our [Learning Emacs](/editors/emacs/learning) guide.
 
-The recommended way to install ENSIME is via MELPA and registering a `scala-mode-hook`:
+The recommended way to install ENSIME is via MELPA, either with `M-x package-install ensime` or if you are a `use-package` user:
 
 ```elisp
-(use-package ensime
-  :commands ensime ensime-mode)
-
-(add-hook 'scala-mode-hook 'ensime-mode)
+(use-package ensime :ensure t)
 ```
 
 For the server installation to work, make sure `sbt` is in your `PATH` environment. On OSX, set `exec-path` within Emacs, e.g.:
