@@ -49,7 +49,7 @@ ENSIME-Vim is written in a combination of Python and VimL. The VimL code is real
         - The new command should be added to `plugin/ensime.vim`, `rplugin/python/ensime.py`, `autoload/ensime.vim`, and of course implemented in `ensime_shared/ensime.py`, plus any helper files necessary.
         - To expose your new command Neovim users may need to run `:UpdateRemotePlugins`
     - Exposing New Vim Functionality:
-        - ENSIME-Vim has a number of Vim commands we execute, all of which can be found in the `commands` dictionary in `ensime_shared/ensime.py`. Adding a new command is as simple as adding a new pair to the dictionary. 
+        - ENSIME-Vim has a number of Vim commands we execute, all of which can be found in the `commands` dictionary in `ensime_shared/config.py`. Adding a new command is as simple as adding a new pair to the dictionary. 
 
 ##### Testing
 
