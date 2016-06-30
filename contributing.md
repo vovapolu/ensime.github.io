@@ -66,9 +66,9 @@ Many problems (e.g. the infamous ["red squiggles on valid code"](https://github.
 
 ## Server
 
-The remainder of this document focuses on contributing to the server component, which is hosted at [github.com/ensime/ensime-server/](https://github.com/ensime/ensime-server/). If you pick up a ticket, please comment on it to let us know so that we can help (and also to avoid overlapping with somebody else). Feel free to ask questions on the github issue tracker or [gitter.im/ensime/ensime-server](https://gitter.im/ensime/ensime-server).
+The remainder of this document focuses on contributing to the server component, which is hosted at [github.com/ensime/ensime-server](https://github.com/ensime/ensime-server). If you pick up a ticket, please comment on it to let us know so that we can help (and also to avoid overlapping with somebody else). Feel free to ask questions on the github issue tracker or [gitter.im/ensime/ensime-server](https://gitter.im/ensime/ensime-server).
 
-The server API is documented in [org/ensime/api](https://github.com/ensime/ensime-server/tree/master/api/src/main/scala/org/ensime/api)
+The server API is documented in [org/ensime/api](https://github.com/ensime/ensime-server/tree/2.0/api/src/main/scala/org/ensime/api)
 with example JSON payloads in [org/ensime/jerky](https://github.com/ensime/ensime-server/blob/2.0/protocol-jerky/src/test/scala/org/ensime/jerk/JerkFormatsSpec.scala). The preferred protocol for most editors is JSON over WebSockets, which we call our JERKY protocol. A legacy S-Expression over TCP protocol is used by Emacs (deriving from the SWANK protocol of [SLIME](https://github.com/slime/slime)), but ENSIME 2.0 will hopefully see us move to [S-Expressions over WebSockets](https://github.com/ensime/ensime-server/issues/1189), which we will call our SWANKY protocol.
 
 ### Compiling and Tests
@@ -107,7 +107,7 @@ Because we are at the forefront of the development cycle for new versions of Sca
 
 ### Manual QA Testing
 
-If an `-assembly.jar` file exists in your `.emacs.d/ensime`, `.atom/packages/Ensime` or `.config/ensime-vim` directory (for the expected binary version of scala and ENSIME) then it will be used in preference to the `sbt` auto-update procedure. This is advantageous for developing on ENSIME and also to enable a simple install of the ENSIME server in restricted environments. SNAPSHOT assembly jars are provided at http://ensime.typelevel.org/ (with many thanks to typelevel for the use of their servers).
+If an `-assembly.jar` file exists in your `.emacs.d/ensime`, `.atom/packages/Ensime` or `.config/ensime-vim` directory (for the expected binary version of scala and ENSIME) then it will be used in preference to the `sbt` auto-update procedure. This is advantageous for developing on ENSIME and also to enable a simple install of the ENSIME server in restricted environments. SNAPSHOT assembly jars are provided at <http://ensime.typelevel.org/> (with many thanks to Typelevel for the use of their servers).
 
 To build your own server jars, do this:
 
