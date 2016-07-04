@@ -10,25 +10,36 @@ title: Installation
 
 ## System requirements
 
+### Stable
+
 - JDK 1.6+
 - Emacs 24.3+
-- Scala 2.10.4+ or 2.11.5+
+- Scala 2.10.4+ / 2.11.5+
 
+### Unstable
+
+- JDK 1.7+
+- Emacs 24.5+
+- Scala 2.10.6+ / 2.11.8+
 
 ## Installing
 
 We assume that you already have [MELPA](http://melpa.org) set up as per our [Learning Emacs](/editors/emacs/learning) guide.
 
-The recommended way to install ENSIME is via MELPA, either with `M-x package-install ensime` or if you are a `use-package` user:
+The recommended way to install ENSIME is via MELPA stable and `use-package`:
 
 ```elisp
-(use-package ensime :ensure t)
+(use-package ensime
+  :ensure t
+  :pin melpa-stable)
 ```
 
-For the server installation to work, make sure `sbt` is in your `PATH` environment. On OSX, set `exec-path` within Emacs, e.g.:
+If you are tracking the unstable edition of ensime (not recommended unless you are contributing to ensime), you can remove the `:pin melpa-stable` restriction.
+
+For the server installation to work, make sure `sbt` is on your `PATH` environment variable or `exec-path` Emacs variable, e.g.:
 
 ```elisp
-(setq exec-path (append exec-path '("/usr/local/bin")))
+(add-to-list exec-path "/usr/local/bin")
 ```
 
 Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) which provides many features specific to Scala major mode editing and sbt support is provided by [`sbt-mode`](/editors/emacs/sbt-mode). Both modes can be used independently of ENSIME and your are encouraged to read their standalone documentation to understand the role that they play.
