@@ -30,9 +30,10 @@ The recommended way to install ENSIME is via MELPA stable and `use-package`:
 
 ```elisp
 (use-package ensime
-  :ensure t
   :pin melpa-stable)
+M-x package-install ensime
 ```
+*Note*: Using `:ensure t` after package-refresh-contents will still pull in the unstable version of ensime, despite the `pin` flag (refer to [this](https://github.com/jwiegley/use-package/issues/343)). Do not use `:ensure t` unless you know what you're doing. Instead, install the stable version manually as above.
 
 If you are tracking the unstable edition of ensime (not recommended unless you are contributing to ensime), you can remove the `:pin melpa-stable` restriction.
 
