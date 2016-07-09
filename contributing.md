@@ -97,9 +97,22 @@ It all starts with a test. Find a test that is already testing something similar
 
 We have several styles of tests: unit tests, in-memory source tests (e.g. [`RichPresentationCompilerSpec`](https://github.com/ensime/ensime-server/blob/master/core/src/it/scala/org/ensime/core/RichPresentationCompilerSpec.scala)), on-disk source tests (e.g. [`BasicWorkflow`](https://github.com/ensime/ensime-server/blob/master/core/src/it/scala/org/ensime/intg/BasicWorkflow.scala)) and the Emacs client tests. It may be instructive for you to read and understand some of these tests to get a feel for the right level to write your test.
 
-### `2.0-graph` Beta Tesing
+### Graphpocalypse Beta Testing
 
-Are you willing to help us bring new exciting features to ENSIME, or perhaps you enjoy using <s>unstable and bug-ridden</s>bleeding edge software? Then consider trying out `2.0-graph-SNAPSHOT` version of ENSIME server. `2.0-graph` branch of ENSIME attempts to bring features like reverse find usages and show implementing members, but it is yet far from finished. To try it out (requires Java 7+) you can either download assembly-jar from <http://ensime.typelevel.org/> (see [Manual QA Tesing](http://ensime.github.io/contributing/#manual-qa-testing) for direct instructions), or if you are an emacs user simply add `(setq ensime-server-version "2.0.0-graph-SNAPSHOT")` to your `init.el`, then add `-XX:MaxDirectMemorySize=4g` to your JVM options, (assuming you are an SBT user just drop `javaOptions += "-XX:MaxDirectMemorySize=4g"` in your `build.sbt` or `Build.scala`) and you are all set. If you decide to give it a try, remember we want your feedback! Please, leave any thoughts you have in form of issues at [github milestone](https://github.com/ensime/ensime-server/milestone/11) or get in touch in [ensime-server gitter room](https://gitter.im/ensime/ensime-server). **Attention!** `2.0-graph` **branch <s>is</s>may be unstable and is not meant for regular usage yet.**
+Are you willing to help us bring new exciting features to ENSIME, or perhaps you enjoy using <s>unstable and bug-ridden</s> bleeding edge software?
+
+The `2.0-graph` is where [Andrey Sugak's Google Summer of Code](https://github.com/ensime/ensime-server/milestone/11) project is happening.
+
+First set up your developer version of the ensime client to track `2.0.0-graph-SNAPSHOT`, e.g. in Emacs `(setq ensime-server-version "2.0.0-graph-SNAPSHOT")`. Assembly jars are available from the usual location (see [Manual QA Testing](http://ensime.github.io/contributing/#manual-qa-testing) for instructions).
+
+The graph database needs direct memory, so you should add something like this to your `~/.sbt/0.13/global.sbt` to ensure that all your projects can support it:
+
+```scala
+org.ensime.Imports.EnsimeKeys.ensimeJavaFlags += "-XX:MaxDirectMemorySize=4g"
+```
+
+We want your feedback! Get in touch the [ensime-server gitter room](https://gitter.im/ensime/ensime-server) and direct your comments to `@sugakandrey`.
+
 
 ### Guidelines
 
