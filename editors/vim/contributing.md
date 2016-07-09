@@ -73,9 +73,9 @@ You can take a possibly more conservative route if you're more comfortable with 
         $ git push --set-upstream origin my-feature-name
 1. When you've gotten your changes working, open a pull request!
 
-Since `master` on your fork won't update until *you* update it, it's a bit less likely that a careless plugin update command will create trouble for your work in progress, but it's still possible. The popular plugins *should* work safely with either workflow.
+Since `master` on your fork won't update until *you* update it, it's a bit less likely that a careless plugin update command will create trouble for your work in progress, but it's still possible. The popular managers *should* work safely with either workflow.
 
-Also, generally all of them will let you set an arbitrary local filesystem path for a plugin, so you could keep your copy wherever your like to keep your projects if you like. Check your manager's help.
+Also, generally all of them will let you set an arbitrary local filesystem path for a plugin, so you could keep your copy wherever you like to keep your projects if you wish. Check your manager's help.
 
 *I hate how long this section is because there are a dozen damned Vim plugin managers. **Ommmm...***
 
