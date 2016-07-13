@@ -1,7 +1,7 @@
 ---
 layout: section
 order: 5
-title: Contributing to the ENSIME-Vim Plugin
+title: Contributing
 ---
 
 - TOC
@@ -35,11 +35,11 @@ Working on the Code
 
 Once you're ready to get your hands dirty, there are a couple of workflows that you could follow to hack on the code:
 
-1. You probably already have the code, we're guessing you've used ENSIME-Vim before if you're here now :-) Nearly all popular Vim plugin managers (Vundle, Plug, NeoBundle, Pathogen) will have used `git clone` to install ENSIME-Vim.
+1. You probably already have the code, we're guessing you've used ENSIME-Vim before if you're here now :-) Nearly all popular Vim plugin managers (Vundle, vim-plug, NeoBundle, Pathogen) will have used `git clone` to install ENSIME-Vim.
 1. `cd` to the directory of your plugin installation.
 1. Make sure it is up-to-date and hasn't been left on a detached head:
 
-        $ git checkout master && git pull
+        $ git checkout master && git pull --unshallow
 1. Create a topic branch for your work:
 
         $ git checkout --branch my-feature-name
@@ -54,7 +54,7 @@ Once you're ready to get your hands dirty, there are a couple of workflows that 
 
 Bear in mind that your plugin manager still references `ensime/ensime-vim`. Don't carelessly run any plugin update commands that would affect it while you've got uncommitted work, the manager may try to switch branches, pull from upstream, etc. If you make this mistake and your plugin manager behaves poorly and loses work in this situation, you should consider a new plugin manager.
 
-If you've committed your work it's highly unlikely your plugin manager can ruin anything, Git really does not lose data easily. Most managers have settings specifically geared toward treating a certain plugin as a working copy, if their default mode of operation isn't suitable. It's how the people who wrote these things *work on their plugin manager* :-)
+If you've committed your work it's highly unlikely your plugin manager can ruin anything, Git really does not lose data easily. Most managers have settings specifically geared toward treating a certain plugin as a working copy (e.g. [vim-plug][plug_url_format]), if their default mode of operation isn't suitable. It's how the people who wrote these things *work on their plugin manager* :-)
 
 You can take a possibly more conservative route if you're more comfortable with this:
 
@@ -80,6 +80,7 @@ Also, generally all of them will let you set an arbitrary local filesystem path 
 *I hate how long this section is because there are a dozen damned Vim plugin managers. **Ommmm...***
 
 [add git remote]: https://help.github.com/articles/adding-a-remote/
+[plug_url_format]: https://github.com/junegunn/vim-plug/wiki/faq#whats-the-deal-with-git-in-the-url
 
 Finding Your Way Around the Code
 --------------------------------
