@@ -29,13 +29,18 @@ We assume that you already have [MELPA](http://melpa.org) set up as per our [Lea
 The recommended way to install ENSIME is via MELPA stable and `use-package`:
 
 ```elisp
-(use-package ensime
-  :pin melpa-stable)
+;; Pin ensime to melpa-stable
+(unless (boundp 'package-pinned-packages) (setq package-pinned-packages ()))
+(add-to-list 'package-pinned-packages '(ensime . "melpa-stable"))
+(unless (package-installed-p 'ensime)
+  (package-refresh-contents))
+
+(use-package ensime)
 ```
 
 followed by `M-x package-install ensime`
 
-Do not use `:ensure t` or it will ignore `:pin` and install the unstable version of ensime (not recommended unless you are contributing to ensime).
+To use the unstable version of ENSIME from MELPA comment out the lines before `(use-package ensime)` (not recommended unless you are contributing to ENSIME).
 
 For the server installation to work, make sure `sbt` is on your `PATH` environment variable or `exec-path` Emacs variable, e.g.:
 
