@@ -18,4 +18,6 @@ If things don't work as you expected, please read the [Getting Help](/getting_he
 
 We are all volunteers with our own priorities to improve ENSIME. Our approach to feature requests is "we will enthusiastically help you to implement or fix it". The ENSIME codebase is surprisingly easy to understand and you are invited to read our [Contributing Guide](/contributing) and jump in.
 
+Whether or not you can help with direct contributions, [please consider sponsoring a developer](sponsor).
+
 All interactions in ENSIME are governed by the [Typelevel Code of Conduct](http://typelevel.org/conduct.html).
