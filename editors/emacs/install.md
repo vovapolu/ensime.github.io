@@ -29,18 +29,13 @@ We assume that you already have [MELPA](http://melpa.org) set up as per our [Lea
 The recommended way to install ENSIME is via MELPA stable and `use-package`:
 
 ```elisp
-;; Pin ensime to melpa-stable
-(unless (boundp 'package-pinned-packages) (setq package-pinned-packages ()))
-(add-to-list 'package-pinned-packages '(ensime . "melpa-stable"))
-(unless (package-installed-p 'ensime)
-  (package-refresh-contents))
-
-(use-package ensime)
+(use-package ensime
+  :pin melpa-stable)
 ```
 
-followed by `M-x package-install ensime`
+If you used the sample Emacs configuration from our [`Learning Emacs`](/editors/emacs/learning) section, then you can add the above code to the end of your `~/.emacs.d/init.el` file and restart Emacs.  Emacs will automatically install Ensime during startup.  Alternatively, you can execute this without restarting Emacs by moving the cursor ("point" in Emacs nomenclature) to the end of the line and typing `C-x C-e`.
 
-To use the unstable version of ENSIME from MELPA comment out the lines before `(use-package ensime)` (not recommended unless you are contributing to ENSIME).
+To use the unstable version of ENSIME from MELPA, remove `:pin melpa-stable` (not recommended unless you are contributing to ENSIME).
 
 For the server installation to work, make sure `sbt` is on your `PATH` environment variable or `exec-path` Emacs variable, e.g.:
 

@@ -32,6 +32,7 @@ The following is intended to set some built-in Emacs variables that often confus
  column-number-mode t
  scroll-error-top-bottom t
  show-paren-delay 0.5
+ use-package-always-ensure t
  sentence-end-double-space nil)
 
 ;; buffer local variables
@@ -67,11 +68,10 @@ We recommend [`use-package`](https://github.com/jwiegley/use-package) to manage 
 
 ```elisp
 (use-package evil
-  :ensure t
   :demand)
 ```
 
-you can execute this without restarting Emacs by moving the cursor ("point" in Emacs nomenclature) to the end of the line and typing `C-x C-e`.  `:ensure t` is required to force the package to be automatically downloaded and installed via the package manager.
+you can execute this without restarting Emacs by moving the cursor ("point" in Emacs nomenclature) to the end of the line and typing `C-x C-e`.
 
 
 ## Updating MELPA
