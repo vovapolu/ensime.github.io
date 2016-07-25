@@ -17,6 +17,4 @@ ENSIME appeals to hackers, minimalists and connoisseurs - engineers and artists 
 
 If you would like to learn more, please read our [Getting Started](getting_started) section.
 
-If you're a Scala beginner, our [Learning Scala](learning_scala) section has some excellent resources for you, and will help you get set up with a basic project.
-
-Please consider [sponsoring a developer to improve ENSIME](sponsor).
+ENSIME is sponsored by [47 Degrees](http://www.47deg.com/) and others. Please consider [sponsoring a developer](sponsor) to ensure that ENSIME remains sustainable.
