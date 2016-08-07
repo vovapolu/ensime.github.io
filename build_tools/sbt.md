@@ -104,7 +104,7 @@ You can follow snapshot releases by using the following instead of the stable re
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 // update to the latest development version, see project/EnsimeSbtBuild.scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "0.6.1-SNAPSHOT")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "1.9.1-SNAPSHOT")
 ```
 
 
@@ -124,7 +124,7 @@ Emacs users should recall that in order to send a control sequence to the `sbt-m
 Your `project/build.properties` needs to use a version newer than 0.13.5 of sbt due to a [breaking AutoPlugin change](https://github.com/ensime/ensime-server/issues/672), e.g.
 
 ```
-sbt.version=0.13.11
+sbt.version=0.13.12
 ```
 
 
