@@ -137,3 +137,5 @@ cp target/scala-2.10/ensime_2.10-0.9.10-SNAPSHOT-assembly.jar ~/.emacs.d/ensime/
 When you want to swap back to using official releases, delete your `-assembly.jar` files.
 
 You can also `sbt publishLocal` but make sure you clean up your `~/.ivy2/local` afterwards.
+
+When using `sbt publishLocal` for the first time make sure to remove a cached classpath file in your `.emacs.d/ensime`, `.atom/packages/Ensime` or `.config/ensime-vim` directory (for the expected binary version of scala and ENSIME) if it exists. It will be recreated automatically with new ensime location pointing to `~/.ivy2/local` directory. Make sure to do the same things aftewards.
