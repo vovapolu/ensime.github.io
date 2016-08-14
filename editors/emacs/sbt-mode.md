@@ -33,6 +33,8 @@ Start an sbt session with `M-x sbt-start` or send a command to the current sbt p
 
 You might also want to customize some `sbt-mode` variables (run `M-x customize-mode RET sbt-mode`).
 
+For example you can play with variable `sbt:scroll-to-bottom-on-output`. If set to `t` (which is a default value) sbt output buffer scrolls automatically to the last line if there is some new output. Setting this variable to `nil` will cause point remain on it's current position in a buffer when there is some new output. If set to `nil` and point is on the last line, it scrolls automaticaly with new output, but if there is compilation error (line beginning `[error] - ...`) it will stop on that line.
+
 ## Related Customizations
 
 To work efficiently with `sbt-mode`, you may wish to customise your workflow with the built-in Emacs compile support:
