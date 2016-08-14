@@ -37,7 +37,7 @@ Depending on your preferences, you may want to add some of the following to your
  - Typechecking after writing
 
     ```
-    autocmd BufWritePost *.scala :EnTypeCheck
+    autocmd BufWritePost *.scala silent :EnTypeCheck
     ```
  - Easy Type Inspection
 
