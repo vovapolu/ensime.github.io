@@ -40,7 +40,7 @@ To use the unstable version of ENSIME from MELPA, remove `:pin melpa-stable` (no
 For the server installation to work, make sure `sbt` is on your `PATH` environment variable or `exec-path` Emacs variable, e.g.:
 
 ```elisp
-(add-to-list exec-path "/usr/local/bin")
+(add-to-list 'exec-path "/usr/local/bin")
 ```
 
 Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) which provides many features specific to Scala major mode editing and sbt support is provided by [`sbt-mode`](/editors/emacs/sbt-mode). Both modes can be used independently of ENSIME and your are encouraged to read their standalone documentation to understand the role that they play.
