@@ -88,6 +88,15 @@ object EnsimeProjectSettings extends AutoPlugin {
 }
 ```
 
+If you prefer to use the `.sbt` DSL configuration files, you may do so by creating an `ensime.sbt` in the project directory (also add it to your `.gitignore`) and put values there. Here is an example that increases the heap and MaxMetaspaceSize, useful for larger projects or projects with lots of dependencies, if you are running out of memory in Ensime:
+
+```scala
+import org.ensime.Imports.EnsimeKeys
+
+EnsimeKeys.ensimeJavaFlags := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCacheSize=256m", "-XX:MaxMetaspaceSize=512m")
+```
+
+After adding this file, re-run `sbt ensimeConfig` and the new memory settings will be included in the `.ensime` file.
 
 ## Troubleshooting
 
