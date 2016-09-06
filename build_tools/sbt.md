@@ -40,7 +40,7 @@ If you've come from an IDE you might not be aware of the power of `sbt`. Please 
 
 Note that downloading and resolving the sources and javadocs can take some time on first use, so we recommend that you use [coursier](http://get-coursier.io).
 
-(Copied from [EnsimePlugin.scala](https://github.com/ensime/ensime-sbt/blob/master/src/main/scala/EnsimePlugin.scala#L59))
+(Copied from [EnsimePlugin.scala](https://github.com/ensime/ensime-sbt/blob/1.0/src/main/scala/EnsimePlugin.scala#L145))
 
 
 ### Debugging Example
@@ -65,7 +65,7 @@ Note: If you'd like to debug using ensime-emacs, first set your breakpoints, the
 
 ## Customise
 
-Customising [EnsimeKeys](https://github.com/ensime/ensime-sbt/blob/master/src/main/scala/EnsimePlugin.scala#L21) is done via the usual sbt mechanism, e.g. insert the following into `~/.sbt/0.13/ensime.sbt`
+Customising [EnsimeKeys](https://github.com/ensime/ensime-sbt/blob/1.0/src/main/scala/EnsimePlugin.scala#L24) is done via the usual sbt mechanism, e.g. insert the following into `~/.sbt/0.13/ensime.sbt`
 
 ```scala
 import org.ensime.Imports.EnsimeKeys
