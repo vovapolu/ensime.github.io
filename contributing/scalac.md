@@ -4,7 +4,17 @@ order: 2
 title: scalac from ENSIME
 ---
 
-ENSIME does not compile sources to `.class` files: `ant` (or the experimental `sbt` build) is still required to produce output. (A volunteer is required to add support for the [experimental sbt build](https://github.com/ensime/ensime-sbt/issues/180)).
+The following is information on how to use ENSIME to make changes to the Scala compiler and/or standard library.
+
+## 2.11.x or 2.12.x?
+
+Below we assume you are hacking Scala 2.11.x, which is built using `ant`.
+
+A volunteer is required to [add support for hacking Scala 2.12.x](https://github.com/ensime/ensime-sbt/issues/180), which is built using `sbt`.
+
+## Sample configuration
+
+ENSIME does not compile sources to `.class` files: running `ant` is still required to produce output.
 
 Included here is a sample `.ensime` file which can be used as the basis of a configuration for working on scala itself, and a reminder of some workflow aspects that must be kept in mind. In particular the use of the custom `:source-mode` feature.
 
