@@ -30,6 +30,7 @@ The recommended way to install ENSIME is via MELPA stable and `use-package`:
 
 ```elisp
 (use-package ensime
+  :ensure t
   :pin melpa-stable)
 ```
 
