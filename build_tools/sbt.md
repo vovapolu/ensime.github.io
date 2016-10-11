@@ -42,14 +42,15 @@ The core `sbt-ensime` plugin allows you to generate `.ensime` files:
 
 Note that downloading and resolving the sources and javadocs can take some time on first use, so we recommend that you use [coursier](http://get-coursier.io).
 
-## Extra Commands
+## Extra Tasks and Commands
 
 Also bundled are extra workflow tasks, which are used by ensime clients:
 
 * `ensimeRunMain` --- alternative to `runMain` allowing environment variables and jvm arguments to be used, e.g. `a/ensimeRunMain FOO=BAR -Xmx2g foo.Bar baz`
-* `ensimeRunDebug` --- like `ensimeRunMain` but adds debugging flags automatically
 * `c/ensimeLaunch MyApp` --- a launch manager that lets you define pre-canned `ensimeRunMain` applications (analogous to IntelliJ's "Run Configurations")
 * `b/ensimeCompileOnly` --- Compile a single fully qualified `.scala` file using `b`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, ensimeCompileOnly) ++= Seq("-Xshow-phases")`
+* `ensimeRunDebug` --- like `ensimeRunMain` but adds debugging flags automatically
+* `debugging` / `debuggingOff` --- mutates the default `javaOptions` to include debugging flags (see below)
 
 
 ### Debugging Example
