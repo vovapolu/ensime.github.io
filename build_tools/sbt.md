@@ -17,7 +17,7 @@ Add these lines to `~/.sbt/0.13/plugins/plugins.sbt` as opposed to `project/plug
 if (sys.props("java.version").startsWith("1.6"))
   addSbtPlugin("org.ensime" % "sbt-ensime" % "1.0.0")
 else
-  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.9.1")
+  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.10.0")
 ```
 
 **Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
@@ -33,24 +33,36 @@ If you are unable to install the plugin due to your firewall restrictions, copy 
 
 If you've come from an IDE you might not be aware of the power of `sbt`. Please take the time to read the [sbt Getting Started Guide](http://www.scala-sbt.org/0.13/docs/Getting-Started.html) before proceeding and appreciate that `sbt` is responsible for building your project, not ENSIME.
 
-## Commands
+## Core Commands
+
+The core `sbt-ensime` plugin allows you to generate a `.ensime` files:
 
 * `ensimeConfig` --- Generate a `.ensime` for the project (takes space-separated parameters to restrict to subprojects).
 * `ensimeConfigProject` --- Generate a `project/.ensime` for the project definition.
-* `debugging` --- Add debugging flags to all forked JVM processes.
-* `debuggingOff` --- Remove debugging flags from all forked JVM processes.
-* `my_project/ensimeCompileOnly` --- Compile a single fully qualified `.scala` file using `my_project`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, EnsimeKeys.ensimeCompileOnly) ++= Seq("-Xshow-phases")`
 
 Note that downloading and resolving the sources and javadocs can take some time on first use, so we recommend that you use [coursier](http://get-coursier.io).
 
-(Copied from [EnsimePlugin.scala](https://github.com/ensime/ensime-sbt/blob/1.0/src/main/scala/EnsimePlugin.scala#L145))
+## Extra Commands
+
+Also bundled are extra workflow tasks, which are used by ensime clients:
+
+* `ensimeRunMain` --- alternative to `runMain` allowing environment variables and jvm arguments to be used, e.g. `a/ensimeRunMain FOO=BAR -Xmx2g foo.Bar baz`
+* `ensimeRunDebug` --- like `ensimeRunDebug` but adds debugging flags automatically
+* `c/ensimeLaunch MyApp` --- a launch manager that lets you define pre-canned `ensimeRunMain` applications (analogous to IntelliJ's "Run Configurations")
+* `b/ensimeCompileOnly` --- Compile a single fully qualified `.scala` file using `b`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, ensimeCompileOnly) ++= Seq("-Xshow-phases")`
 
 
 ### Debugging Example
 
-If you do not `fork` your main methods and tests from `sbt` you may be able to attach a remote debugger to the entire session by starting like `sbt -jvm-debug 1337` (check the docs of your `sbt` script, we strongly recommend using [paulp's sbt-extras](https://github.com/paulp/sbt-extras)). However, the vast majority of projects enabled forking and that is when `sbt-ensime`'s `debugging` is useful. 
+Debugging an application is the easiest:
 
-This sample session shows how easy it is to remotely debug a forked test:
+```
+> ensimeRunDebug foo.Bar
+```
+
+but debugging tests are trickier.
+
+If you do not `fork` your tests from `sbt` you may be able to attach a remote debugger to the entire session by starting like `sbt -jvm-debug 1337` (check the docs of your `sbt` script). However, if you have `fork in Test := true` then you can use our `debugging` task to mutate the java options to include the necessary flags:
 
 ```
 crossbuild ~/Projects/ensime-server sbt
@@ -63,43 +75,15 @@ Listening for transport dt_socket at address: 5005
 
 at which point, the test will hang until you connect a remote debugger to port 5005. When you are finished debugging, cancel the test or let it run to completion, and then type `debuggingOff`.
 
-Note: If you'd like to debug using ensime-emacs, first set your breakpoints, then use ensime-db-attach to connect.
-
-
 ## Customise
 
-Customising [EnsimeKeys](https://github.com/ensime/ensime-sbt/blob/1.0/src/main/scala/EnsimePlugin.scala#L24) is done via the usual sbt mechanism, e.g. insert the following into `~/.sbt/0.13/ensime.sbt`
+For project-specific tailorings, you do not need to commit anything to your project. Simply create an `ensime.sbt` in the project directory (also add it to your `.gitignore`). Here is an example that sets a specific memory size for the ensime server:
 
 ```scala
-import org.ensime.Imports.EnsimeKeys
-
-EnsimeKeys.ensimeDebuggingPort := 1337
+ensimeJavaFlags := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCacheSize=256m", "-XX:MaxMetaspaceSize=512m")
 ```
 
-For project-specific tailorings, you do not need to commit anything to your project. Simply create a file `project/EnsimeProjectSettings.scala` (which you should add to your personal `.gitignore`) containing the following:
-
-```scala
-import sbt._
-import org.ensime.Imports.EnsimeKeys
-
-object EnsimeProjectSettings extends AutoPlugin {
-  override def requires = org.ensime.EnsimePlugin
-  override def trigger = allRequirements
-  override def projectSettings = Seq(
-    // your settings here
-  )
-}
-```
-
-If you prefer to use the `.sbt` DSL configuration files, you may do so by creating an `ensime.sbt` in the project directory (also add it to your `.gitignore`) and put values there. Here is an example that increases the heap and MaxMetaspaceSize, useful for larger projects or projects with lots of dependencies, if you are running out of memory in Ensime:
-
-```scala
-import org.ensime.Imports.EnsimeKeys
-
-EnsimeKeys.ensimeJavaFlags := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCacheSize=256m", "-XX:MaxMetaspaceSize=512m")
-```
-
-After adding this file, re-run `sbt ensimeConfig` and the new memory settings will be included in the `.ensime` file.
+After adding this file, run `sbt ensimeConfig` and the new settings will be included in the `.ensime` file.
 
 ## Troubleshooting
 
@@ -116,11 +100,10 @@ You can follow snapshot releases by using the following instead of the stable re
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 // update to the latest development version, see project/EnsimeSbtBuild.scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "1.9.1-SNAPSHOT")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "1.10.1-SNAPSHOT")
 ```
 
-
-### Cancel Debugging Processes
+### Cancel Processes
 
 By default, `sbt` will not cancel a running subprocess if you type `C-c`. You are recommended to add the following to your `~/.sbt/0.13/global.sbt` so that it will do so:
 
