@@ -35,7 +35,7 @@ If you've come from an IDE you might not be aware of the power of `sbt`. Please 
 
 ## Core Commands
 
-The core `sbt-ensime` plugin allows you to generate a `.ensime` files:
+The core `sbt-ensime` plugin allows you to generate `.ensime` files:
 
 * `ensimeConfig` --- Generate a `.ensime` for the project (takes space-separated parameters to restrict to subprojects).
 * `ensimeConfigProject` --- Generate a `project/.ensime` for the project definition.
@@ -47,7 +47,7 @@ Note that downloading and resolving the sources and javadocs can take some time 
 Also bundled are extra workflow tasks, which are used by ensime clients:
 
 * `ensimeRunMain` --- alternative to `runMain` allowing environment variables and jvm arguments to be used, e.g. `a/ensimeRunMain FOO=BAR -Xmx2g foo.Bar baz`
-* `ensimeRunDebug` --- like `ensimeRunDebug` but adds debugging flags automatically
+* `ensimeRunDebug` --- like `ensimeRunMain` but adds debugging flags automatically
 * `c/ensimeLaunch MyApp` --- a launch manager that lets you define pre-canned `ensimeRunMain` applications (analogous to IntelliJ's "Run Configurations")
 * `b/ensimeCompileOnly` --- Compile a single fully qualified `.scala` file using `b`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, ensimeCompileOnly) ++= Seq("-Xshow-phases")`
 
