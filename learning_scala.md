@@ -7,8 +7,6 @@ site_nav_entry: true # this is an entry in the main site nav
 
 This guide assumes no prior knowledge of Scala and will get you set up to the point where you have Scala installed on your computer and can run some basic tutorial projects.
 
-We're not going to set up ENSIME just yet. Once you have learnt the basics of the language and basic build tools, read [Getting Started](/getting_started) again.
-
 ## Install
 
 1. Scala runs on the [Java Virtual Machine (JVM)](https://en.wikipedia.org/wiki/Java_virtual_machine). Prefer free/libre [OpenJDK](https://en.wikipedia.org/wiki/OpenJDK) over proprietary releases. You may be able to install OpenJDK with your system package manager (make sure to grab the source code, you'll find it useful later)
@@ -21,14 +19,14 @@ We're not going to set up ENSIME just yet. Once you have learnt the basics of th
 
 ## Learn
 
-Sorry, we lied. This page hasn't been written yet.
+We strongly recommend reading [Programming in Scala (Odersky/Spoon/Venners)](http://www.artima.com/shop/programming_in_scala_3ed) to learn the language, followed by [Functional Programming in Scala by Chiusano/Bjarnason](https://www.manning.com/books/functional-programming-in-scala), aka "the red book".
+
+## Exercises
 
 If a volunteer would like to pad out the following, that'd be great:
 
-3. checkout a basic tutorial project (maybe 99 problems, or 47 degrees)
-4. point to specific parts of the sbt / editor installation guides, but come back here
-5. start sbt and cheatsheet of basic commands
-6. hello world in the editor without ensime
-7. start ensime server
-8. learning resources: odersky/venners, scalanator, coursera
-9. reminder to read the documentation properly
+1. checkout a basic tutorial project (maybe 99 problems, or 47 degrees)
+2. start sbt and cheatsheet of basic commands
+3. hello world in the editor without ensime
+4. start ensime server
+5. learning resources: scalanator, coursera
