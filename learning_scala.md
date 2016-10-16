@@ -22,7 +22,7 @@ We strongly recommend reading [Programming in Scala (Odersky/Spoon/Venners)](htt
 
 ## Exercises
 
-If a volunteer would like to pad out the following, that'd be great:
+If a volunteer would like to pad out the following, that'd be great. Until then, try [Daniel Spiewak's "Getting Started in Scala" guide](https://gist.github.com/djspiewak/cb72c41ac335a3a9b28b3307be04aa43)
 
 1. checkout a basic tutorial project (maybe 99 problems, or 47 degrees)
 2. start sbt and cheatsheet of basic commands
