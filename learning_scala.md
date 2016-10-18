@@ -13,7 +13,7 @@ We recommend reading [Programming in Scala](http://www.artima.com/shop/programmi
 
 Followed by [Functional Programming in Scala](https://www.manning.com/books/functional-programming-in-scala), aka "the red book".
 
-Before installing any software, you can complete exercises online at [scala-exercises.org](https://www.scala-exercises.org/).
+Before installing any software, you can complete exercises online at [scala-exercises.org](https://www.scala-exercises.org/) and execute code in your browser at [scalafiddle.io](https://scalafiddle.io/).
 
 ## Install
 
