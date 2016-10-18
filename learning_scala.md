@@ -9,9 +9,9 @@ This guide assumes no prior knowledge of Scala and will get you set up to the po
 
 ## Learn
 
-We strongly recommend reading [Programming in Scala (Odersky/Spoon/Venners)](http://www.artima.com/shop/programming_in_scala_3ed) to learn the language.
+We recommend reading [Programming in Scala](http://www.artima.com/shop/programming_in_scala_3ed) (Odersky/Spoon/Venners) to learn the language.
 
-Followed by [Functional Programming in Scala by Chiusano/Bjarnason](https://www.manning.com/books/functional-programming-in-scala), aka "the red book".
+Followed by [Functional Programming in Scala](https://www.manning.com/books/functional-programming-in-scala) (Chiusano/Bjarnason), aka "the red book".
 
 Before installing any software, you can complete exercises online at [scala-exercises.org](https://www.scala-exercises.org/).
 
