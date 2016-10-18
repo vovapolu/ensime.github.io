@@ -18,9 +18,9 @@ which is explained in a recent [talk about ENSIME](/talks/scalasphere16/) by @ro
 
 The first thing to do is to decide what you want to contribute!
 
-If you are looking for a small task to pick up, have a look at our [waffle board](https://waffle.io/ensime/ensime-server). If that's too intimidating, restrict it to just the [2.0 Milestone](https://waffle.io/ensime/ensime-server?milestone=Big%20Crunch%202.0).
+If you are looking for a small task to pick up, have a look at our [latest milestone on github](https://github.com/ensime/ensime-server/milestone/9).
 
-Anything under the **Low Hanging Fruit** or **Needs Reproduction** columns are suitable for a new contributor. Please contact us on the github issue directly if you want to contribute something: this avoids duplication of efforts, and also lets us discuss the best way to do it.
+Anything with the **Low Hanging Fruit** or **Needs Reproduction** labels are suitable for a new contributor. Please contact us on the github issue directly if you want to contribute something: this avoids duplication of efforts, and also lets us discuss the best way to do it.
 
 We have regular [Hack Days in London](http://hackthetower.co.uk/). If you can set aside the time to join us, they are a fun and exciting way to contribute to ENSIME.
 
