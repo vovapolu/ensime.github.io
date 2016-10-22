@@ -13,4 +13,7 @@ site_nav_entry: true # this is an entry in the main site nav
 | `.ensime` project file      | ✔ |   |   |   | ✔ | ✔ | ✔ |
 | source fetching             | ✔ |   |   |   | ✔ | ✔ |   |
 | docs fetching               | ✔ |   |   |   | ✔ | ✔ |   |
+| launch manager              | ✔ |   |   |   |   |   |   |
 | debug launcher              | ✔ |   |   |   |   |   |   |
+| single file compile         | ✔ |   |   |   |   |   |   |
+| formatting                  | ✔ |   |   |   |   |   |   |

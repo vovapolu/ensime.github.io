@@ -17,7 +17,7 @@ Add these lines to `~/.sbt/0.13/plugins/plugins.sbt` as opposed to `project/plug
 if (sys.props("java.version").startsWith("1.6"))
   addSbtPlugin("org.ensime" % "sbt-ensime" % "1.0.0")
 else
-  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.10.0")
+  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.11.0")
 ```
 
 **Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
@@ -49,6 +49,7 @@ Also bundled are extra workflow tasks, which are used by ensime clients:
 * `ensimeRunMain` --- alternative to `runMain` allowing environment variables and jvm arguments to be used, e.g. `a/ensimeRunMain FOO=BAR -Xmx2g foo.Bar baz`
 * `c/ensimeLaunch MyApp` --- a launch manager that lets you define pre-canned `ensimeRunMain` applications (analogous to IntelliJ's "Run Configurations")
 * `b/ensimeCompileOnly` --- Compile a single fully qualified `.scala` file using `b`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, ensimeCompileOnly) ++= Seq("-Xshow-phases")`
+* `b/ensimeScalariformOnly` --- Format a single fully qualified `.scala` file using `b`'s scalariform settings (compatible with, but does not require, `sbt-scalariform`).
 * `ensimeRunDebug` --- like `ensimeRunMain` but adds debugging flags automatically
 * `debugging` / `debuggingOff` --- mutates the default `javaOptions` to include debugging flags (see below)
 
@@ -84,6 +85,25 @@ For project-specific tailorings, you do not need to commit anything to your proj
 ensimeJavaFlags := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCacheSize=256m", "-XX:MaxMetaspaceSize=512m")
 ```
 
+another, for Android projects:
+
+```scala
+ensimeJavacOptions := (javacOptions in (core, Compile)).value,
+ensimeScalacOptions ++= (scalacOptions in (core, Compile)).value
+```
+
+and another, for hacking on [scala](https://github.com/scala/scala) itself:
+
+```scala
+// NOTE: because of https://github.com/ensime/ensime-sbt/issues/240
+//       you must install an assembly jar version of ensime-server
+//       as per http://ensime.org/contributing/#manual-qa-testing
+//       and keep it manually updated, when hacking on scala/scala
+
+ensimeScalaVersion := "2.11.8"
+ensimeSourceMode := true
+```
+
 After adding this file, run `sbt ensimeConfig` and the new settings will be included in the `.ensime` file.
 
 ## Troubleshooting
@@ -101,7 +121,7 @@ You can follow snapshot releases by using the following instead of the stable re
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 // update to the latest development version, see project/EnsimeSbtBuild.scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "1.10.1-SNAPSHOT")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "<WHATEVER IS LATEST>")
 ```
 
 ### Cancel Processes

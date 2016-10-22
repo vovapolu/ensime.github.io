@@ -59,10 +59,9 @@ Much of the Scala support of ENSIME is provided by [the scala compiler itself](h
 
 If you'd like to improve these components, you may wish to ask questions at [gitter.im/scala/contributors](https://gitter.im/scala/contributors), [gitter.im/typelevel/scala](https://gitter.im/typelevel/scala) and [gitter.im/scala-ide/scala-ide](https://gitter.im/scala-ide/scala-ide) respectively.
 
-To hack on the scala compiler with ENSIME, you need to build a custom `.ensime` file by following the [scalac ENSIME guide](/contributing/scalac).
+Many problems (e.g. the infamous ["red squiggles on valid code"](https://github.com/ensime/ensime-server/issues/673)) may be incredibly difficult to solve in the compiler and we created [ensime/pcplod](https://github.com/ensime/pcplod) to help you create minimal examples of what is broken and to allow you to work with macro/plugin authors to fix the issues. If the problem appears to be a presentation compiler bug, you will need to fix the bug upstream.
 
-Many problems (e.g. the infamous ["red squiggles on valid code"](https://github.com/ensime/ensime-server/issues/673)) may be incredibly difficult to solve in the compiler and a workaround is being investigated in [github.com/fommil/imaginary-friend](https://github.com/fommil/imaginary-friend), which would also welcome contributors.
-
+To hack on the scala compiler with ENSIME, make sure to apply the instructions documented in [build_tools/sbt](/build_tools/sbt/#customise).
 
 ## Server
 
