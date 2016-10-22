@@ -96,11 +96,16 @@ and another, for hacking on [scala](https://github.com/scala/scala) itself:
 
 ```scala
 // NOTE: because of https://github.com/ensime/ensime-sbt/issues/240
-//       you must install an assembly jar version of ensime-server
-//       as per http://ensime.org/contributing/#manual-qa-testing
-//       and keep it manually updated, when hacking on scala/scala
+//       you cannot use the ensime assembly jars or start the REPL
 
+// WORKAROUND: https://github.com/scala/scala/pull/5387
 ensimeScalaVersion := "2.11.8"
+
+// if you want to hack on a scala-library without making any
+// reference to compiled binaries, you might want to enable
+// source mode, and generate with "sbt ensimeConfig library".
+// Usually you won't want to do this. This has huge performance
+// implications.
 ensimeSourceMode := true
 ```
 
