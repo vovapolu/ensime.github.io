@@ -12,17 +12,15 @@ There are three classes of problem:
 
 ## Problem starting the ENSIME server
 
-1. fully compile your project
 1. update `ensime` for Emacs, `M-x list-packages RET U RET x`.
 1. update the server with `M-x ensime-server-update` (or manually update the assembly jar)
 1. update your [build tool plugin](/build_tools).
-1. nuke old versions of ENSIME and restart Emacs:
-   - `rm -rf ~/.ivy2/cache/org.ensime`
-   - `rm -rf ~/.ivy2/local/`
-   - `rm -rf ~/.emacs.d/ensime`
-   - `rm -rf ~/.emacs.d/elpa/ensime*`
-   - `rm -rf ~/.emacs.d/elpa/scala-mode*`
-   - `rm -rf ~/.emacs.d/elpa/sbt-mode*`
+
+If that doesn't work, escalate matters: nuke old versions of ENSIME and restart Emacs:
+
+```
+rm -rf ~/.ivy2/cache/org.ensime ~/.ivy2/local/ ~/.emacs.d/ensime ~/.emacs.d/elpa/ensime* ~/.emacs.d/elpa/scala-mode* ~/.emacs.d/elpa/sbt-mode*
+```
 
 If that solved your problem, great!
 
@@ -45,6 +43,7 @@ It might also be appropriate for macro authors to provide alternative behaviour 
 
 ## Anything else
 
+1. fully compile your project (did you skip the [User Guide](/editors/emacs/userguide/))? Time to read it, honestly it's full of good stuff.
 1. following the steps in "Problem starting the ENSIME server" to ensure all your software is recent (this solves more than you'd expect)
 1. check the [tickets flagged as FAQ for Emacs](https://github.com/ensime/ensime-emacs/issues?labels=FAQ) and do a quick search.
 1. check the [tickets flagged as FAQ on the server](https://github.com/ensime/ensime-server/issues?labels=FAQ) and do a quick search.
