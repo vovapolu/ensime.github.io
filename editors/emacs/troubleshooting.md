@@ -8,16 +8,14 @@ Have you read all the documentation at [ensime.org/editors/emacs](http://ensime.
 
 Most problems can be resolved easily by following a simple process. Please do not skip these steps.
 
-There are two classes of problem:
+There are three classes of problem:
 
 ## Problem starting the ENSIME server
 
 1. fully compile your project
-1. update `ensime` for Emacs.
-1. update the server with `M-x ensime-server-update`.
+1. update `ensime` for Emacs, `M-x list-packages RET U RET x`.
+1. update the server with `M-x ensime-server-update` (or manually update the assembly jar)
 1. update your [build tool plugin](/build_tools).
-1. check the [tickets flagged as FAQ for Emacs](https://github.com/ensime/ensime-emacs/issues?labels=FAQ) and do a quick search.
-1. check the [tickets flagged as FAQ on the server](https://github.com/ensime/ensime-server/issues?labels=FAQ) and do a quick search.
 1. nuke old versions of ENSIME and restart Emacs:
    - `rm -rf ~/.ivy2/cache/org.ensime`
    - `rm -rf ~/.ivy2/local/`
@@ -44,3 +42,9 @@ However, many problems with red squiggly lines are actually a result of buggy ma
 Then ask for help on the [gitter.im/typelevel/scala](https://gitter.im/typelevel/scala) and/or [gitter.im/scala/contributors](https://gitter.im/scala/contributors) channels to find out what needs to be done. Hopefully they will be able to advise if this is a macro or scalac problem, so don't raise a ticket on [issues.scala-lang.org](https://issues.scala-lang.org/secure/Dashboard.jspa) until you have confirmed where the problem is.
 
 It might also be appropriate for macro authors to provide alternative behaviour under the presentation compiler. As an example, consider the `cachedImplicit` macro within shapeless. It reports [false positives and can freeze the editor](https://github.com/milessabin/shapeless/issues/458). But if a variant of this macro was written to bypass the actual implementation, issuing a (configurable) warning, e.g. "This implicit derivation will be skipped in the editor", many developers would appreciate the workaround.
+
+## Anything else
+
+1. following the steps in "Problem starting the ENSIME server" to ensure all your software is recent (this solves more than you'd expect)
+1. check the [tickets flagged as FAQ for Emacs](https://github.com/ensime/ensime-emacs/issues?labels=FAQ) and do a quick search.
+1. check the [tickets flagged as FAQ on the server](https://github.com/ensime/ensime-server/issues?labels=FAQ) and do a quick search.
