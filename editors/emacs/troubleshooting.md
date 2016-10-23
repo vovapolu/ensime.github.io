@@ -6,7 +6,11 @@ title: Troubleshooting
 
 Have you read all the documentation at [ensime.org/editors/emacs](http://ensime.org/editors/emacs)? Please do, we put a lot of effort into it.
 
-Most problems can be resolved easily by following a simple process. Please do not skip these steps:
+Most problems can be resolved easily by following a simple process. Please do not skip these steps.
+
+There are two classes of problem:
+
+## Problem starting the ENSIME server
 
 1. fully compile your project
 1. update `ensime` for Emacs.
@@ -29,3 +33,14 @@ If not, please join the conversation at [gitter.im/ensime/ensime-emacs](https://
 If you think you've found a bug you can file it at [github.com/ensime/ensime-emacs](https://github.com/ensime/ensime-emacs/issues/new) but do not ignore the [bug report template](https://github.com/ensime/ensime-emacs/blob/master/.github/ISSUE_TEMPLATE.md) or your ticket will be closed immediately.
 
 Remember, everybody is here to help, but nobody is paid to maintain ENSIME. For ENSIME to be sustainable, we need you to engage in the bug fixing process rather heavily and (ideally) submit a pull request with a fix.
+
+## Problem with red squiggly lines or broken completion / types
+
+As documented in more detail in our [Contributing Guide](/contributing/#scala-compiler-and-refactoring), ENSIME relies on type information provided by Scala's Presentation
+Compiler and it is known to issue false positives. But it is easier than you might think to fix the problems upstream.
+
+However, many problems with red squiggly lines are actually a result of buggy macros or compiler plugins. To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcplod). The first thing you can do is to write a PC Plod unit test for the library that you are using to raise awareness with the author of that library that they not compatible with the presentation compiler (and error reporter).
+
+Then ask for help on the [gitter.im/typelevel/scala](https://gitter.im/typelevel/scala) and/or [gitter.im/scala/contributors](https://gitter.im/scala/contributors) channels to find out what needs to be done. Hopefully they will be able to advise if this is a macro or scalac problem, so don't raise a ticket on [issues.scala-lang.org](https://issues.scala-lang.org/secure/Dashboard.jspa) until you have confirmed where the problem is.
+
+It might also be appropriate for macro authors to provide alternative behaviour under the presentation compiler. As an example, consider the `cachedImplicit` macro within shapeless. It reports [false positives and can freeze the editor](https://github.com/milessabin/shapeless/issues/458). But if a variant of this macro was written to bypass the actual implementation, issuing a (configurable) warning, e.g. "This implicit derivation will be skipped in the editor", many developers would appreciate the workaround.
