@@ -55,9 +55,9 @@ If you want to add support for a new build tool, the [manual `.ensime`](/build_t
 
 ## Scala Compiler and Refactoring
 
-Much of the Scala support of ENSIME is provided by [the scala compiler itself](https://github.com/scala/scala) (see also the [Typelevel fork of scalac](https://github.com/typelevel/scala)) and the [refactoring library](https://github.com/scala-ide/scala-refactoring). Scala IDE also uses these components and their documentation on accessing the [presentation compiler](http://scala-ide.org/docs/dev/architecture/presentation-compiler.html#scalapresentationcompiler) is recommended reading. We also recommend watching [a recent talk about scala-refactoring](https://twitter.com/mlangc/status/697322490482315264) by @mlangc.
+Much of the Scala support of ENSIME is provided by [the scala compiler itself](https://github.com/scala/scala) and the [refactoring library](https://github.com/scala-ide/scala-refactoring). Scala IDE also uses these components and their documentation on accessing the [presentation compiler](http://scala-ide.org/docs/dev/architecture/presentation-compiler.html#scalapresentationcompiler) is recommended reading. We also recommend watching [a recent talk about scala-refactoring](https://twitter.com/mlangc/status/697322490482315264) by @mlangc.
 
-If you'd like to improve these components, you may wish to ask questions at [gitter.im/scala/contributors](https://gitter.im/scala/contributors), [gitter.im/typelevel/scala](https://gitter.im/typelevel/scala) and [gitter.im/scala-ide/scala-ide](https://gitter.im/scala-ide/scala-ide) respectively.
+If you'd like to improve these components, you may wish to ask questions at [gitter.im/scala/contributors](https://gitter.im/scala/contributors) and [gitter.im/scala-ide/scala-ide](https://gitter.im/scala-ide/scala-ide) respectively.
 
 Many problems (e.g. the infamous ["red squiggles on valid code"](https://github.com/ensime/ensime-server/issues/673)) may be incredibly difficult to solve in the compiler and we created [ensime/pcplod](https://github.com/ensime/pcplod) to help you create minimal examples of what is broken and to allow you to work with macro/plugin authors to fix the issues. If the problem appears to be a presentation compiler bug, you will need to fix the bug upstream.
 
