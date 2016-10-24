@@ -39,6 +39,8 @@ However, many problems with red squiggly lines are actually a result of buggy ma
 
 It might also be appropriate for macro authors to provide alternative behaviour under the presentation compiler. As an example, consider the `cachedImplicit` macro within shapeless. It reports [false positives and can freeze the editor](https://github.com/milessabin/shapeless/issues/458). But if a variant of this macro was written to bypass the actual implementation, issuing a (configurable) warning, e.g. "This implicit derivation will be skipped in the editor", many developers would appreciate the workaround.
 
+Then ask for help on the [gitter.im/scala/contributors](https://gitter.im/scala/contributors) channel to find out how to get involved in fixing the presentation compiler. Hopefully they will be able to advise if this is a macro or scalac problem, so don't raise a ticket on [issues.scala-lang.org](https://issues.scala-lang.org/secure/Dashboard.jspa) until you have confirmed where the problem is.
+
 ## Anything else
 
 1. fully compile your project (did you skip the [User Guide](/editors/emacs/userguide/))? Time to read it, honestly it's full of good stuff.
