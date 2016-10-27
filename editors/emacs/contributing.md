@@ -35,3 +35,6 @@ To run the old tests, run the hacky `test/run_emacs_tests.sh` script.
 
 To run the new, preferred style, tests, type `cask exec ert-runner` and `cask exec ecukes`.
 
+## Performance
+
+If you think the client side is suffering performance problems, use `M-x profiler-start`, edit some code and experience the slowdown, `M-x profiler-report`. Once you find the cause, you can stop profiling with `M-x profiler-stop`.
