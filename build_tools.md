@@ -16,4 +16,4 @@ site_nav_entry: true # this is an entry in the main site nav
 | launch manager              | ✔ |   |   |   |   |   |   |
 | debug launcher              | ✔ |   |   |   |   |   |   |
 | single file compile         | ✔ |   |   |   |   |   |   |
-| formatting                  | ✔ |   |   |   |   |   |   |
+| formatting                  | ✔ |   |   |   |   | ✔ |   |
