@@ -21,7 +21,9 @@ Before installing any software, you can complete exercises online at [scala-exer
   * `sudo pacman -S openjdk8-src` ([ArchLinux](https://wiki.archlinux.org/index.php/java))
   * `sudo apt-get install openjdk-8-source` ([Debian](https://wiki.debian.org/Java/))
   * [Zulu Java](http://www.azul.com/downloads/zulu/) for all other systems
-2. **Install SBT**: The Scala Build Tool (SBT) will install everything you need for a project (including Scala itself), as it manages transitive dependencies via `~/.ivy2`. Until sbt 0.13.13 is released, we recommend that you add the executable [`paulp/sbt-extras`](https://raw.githubusercontent.com/paulp/sbt-extras/master/sbt) shell script to your `PATH`. Windows users should use the [Lightbend sbt installer](http://www.scala-sbt.org/0.13/docs/Installing-sbt-on-Windows.html) and may need to [take additional steps](https://github.com/ensime/ensime.github.io/issues/40) in some circumstances.
+2. **Install SBT**: The Scala Build Tool (SBT) will install everything you need for your project (including Scala itself). You should be able to install sbt using your system package manager:
+  * `sudo pacman -S sbt` (**must be at least 0.13.13**)
+  * [Lightbend installer](http://www.scala-sbt.org/0.13/docs/Setup.html)
 3. (GNU / BSD, *Optional*): If you anticipate using multiple versions of Java, install [jenv](http://jenv.be).
 
 ## First Project
