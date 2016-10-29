@@ -17,13 +17,16 @@ Before installing any software, you can complete exercises online at [scala-exer
 
 ## Install
 
-1. **Install Java**: Scala runs on the [Java Virtual Machine (JVM)](https://en.wikipedia.org/wiki/Java_virtual_machine). Prefer free/libre [OpenJDK](https://en.wikipedia.org/wiki/OpenJDK) to proprietary versions of Java. You should be able to install OpenJDK using your system package manager:
+1. **Install Java**: Scala runs on the [Java Virtual Machine (JVM)](https://en.wikipedia.org/wiki/Java_virtual_machine).  
+Prefer free/libre [OpenJDK](https://en.wikipedia.org/wiki/OpenJDK) to proprietary versions of Java.  
+Install OpenJDK using your system package manager:
   * `sudo pacman -S openjdk8-src` ([ArchLinux](https://wiki.archlinux.org/index.php/java))
   * `sudo apt-get install openjdk-8-source` ([Debian](https://wiki.debian.org/Java/))
   * [Zulu Java](http://www.azul.com/downloads/zulu/) for all other systems
-2. **Install SBT**: The Scala Build Tool (SBT) will install everything you need for your project (including Scala itself). You should be able to install sbt using your system package manager:
-  * `sudo pacman -S sbt` (**must be at least 0.13.13**)
-  * [Lightbend installer](http://www.scala-sbt.org/0.13/docs/Setup.html)
+2. **Install SBT**: The Scala Build Tool (SBT) will install everything you need for your project (including Scala itself).  
+You should be able to install sbt using your system package manager:
+  * `sudo pacman -S sbt` (ArchLinux)
+  * [Lightbend instructions](http://www.scala-sbt.org/0.13/docs/Setup.html) for all other systems
 3. (GNU / BSD, *Optional*): If you anticipate using multiple versions of Java, install [jenv](http://jenv.be).
 
 ## First Project

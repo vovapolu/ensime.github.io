@@ -72,7 +72,7 @@ with example JSON payloads in [org/ensime/jerky](https://github.com/ensime/ensim
 
 ### Compiling and Tests
 
-Please make sure to install [sbt-extras](https://github.com/paulp/sbt-extras), otherwise project compilation will fail with a `java.lang.OutOfMemoryError` or `java.lang.StackOverflowError`. If you cannot install `sbt-extras` you must make sure to pass the flags in `.jvmopts` to your sbt process. Please vote for or fix [sbt#2161](https://github.com/sbt/sbt/issues/2161) to remove this requirement.
+Make sure you have 0.13.13+ of the `sbt` start script, otherwise project compilation will fail with a `java.lang.OutOfMemoryError` or `java.lang.StackOverflowError`.
 
 We use Java 6 in our CI because we are part of the [community builds](https://github.com/scala/community-builds), but you should be able to use Java 7 for local development. Many of our tests are making assertions on classpath searches and some of our assumptions (such as method signatures and orderings of Java classes) may not be true for recent versions of Java. In ENSIME 2.0 we will move to [Java 7 and Java 8](https://github.com/ensime/ensime-server/issues/1118) in our CI.
 
