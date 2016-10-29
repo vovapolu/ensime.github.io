@@ -22,6 +22,12 @@ If that doesn't work, escalate matters: nuke old versions of ENSIME and restart 
 rm -rf ~/.ivy2/cache/org.ensime ~/.ivy2/local/ ~/.emacs.d/ensime ~/.emacs.d/elpa/ensime* ~/.emacs.d/elpa/scala-mode* ~/.emacs.d/elpa/sbt-mode*
 ```
 
+If **that** doesn't work, move your ivy folder aside, it has probably become corrupted:
+
+```
+mv ~/.ivy2 ~/.ivy2.bak
+```
+
 If that solved your problem, great!
 
 If not, please join the conversation at [gitter.im/ensime/ensime-emacs](https://gitter.im/ensime/ensime-emacs) and let it be known that you have followed this guide (and you better not have skipped any steps). If you do not provide a reproduction, it is **extremely unlikely** that anybody will be able to help you. **Do not post stacktraces on the gitter channel**, instead yank the contents of `M-x ensime-troubleshooting` into a gist.
