@@ -34,5 +34,5 @@ If a volunteer would like to pad out the following, that'd be great. Until then,
 
 1. checkout a basic tutorial project, e.g. [99 problems](https://github.com/rabbitonweb/99-scala-problems) or [scalania](https://github.com/jaceklaskowski/scalania)
 2. start sbt and cheatsheet of basic commands (for now, try [sbt common commands](http://www.scala-sbt.org/0.13/docs/Running.html#Common+commands))
-3. hello world in the editor without ensime (e.g. [/editors/emacs/scala-mode](/editors/emacs/scala-mode))
+3. hello world in the editor without ensime (e.g. [/editors/emacs/scala-mode](/editors/emacs/scala-mode)) starting from scratch with `sbt new eed3si9n/hello.g8`
 4. start ensime server, for now read [Getting Started](/getting_started)
