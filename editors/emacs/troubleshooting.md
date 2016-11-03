@@ -16,7 +16,7 @@ There are three classes of problem:
 1. update the server with `M-x ensime-server-update` (or manually update the assembly jar)
 1. update your [build tool plugin](/build_tools).
 
-Check the `*ENSIME-...*` server buffer and check for exceptions. If there is anything suspicios, kill the buffer (this stops the server), delete the `.ensime_cache`, and restart.
+Check the `*ENSIME-...*` server buffer for exceptions. If there is anything suspicious, kill the buffer (this stops the server), delete the `.ensime_cache`, and restart.
 
 If that doesn't work, escalate matters: nuke old versions of ENSIME and restart Emacs:
 
