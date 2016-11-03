@@ -15,6 +15,7 @@ There are three classes of problem:
 1. update `ensime` for Emacs, `M-x list-packages RET U RET x`.
 1. update the server with `M-x ensime-server-update` (or manually update the assembly jar)
 1. update your [build tool plugin](/build_tools).
+1. stop the ensime server, delete the `.ensime_cache`, and restart
 
 If that doesn't work, escalate matters: nuke old versions of ENSIME and restart Emacs:
 
