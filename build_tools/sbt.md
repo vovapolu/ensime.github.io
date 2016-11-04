@@ -88,7 +88,7 @@ ensimeJavaFlags := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCach
 another, for Android projects:
 
 ```scala
-ensimeJavacOptions := (javacOptions in (core, Compile)).value,
+ensimeJavacOptions ++= (javacOptions in (core, Compile)).value,
 ensimeScalacOptions ++= (scalacOptions in (core, Compile)).value
 ```
 
