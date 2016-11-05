@@ -18,6 +18,6 @@ If you want to open the declaration in a new split instead of the current buffer
 
 `:EnDocBrowse` opens documentation for the element under the cursor in your browser. You can [customize which browser is opened][custom browser].
 
-For more information, use `:h ensime-vim`.
+For more information, use `:h ensime`.
 
 [custom browser]: https://ensime.github.io/editors/vim/install/#post-install-config
