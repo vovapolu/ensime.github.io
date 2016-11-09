@@ -17,7 +17,7 @@ Add these lines to `~/.sbt/0.13/plugins/plugins.sbt` as opposed to `project/plug
 if (sys.props("java.version").startsWith("1.6"))
   addSbtPlugin("org.ensime" % "sbt-ensime" % "1.0.0")
 else
-  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.11.1")
+  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.11.2")
 ```
 
 **Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
@@ -85,6 +85,12 @@ For project-specific tailorings, you do not need to commit anything to your proj
 ensimeJavaFlags := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCacheSize=256m", "-XX:MaxMetaspaceSize=512m")
 ```
 
+another, to use ENSIME on a Java 7 project (the server needs JDK8)
+
+```scala
+ensimeJavaHome := file("/usr/lib/jvm/java-8-openjdk")
+```
+
 another, for Android projects:
 
 ```scala
@@ -100,13 +106,6 @@ and another, for hacking on [scala](https://github.com/scala/scala) itself:
 
 // WORKAROUND: https://github.com/scala/scala/pull/5387
 ensimeScalaVersion := "2.11.8"
-
-// if you want to hack on a scala-library without making any
-// reference to compiled binaries, you might want to enable
-// source mode, and generate with "sbt ensimeConfig library".
-// Usually you won't want to do this. This has huge performance
-// implications.
-ensimeSourceMode := true
 ```
 
 After adding this file, run `sbt ensimeConfig` and the new settings will be included in the `.ensime` file.
