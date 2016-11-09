@@ -18,7 +18,7 @@ title: Installation
 
 ### Unstable
 
-- JDK 1.7+
+- JDK 1.8+
 - Emacs 24.5+
 - Scala 2.10.6+ / 2.11.8+
 
