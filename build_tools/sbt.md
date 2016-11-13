@@ -76,7 +76,7 @@ at which point, the test will hang until you connect a remote debugger to port 5
 
 ## Customise
 
-For project-specific tailorings, you do not need to commit anything to your project. Simply create an `ensime.sbt` in your project's base directory (beside `build.sbt`). Don't forget to add it to `.gitignore`. Here is an example that sets a specific memory size for the ensime server:
+For project-specific tailorings, you do not need to commit anything to your project. Simply create an `ensime.sbt` in your project's base directory (beside `build.sbt`). Don't forget to add it to your `~/.gitignore`. Here is an example that sets a specific memory size for the ensime server:
 
 ```scala
 ensimeJavaFlags in ThisBuild := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCacheSize=256m", "-XX:MaxMetaspaceSize=512m")
