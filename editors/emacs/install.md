@@ -34,7 +34,7 @@ The recommended way to install ENSIME is via MELPA stable and `use-package`:
   :pin melpa-stable)
 ```
 
-If you used the sample Emacs configuration from our [`Learning Emacs`](/editors/emacs/learning) section, then you can add the above code to the end of your `~/.emacs.d/init.el` file and restart Emacs (or `eval-last-sexp`).
+If you used the sample Emacs configuration from our [Learning Emacs](/editors/emacs/learning) section, then you can add the above code to the end of your `~/.emacs.d/init.el` file and restart Emacs (or `eval-last-sexp`).
 
 To use the unstable version of ENSIME from MELPA, change to `:pin melpa` (not recommended unless you are contributing to ENSIME).
 
