@@ -14,10 +14,7 @@ This [sbt](http://github.com/sbt/sbt) plugin generates a `.ensime` file and prov
 Add these lines to `~/.sbt/0.13/plugins/plugins.sbt` as opposed to `project/plugins.sbt` (the decision to use ENSIME is per-user, rather than per-project):
 
 ```scala
-if (sys.props("java.version").startsWith("1.6"))
-  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.0.0")
-else
-  addSbtPlugin("org.ensime" % "sbt-ensime" % "1.11.2")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "1.11.3")
 ```
 
 **Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
