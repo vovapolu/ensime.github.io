@@ -79,13 +79,13 @@ at which point, the test will hang until you connect a remote debugger to port 5
 For project-specific tailorings, you do not need to commit anything to your project. Simply create an `ensime.sbt` in your project's base directory (beside `build.sbt`). Don't forget to add it to `.gitignore`. Here is an example that sets a specific memory size for the ensime server:
 
 ```scala
-ensimeJavaFlags := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCacheSize=256m", "-XX:MaxMetaspaceSize=512m")
+ensimeJavaFlags in ThisBuild := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCacheSize=256m", "-XX:MaxMetaspaceSize=512m")
 ```
 
-another, to use ENSIME on a Java 7 project (the server needs JDK8)
+another, to use ENSIME on a Java 6 or 7 project (the server needs JDK 8). This one is so common you might want to put it in your `~/.sbt/0.13/global.sbt`:
 
 ```scala
-ensimeJavaHome := file("/usr/lib/jvm/java-8-openjdk")
+ensimeJavaHome in ThisBuild := file("/usr/lib/jvm/java-8-openjdk")
 ```
 
 another, for Android projects:
@@ -102,7 +102,7 @@ and another, for hacking on [scala](https://github.com/scala/scala) itself:
 //       you cannot use the ensime assembly jars or start the REPL
 
 // WORKAROUND: https://github.com/scala/scala/pull/5387
-ensimeScalaVersion := "2.11.8"
+ensimeScalaVersion in ThisBuild := "2.11.8"
 ```
 
 After adding this file, run `sbt ensimeConfig` and the new settings will be included in the `.ensime` file.
