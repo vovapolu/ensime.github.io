@@ -41,15 +41,36 @@ Note that downloading and resolving the sources and javadocs can take some time 
 
 ## Extra Tasks and Commands
 
-Also bundled are extra workflow tasks, which are used by ensime clients:
+Also bundled are extra workflow tasks, which are used by ENSIME clients:
 
 * `ensimeRunMain` --- alternative to `runMain` allowing environment variables and jvm arguments to be used, e.g. `a/ensimeRunMain FOO=BAR -Xmx2g foo.Bar baz`
-* `c/ensimeLaunch MyApp` --- a launch manager that lets you define pre-canned `ensimeRunMain` applications (analogous to IntelliJ's "Run Configurations")
+* `c/ensimeLaunch MyApp` --- a launch manager that lets you define canned `ensimeRunMain` applications (analogous to IntelliJ's "Run Configurations"---see below)
 * `b/ensimeCompileOnly` --- Compile a single fully qualified `.scala` file using `b`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, ensimeCompileOnly) ++= Seq("-Xshow-phases")`
 * `b/ensimeScalariformOnly` --- Format a single fully qualified `.scala` file using `b`'s scalariform settings (compatible with, but does not require, `sbt-scalariform`).
 * `ensimeRunDebug` --- like `ensimeRunMain` but adds debugging flags automatically
 * `debugging` / `debuggingOff` --- mutates the default `javaOptions` to include debugging flags (see below)
 
+
+### Launch Configurations
+
+To define presets for the `ensimeLaunch` command, use the `LaunchConfig` and `JavaArgs` case classes provided by sbt-ensime, assigning a sequence to the `ensimeLaunchConfigurations` setting for a project:
+
+```scala
+ensimeLaunchConfigurations := Seq(
+  LaunchConfig("server",
+    JavaArgs(
+      mainClass = "mypackage.Server",
+      classArgs = Seq("start", "--foreground"),
+      envArgs   = Map("MYSERVER_PORT" -> "8080"),
+      jvmArgs   = Seq("-Xmx2g")
+    )
+  )
+)
+```
+
+Invoking `ensimeLaunch server` will then execute the given class with the specified arguments and environment.
+
+An untracked `ensime.sbt` file is [advised](#customise) for this, assuming you have installed sbt-ensime as a global plugin as recommended.
 
 ### Debugging Example
 
