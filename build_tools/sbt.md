@@ -43,12 +43,13 @@ Note that downloading and resolving the sources and javadocs can take some time 
 
 Also bundled are extra workflow tasks, which are used by ENSIME clients:
 
-* `ensimeRunMain` --- alternative to `runMain` allowing environment variables and jvm arguments to be used, e.g. `a/ensimeRunMain FOO=BAR -Xmx2g foo.Bar baz`
-* `c/ensimeLaunch MyApp` --- a launch manager that lets you define canned `ensimeRunMain` applications (analogous to IntelliJ's "Run Configurations"---see below)
-* `b/ensimeCompileOnly` --- Compile a single fully qualified `.scala` file using `b`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, ensimeCompileOnly) ++= Seq("-Xshow-phases")`
-* `b/ensimeScalariformOnly` --- Format a single fully qualified `.scala` file using `b`'s scalariform settings (compatible with, but does not require, `sbt-scalariform`).
-* `ensimeRunDebug` --- like `ensimeRunMain` but adds debugging flags automatically
-* `debugging` / `debuggingOff` --- mutates the default `javaOptions` to include debugging flags (see below)
+| `ensimeRunMain`              | Alternative to `runMain` allowing environment variables and jvm arguments to be used, e.g. `a/ensimeRunMain FOO=BAR -Xmx2g foo.Bar baz`. |
+| `c/ensimeLaunch MyApp`       | A launch manager that lets you define canned `ensimeRunMain` applications (analogous to IntelliJ's "Run Configurations"---[see below](#launch-configurations)). |
+| `b/ensimeCompileOnly`        | Compile a single fully-qualified `.scala` file using `b`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, ensimeCompileOnly) ++= Seq("-Xshow-phases")`. |
+| `b/ensimeScalariformOnly`    | Format a single fully-qualified `.scala` file using `b`'s Scalariform settings (compatible with, but does not require, `sbt-scalariform`). |
+| `ensimeRunDebug`             | Like `ensimeRunMain` but adds debugging flags automatically. |
+| `debugging` / `debuggingOff` | Mutates the default `javaOptions` to include debugging flags ([see below](#debugging-example)). |
+{: .sbt-tasks}
 
 
 ### Launch Configurations

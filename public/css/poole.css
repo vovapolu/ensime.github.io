@@ -280,6 +280,14 @@ td:nth-child(1), th:nth-child(1) {
     text-align: right;
 }
 
+table.sbt-tasks td {
+    text-align: left;
+    white-space: normal;
+}
+
+table.sbt-tasks td:nth-child(1) {
+    text-align: left;
+}
 
 /*
  * Custom type
