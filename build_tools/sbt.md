@@ -98,13 +98,17 @@ at which point, the test will hang until you connect a remote debugger to port 5
 
 ## Customise
 
-For project-specific tailorings, you do not need to commit anything to your project. Simply create an `ensime.sbt` in your project's base directory (beside `build.sbt`). Don't forget to add it to your `~/.gitignore`. Here is an example that sets a specific memory size for the ensime server:
+For project-specific tailorings, you do not need to commit anything to your project. Simply create an `ensime.sbt` in your project's base directory (beside `build.sbt`). Don't forget to add it to your `~/.gitignore`.
+
+Think long and hard before adding any of these settings to your global `~/.sbt/0.13/global.sbt`. For example, if you were to set a global `ensimeScalaVersion`, it will break if you are working on sbt plugins, old projects or upgrade to the latest scala. When putting settings in your global configuration, you must `import org.ensime.EnsimeKeys._`
+
+Here is an example that sets a specific memory size for the ensime server:
 
 ```scala
-ensimeJavaFlags in ThisBuild := Seq("-Xss2m", "-Xms1024m", "-Xmx2048m", "-XX:ReservedCodeCacheSize=256m", "-XX:MaxMetaspaceSize=512m")
+ensimeJavaFlags in ThisBuild := Seq("-Xss2m", "-Xmx2g", "-XX:MaxMetaspaceSize=512m")
 ```
 
-another, to use ENSIME on a Java 6 or 7 project (the server needs JDK 8). This one is so common you might want to put it in your `~/.sbt/0.13/global.sbt`:
+another, to use ENSIME on a Java 6 or 7 project (the server needs JDK 8). This is reasonably safe in your `~/.sbt/0.13/global.sbt`:
 
 ```scala
 ensimeJavaHome in ThisBuild := file("/usr/lib/jvm/java-8-openjdk")
