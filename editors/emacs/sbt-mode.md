@@ -70,7 +70,7 @@ You can also send a region of code from an other buffer in the same project. Fir
 
 ### Basics
 
-Run the `M-x sbt-hydra:hydra` command. This will start new sbt process in sbt buffer (if there is already sbt process running it will switch to it's buffer).
+Run the `M-x sbt-hydra` command. This will start new sbt process in sbt buffer (if there is already sbt process running it will switch to it's buffer).
 
 You will see message:
 ```
@@ -83,9 +83,9 @@ To generate hydra we need to get information about available projects. This is d
 Success hydra for projects (projectA, projectB, ...) created.
 ```
 
-After you will see this message run `M-x sbt-hydra:hydra` command again and you will see hydra appearing at the bottom of the screen. By pressing `h` you can invoke help where you can learn more detais about Hydra features.
+After you will see this message run `M-x sbt-hydra` command again and you will see hydra appearing at the bottom of the screen. By pressing `h` you can invoke help where you can learn more detais about Hydra features.
 
-We recommend to bind `sbt-hydra:hydra` command to some convenient shortcut.
+We recommend to bind `sbt-hydra` command to some convenient shortcut.
 
 ### Recommended usage
 
