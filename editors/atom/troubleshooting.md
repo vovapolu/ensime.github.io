@@ -25,4 +25,4 @@ If that solved your problem, great!
 
 If not, please join the conversation on the `gitter.im` room [ensime-atom](https://gitter.im/ensime/ensime-atom). 
 
-If you think you've found a bug you can file it at [https://github.com/ensime/ensime-atom/issues/new](https://github.com/ensime/ensime-atom/issues/new) (you'd don't need to ask on the channel, just go right ahead and create a ticket).
+If you think you've found a bug you can file it at [https://github.com/ensime/ensime-atom/issues/new](https://github.com/ensime/ensime-atom/issues/new) (you'd don't need to ask on the channel, just go right ahead and create a ticket). Please attach any logs if applicable (Open Chrome dev tools inside Atom "View -> Developer -> Toggle developer tools")
