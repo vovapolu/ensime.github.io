@@ -46,6 +46,17 @@ For the server installation to work, make sure `sbt` is on your `PATH` environme
 
 Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) which provides many features specific to Scala major mode editing and sbt support is provided by [`sbt-mode`](/editors/emacs/sbt-mode). Both modes can be used independently of ENSIME and your are encouraged to read their standalone documentation to understand the role that they play.
 
+## Spacemacs
+
+We **do not recommend or support** Spacemacs, we would rather that you used stock Emacs with `evil-mode`. However, if you still choose to use Spacemacs, you must add these lines to your `dotspacemacs/user-init` to mimic the configuration above.
+
+```elisp
+(push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+(push '(ensime . "melpa-stable") package-pinned-packages)
+```
+
+This is only one example of where Spacemacs does everything differently, you're on your own for the rest. Please **do not raise bug reports if you use Spacemacs** unless you can reproduce it with stock Emacs.
+
 
 ## Updating
 
