@@ -55,7 +55,7 @@ We **do not recommend or support** Spacemacs, we would rather that you used stoc
 (push '(ensime . "melpa-stable") package-pinned-packages)
 ```
 
-This is only one example of where Spacemacs does everything differently, you're on your own for the rest. Please **do not raise bug reports if you use Spacemacs** unless you can reproduce it with stock Emacs.
+This is only one example of where Spacemacs does everything differently, you're on your own for the rest. Please do not raise bug reports if you use Spacemacs unless you can reproduce it with stock Emacs. If you would like to change this, please create a full regression test suite running against Spacemacs and offer to maintain it.
 
 
 ## Updating
