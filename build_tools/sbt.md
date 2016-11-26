@@ -21,10 +21,11 @@ addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.0")
 
 **One more check** we've undergone a few artefact name changes - make sure you copied the full line.
 
-If you are following the developer version of ensime, add this to your `~/.sbt/0.13/global.sbt`
+If you are following the developer version of ENSIME, add this to your `~/.sbt/0.13/global.sbt`
 
-```
-ensimeServerVersion := "2.0.0-SNAPSHOT"
+```scala
+import org.ensime.EnsimeCoursierKeys._
+ensimeServerVersion in ThisBuild := "2.0.0-SNAPSHOT"
 ```
 
 Create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
