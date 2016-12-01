@@ -48,7 +48,7 @@ Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) whi
 
 ## Spacemacs
 
-We **do not recommend or support** Spacemacs, we would rather that you used stock Emacs with `evil-mode`. However, if you still choose to use Spacemacs, you must add these lines to your `dotspacemacs/user-init` to mimic the configuration above.
+We **do not recommend or support** Spacemacs. We would rather that you used stock Emacs with `evil-mode`. However, if you still choose to use Spacemacs, you must add these lines to your `dotspacemacs/user-init` to mimic the configuration above.
 
 ```elisp
 (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
