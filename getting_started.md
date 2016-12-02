@@ -11,8 +11,8 @@ ENSIME has a JVM process that indexes your dependencies and understands your sou
 
 It is important to realise that ENSIME is not an IDE, it is just one tool in a toolbox, following the UNIX philosophy of [Do One Thing and Do It Well](https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well). ENSIME's *thing* is to understand your source code. You must also have:
 
-1. a build tool to compile your project and a `.ensime` file describing your project layout. To generate this file, [see which build tools we support](/build_tools/).
-2. a text editor that is supported. To install the appropriate plugin, [learn about which editors we support](/editors/).
+1. a build tool to compile your project and a `.ensime` file describing your project layout. To generate this file, see [our list of build tool plugins](/build_tools/).
+2. a text editor that is supported. To install the appropriate plugin, see [our list of editor plugins](/editors/).
 
 If things don't work as you expected, please read the [Getting Help](/getting_help) guide before asking for help.
 
