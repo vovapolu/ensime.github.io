@@ -20,6 +20,8 @@ Configure your `~/.m2/settings.xml` file so that maven is aware of the plugin gr
   </pluginGroups>
 ```
 
+**Currently this plugin only supports ENSIME 1.0 and a volunteer is required to upgrade it.**
+
 ## Generate `.ensime` file
 
 ### (Optional) Download project sources and javadocs

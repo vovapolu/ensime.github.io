@@ -144,6 +144,8 @@ The plugin adds the 'ensime' task to the project to create a .ensime file in the
 ./gradlew ensime
 ```
 
+**Currently this plugin only supports ENSIME 1.0 and a volunteer is required to upgrade it.**
+
 Each time the task is executed, the .ensime file will be regenerated.
 
 ## Requirements
