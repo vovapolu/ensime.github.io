@@ -121,8 +121,8 @@ ensimeJavaHome in ThisBuild := file("/usr/lib/jvm/java-8-openjdk")
 another, to use the assembly jar which you build locally:
 
 ```scala
-ensimeServerJars in ThisBuild := List(file("/Users/foo/.ensime/ensime_2.10-2.0.0-SNAPSHOT-assembly.jar"))
-ensimeServerProjectJars in ThisBuild := List(file("/Users/foo/.ensime/ensime_2.10-2.0.0-SNAPSHOT-assembly.jar"))
+ensimeServerJars in ThisBuild := List(file("../ensime_2.11-2.0.0-SNAPSHOT-assembly.jar"))
+ensimeServerProjectJars in ThisBuild := List(file("../ensime_2.10-2.0.0-SNAPSHOT-assembly.jar"))
 ```
 
 another, for Android projects:
@@ -131,18 +131,6 @@ another, for Android projects:
 ensimeJavacOptions ++= (javacOptions in (core, Compile)).value,
 ensimeScalacOptions ++= (scalacOptions in (core, Compile)).value
 ```
-
-and another, for hacking on [scala](https://github.com/scala/scala) itself:
-
-```scala
-// NOTE: because of https://github.com/ensime/ensime-sbt/issues/240
-//       you cannot use the ensime assembly jars or start the REPL
-
-// WORKAROUND: https://github.com/scala/scala/pull/5387
-ensimeScalaVersion in ThisBuild := "2.11.8"
-```
-
-After adding this file, run `sbt ensimeConfig` and the new settings will be included in the `.ensime` file.
 
 ## Troubleshooting
 
