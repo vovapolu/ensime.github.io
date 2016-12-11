@@ -118,6 +118,13 @@ another, to use ENSIME on a Java 6 or 7 project (the server needs JDK 8). This i
 ensimeJavaHome in ThisBuild := file("/usr/lib/jvm/java-8-openjdk")
 ```
 
+another, to use the assembly jar which you build locally:
+
+```scala
+ensimeServerJars in ThisBuild := List(file("/Users/foo/.ensime/ensime_2.10-2.0.0-SNAPSHOT-assembly.jar"))
+ensimeServerProjectJars in ThisBuild := List(file("/Users/foo/.ensime/ensime_2.10-2.0.0-SNAPSHOT-assembly.jar"))
+```
+
 another, for Android projects:
 
 ```scala
