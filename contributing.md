@@ -61,8 +61,6 @@ If you'd like to improve these components, you may wish to ask questions at [git
 
 Many problems (e.g. the infamous ["red squiggles on valid code"](https://github.com/ensime/ensime-server/issues/673)) may be incredibly difficult to solve in the compiler and we created [ensime/pcplod](https://github.com/ensime/pcplod) to help you create minimal examples of what is broken and to allow you to work with macro/plugin authors to fix the issues. If the problem appears to be a presentation compiler bug, you will need to fix the bug upstream.
 
-To hack on the scala compiler with ENSIME, make sure to apply the instructions documented in [build_tools/sbt](/build_tools/sbt/#customise).
-
 ## Server
 
 The remainder of this document focuses on contributing to the server component, which is hosted at [github.com/ensime/ensime-server](https://github.com/ensime/ensime-server). If you pick up a ticket, please comment on it to let us know so that we can help (and also to avoid overlapping with somebody else). Feel free to ask questions on the github issue tracker or [gitter.im/ensime/ensime-server](https://gitter.im/ensime/ensime-server).
@@ -73,8 +71,6 @@ with example JSON payloads in [org/ensime/jerky](https://github.com/ensime/ensim
 ### Compiling and Tests
 
 Make sure you have 0.13.13+ of the `sbt` start script, otherwise project compilation will fail with a `java.lang.OutOfMemoryError` or `java.lang.StackOverflowError`.
-
-We use Java 6 in our CI because we are part of the [community builds](https://github.com/scala/community-builds), but you should be able to use Java 7 for local development. Many of our tests are making assertions on classpath searches and some of our assumptions (such as method signatures and orderings of Java classes) may not be true for recent versions of Java. In ENSIME 2.0 we will move to [Java 7 and Java 8](https://github.com/ensime/ensime-server/issues/1118) in our CI.
 
 Before you start, run this SBT command on your `ensime-server` repository as the `.ensime` file is required to run the integration tests (even if you are not using ENSIME to hack on ENSIME).
 
