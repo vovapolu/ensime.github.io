@@ -265,7 +265,7 @@ To enable the feature just add these lines to the `scala-mode-hook`:
 (prettify-symbols-mode)
 ```
 
-Also feel free to customice the prettify rules by adding or removing from the `scala-prettify-symbols-alist` alist.
+Also feel free to customise the prettify rules by adding or removing from the `scala-prettify-symbols-alist` alist.
 
 Libre fonts that seems to work well with this feature are: 
 
