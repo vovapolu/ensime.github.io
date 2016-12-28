@@ -178,4 +178,4 @@ When submitting a PR, we expect an accompanying test in the `sbt-test` folder. T
 
 To try your build locally, use `sbt publishLocal` (which will also happen as part of running `sbt scripted`) and make your required `sbt-ensime` version match that of the snapshot you are building. Remember to nuke your `~/.ivy2/local` once the fix is merged and published upstream.
 
-Feel free to ask support questions on [gitter.im/ensime/ensime-server](https://gitter.im/ensime/ensime-server) (there is no dedicated chat room for `sbt-ensime`) and to post reproducible bugs on the GitHub issue tracker.
+Feel free to ask support questions in the [gitter room](https://gitter.im/ensime/home) for the editor that you use (there is no dedicated chat room for `sbt-ensime`). Also feel free to post *reproducible* bugs on the GitHub issue tracker.
