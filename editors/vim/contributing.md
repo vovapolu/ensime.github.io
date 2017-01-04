@@ -104,11 +104,12 @@ That's how the plugin starts up, now you've come to the point where things get i
 
 ### ENSIME Integration
 
-The majority of the interesting code lives in `ensime_shared`. Here you'll find:
+The majority of the interesting code lives in `ensime_shared`. The files there have module documentation describing their purpose, but here is an overview of the most salient:
 
-  - `ensime.py`, which implements all of the request and response handling logic around ENSIME. This is the heart of the plugin.
-  - `launcher.py`, which is responsible for "bootstrapping" installation of the ENSIME server if needed, loading your `.ensime` config, and starting the server with it.
-  - Several other helper files like `config.py`, `error.py`, etc. that each implement small functions dealing with their namesakes.
+  - `ensime.py` is the core of the plugin and the bridging point between client/server communication with ENSIME and Vim as the UI and event layer.
+  - `client.py` implements logic for connecting to the server and exchanging requests and responses.
+  - `protocol.py` implements the client behavior for handling messages received from the server.
+  - `launcher.py` is responsible for starting the ENSIME server process using a project's `.ensime` config.
 
 If your project has an `.ensime` file, the `Ensime` class in `ensime.py` will detect it and call on `EnsimeLauncher` to launch a server. It also starts an `EnsimeClient` which will take over communicating with the server and updating Vim when responses come back.
 
@@ -119,10 +120,12 @@ Common Development Tasks
 
 ### Fixing a bug ###
 
-First understand if the bug is happening in ENSIME or the Vim plugin. The best way to determine this is to issue a plugin command and analyze the input/output of the call logged verbosely in `.ensime_cache/ensime-vim.log` of your project:
+First understand if the bug is happening in ENSIME or the Vim plugin. The best way to determine this is to watch the debug-level log while you issue a plugin command. You will see errors as well as pretty-printed messages exchanged between the client and server.
 
-  - If the bug is on what we're sending to ENSIME, simply follow the path of the command through the code until you reach the send call.
-  - For bugs in response handling, you'll want to check the `handlers` dictionary and find the function mapped to the ENSIME server response message type you're seeing (the value of the top-level `typehint` key).
+Enable debug logging by setting the environment variable `ENSIME_VIM_DEBUG=1` when you run Vim (or put `let $ENSIME_VIM_DEBUG = 1` in your vimrc). Then analyze the output in `.ensime_cache/ensime-vim.log` of your project:
+
+  - If the bug is on what we're sending to ENSIME, simply follow the path of the command through the code until you reach the `send` call.
+  - For bugs in response handling, you'll want to check the `handlers` dictionary in `protocol.py` and find the function mapped to the ENSIME server response message type you're seeing (the value of the top-level `typehint` key). A few handler functions are implemented in mixins in other files.
 
 If you've just landed here and this sounds utterly bewildering, you might want to see [Finding Your Way Around the Code](#finding-your-way-around-the-code) above.
 
@@ -140,15 +143,48 @@ If you've just landed here and this sounds utterly bewildering, you might want t
 
 ### Exposing New Vim Functionality to the Plugin Core ###
 
-  - For maintainability, raw Vim commands that are executed from ENSIME-Vim's Python code are kept in one place, in a dictionary in `ensime_shared/config.py`, then invoked by their descriptive key through our `vim_command` function.
-  - Adding a new Vim command invocation is as simple as adding a new pair to the dictionary.
+We do our best to encapsulate Vim functionality in the `Editor` class defined in `editor.py`. This wraps both complex raw Vim commands that are `eval`ed plus features covered by the Vim Python API in a constrained and hopefully consistent interface. The intention is to provide better maintainability than scattering `vim.command('foo')` usage throughout the codebase and to promote single-responsibility design.
+
+Review the functionality exposed there, and if what you need isn't covered, add it in a style consistent with the rest. At time of writing the `Editor` class is going through a design overhaul with a mix of old and new API—the new API (which you should model after) has thorough unit tests; the old, incidentally, does not.
 
 Testing
 -------
 
-The test suite consists of BDD feature specifications executed with [Lettuce][], a Python framework supporting the Gherkin language. These tests are located in `ensime_shared/spec/features` and can be run with `make test` or simply `make`.
+The test suite consists of unit tests implemented with the [pytest][] framework. These are located in the `test` directory and can be run with `make unit` or the `py.test` runner command as you like.
 
-This test suite is relatively young, after dropping old test infrastructure that had fallen into disrepair. Contributions restoring and extending coverage are most welcome. A unit testing setup may be desirable but does not yet exist, it is hoped that some higher-level Gherkin acceptance specs can eventually be shared with other editor plugins.
+Pytest is a somewhat unconventional test framework, but a popular one in the Python community and quite pleasant once you're familiar with a few of its idioms. One of the most fundamental to understand is its [dependency injection-style "fixtures" as function parameters][pytest di]—you'll find a mock of Vim's `vim` Python object provided to many unit tests such as in the `test_editor` module, for example. That `vim` mock fixture is defined in `test/conftest.py`, [which pytest loads][conftest].
+
+Addition of a BDD integration/acceptance test framework is [under review][pull 312] for more complex and end-to-end coverage situations against an embedded Neovim. It is also hoped that higher-level acceptance specs expressed in the Gherkin format—implemented in many languages—could eventually be shared with other editor plugins as a TCK. If you're interested in that, see if you can help to push the pull request over the finish line!
+
+### Using Tools in virtualenv ###
+
+Running `make` will automatically create a Python `virtualenv` sandbox for you in the `.venv` subdirectory of ensime-vim. If you want to invoke tools like the `py.test` CLI or a `python` REPL where you can import the project modules or dependencies to experiment, you can activate that virtualenv by sourcing its script in your shell:
+
+```sh
+$ . .venv/bin/activate
+```
+
+Running `python` then runs the sandboxed executable with access to our dependencies.
+
+If you're Python development-savvy and you want to manage your own virtualenv for the project so you can do things like integrate with `vim-pyenv`, you can specify your virtualenv with an environment variable pointing to its root:
+
+```sh
+$ export VENV=/Users/ches/.pyenv/versions/2.7-ensime-vim
+```
+
+Our `Makefile` will then honor use of your virtualenv location.
+
+[pytest]: http://pytest.org/
+[pytest di]: http://docs.pytest.org/en/latest/fixture.html#fixtures-as-function-arguments
+[conftest]: http://docs.pytest.org/en/latest/writing_plugins.html#plugin-discovery-order-at-tool-startup
+[pull 312]: https://github.com/ensime/ensime-vim/pull/312
+
+Code Style
+----------
+
+Generally speaking, we try to automate compliance with project code style preferences: run `make lint format` and heed any output.
+
+As always, code style is a guideline, not a rule. Readability trumps dogma. If you have good reasoning for a style transgression, you should feel welcome to propose a change to our tool settings, or silence one-offs with the override comment syntax supported by respective tools (consult the docs for `flake8` and `autopep8`).
 
 Useful References
 -----------------
@@ -164,4 +200,3 @@ Useful References
 
 [gitter channel]: https://gitter.im/ensime/ensime-vim
 [issues]: https://github.com/ensime/ensime-vim/issues
-[Lettuce]: http://lettuce.it/
