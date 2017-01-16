@@ -25,7 +25,7 @@ In order to parse a source file correctly, the presentation compiler needs to kn
 
 ### Loading all source files
 
-This is the simplest mode to understand but it has a few drawbacks. Type `C-c C-c a` to activate it. In this mode, every `.scala` file in you project is parsed. Editing a file causes everything to be reparsed again (starting with the file you just modified). The presentation compiler is always in sync with the state of your project.
+This is the simplest mode to understand but it has a few drawbacks. Type `C-c C-c a` to activate it. In this mode, every `.scala` file in your project is parsed. Editing a file causes everything to be reparsed again (starting with the file you just modified). The presentation compiler is always in sync with the state of your project.
 
 The major disadvantage is that re-parsing everything takes too long for anything except the smallest of projects.
 
