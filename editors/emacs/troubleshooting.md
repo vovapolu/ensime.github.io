@@ -35,14 +35,6 @@ If **that** doesn't work, move your ivy folder aside, it has probably become cor
 mv ~/.ivy2 ~/.ivy2.bak
 ```
 
-If that solved your problem, great!
-
-If not, please join the conversation at [gitter.im/ensime/ensime-emacs](https://gitter.im/ensime/ensime-emacs) and let it be known that you have followed this guide (and you better not have skipped any steps). If you do not provide a reproduction, it is **extremely unlikely** that anybody will be able to help you. **Do not post stacktraces on the gitter channel**, instead yank the contents of `M-x ensime-troubleshooting` into a gist.
-
-If you think you've found a bug you can file it at [github.com/ensime/ensime-emacs](https://github.com/ensime/ensime-emacs/issues/new) but do not ignore the [bug report template](https://github.com/ensime/ensime-emacs/blob/master/.github/ISSUE_TEMPLATE.md) or your ticket will be closed immediately.
-
-Remember, everybody is here to help, but nobody is paid to maintain ENSIME. For ENSIME to be sustainable, we need you to engage in the bug fixing process rather heavily and (ideally) submit a pull request with a fix.
-
 ## Problem with red squiggly lines or broken completion / types
 
 1. compile your project, or open all dependent scala files
@@ -65,3 +57,13 @@ To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcpl
 1. following the steps in "Problem starting the ENSIME server" to ensure all your software is recent (this solves more than you'd expect)
 1. check the [tickets flagged as FAQ for Emacs](https://github.com/ensime/ensime-emacs/issues?labels=FAQ) and do a quick search.
 1. check the [tickets flagged as FAQ on the server](https://github.com/ensime/ensime-server/issues?labels=FAQ) and do a quick search.
+
+If that solved your problem, great!
+
+If not, please join the conversation at [gitter.im/ensime/ensime-emacs](https://gitter.im/ensime/ensime-emacs) and let it be known that you have followed this guide. If you do not provide a reproduction in the form of a project, it is **extremely unlikely** that anybody will be able to help you.
+
+**Do not post stacktraces on the gitter channel**, instead yank the contents of `M-x ensime-troubleshooting` into a gist.
+
+If you think you've found a bug you can file it at [github.com/ensime/ensime-emacs](https://github.com/ensime/ensime-emacs/issues/new) but do not ignore the [bug report template](https://github.com/ensime/ensime-emacs/blob/master/.github/ISSUE_TEMPLATE.md) or your ticket will be closed immediately.
+
+Remember, everybody is here to help, but nobody is paid to maintain ENSIME (not even the sponsored developers). For ENSIME to be sustainable, we need you to engage in the bug fixing process rather heavily and (ideally) submit a pull request with a fix.
