@@ -45,10 +45,16 @@ Remember, everybody is here to help, but nobody is paid to maintain ENSIME. For 
 
 ## Problem with red squiggly lines or broken completion / types
 
+1. compile your project, or open all dependent scala files
+1. restart the presentation compiler: `C-c C-c r` (`ensime-reload-open-files`)
+1. restart the server with `M-x ensime-reload`
+1. if macro related, close the file defining the macro ([known and sponsored issue](https://github.com/ensime/ensime-server/issues/1152))
+1. if compiler plugin related, ensure plugins are in your `.ensime` (via your [build tool](/build_tools))
+
 As documented in more detail in our [Contributing Guide](/contributing/#scala-compiler-and-refactoring), ENSIME relies on type information provided by Scala's Presentation
 Compiler and it is known to issue false positives. But it is easier than you might think to fix the problems upstream.
 
-However, many problems with red squiggly lines are actually a result of buggy macros or compiler plugins. To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcplod). The first thing you can do is to write a PC Plod unit test for the library that you are using to raise awareness with the author of that library that they not compatible with the presentation compiler (and error reporter).
+Many problems with red squiggly lines are actually a result of buggy macros or compiler plugins. To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcplod). The first thing you can do is to write a PC Plod unit test for the library that you are using to raise awareness with the author of that library that they not compatible with the presentation compiler (and error reporter).
 
 It might also be appropriate for macro authors to provide alternative behaviour under the presentation compiler. As an example, consider the `cachedImplicit` macro within shapeless. It reports [false positives and can freeze the editor](https://github.com/milessabin/shapeless/issues/458). But if a variant of this macro was written to bypass the actual implementation, issuing a (configurable) warning, e.g. "This implicit derivation will be skipped in the editor", many developers would appreciate the workaround.
 
