@@ -57,7 +57,7 @@ If that doesn't work, try a few more things:
 As documented in more detail in our [Contributing Guide](/contributing/#scala-compiler-and-refactoring), ENSIME relies on type information provided by Scala's Presentation
 Compiler and it is known to issue false positives. But it is easier than you might think to fix the problems upstream.
 
-Many problems with red squiggly lines are actually a result of buggy macros or compiler plugins. To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcplod). The first thing you can do is to write a PC Plod unit test for the library that you are using to raise awareness with the author of that library that they not compatible with the presentation compiler (and error reporter).
+To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcplod). The first thing you can do is to write a PC Plod unit test for the library that you are using to raise awareness with the author of that library that they not compatible with the presentation compiler (and error reporter).
 
 ## Anything else
 
