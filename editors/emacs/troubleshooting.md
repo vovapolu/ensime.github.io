@@ -47,6 +47,9 @@ Remember, everybody is here to help, but nobody is paid to maintain ENSIME. For 
 
 1. compile your project, or open all dependent scala files
 1. restart the presentation compiler: `C-c C-c r` (`ensime-reload-open-files`)
+
+If that doesn't work, try a few more things:
+
 1. restart the server with `M-x ensime-reload`
 1. if macro related, close the file defining the macro ([known and sponsored issue](https://github.com/ensime/ensime-server/issues/1152))
 1. if compiler plugin related, ensure plugins are in your `.ensime` (via your [build tool](/build_tools))
