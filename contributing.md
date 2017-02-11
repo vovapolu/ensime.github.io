@@ -92,23 +92,6 @@ It all starts with a test. Find a test that is already testing something similar
 
 We have several styles of tests: unit tests, in-memory source tests (e.g. [`RichPresentationCompilerSpec`](https://github.com/ensime/ensime-server/blob/2.0/core/src/it/scala/org/ensime/core/RichPresentationCompilerSpec.scala)), on-disk source tests (e.g. [`BasicWorkflow`](https://github.com/ensime/ensime-server/blob/2.0/core/src/it/scala/org/ensime/intg/BasicWorkflow.scala)) and the Emacs client tests. It may be instructive for you to read and understand some of these tests to get a feel for the right level to write your test.
 
-### Graphpocalypse Beta Testing
-
-Are you willing to help us bring new exciting features to ENSIME, or perhaps you enjoy using <s>unstable and bug-ridden</s> bleeding edge software?
-
-The `2.0-graph` is where [Andrey Sugak's Google Summer of Code](https://github.com/ensime/ensime-server/milestone/11) project is happening.
-
-First set up your developer version of the ensime client to track `2.0.0-graph-SNAPSHOT`, e.g. in Emacs `(setq ensime-server-version "2.0.0-graph-SNAPSHOT")`. Assembly jars are available from the usual location (see [Manual QA Testing](http://ensime.github.io/contributing/#manual-qa-testing) for instructions).
-
-The graph database needs direct memory, so you should add something like this to your `~/.sbt/0.13/global.sbt` to ensure that all your projects can support it:
-
-```scala
-org.ensime.Imports.EnsimeKeys.ensimeJavaFlags += "-XX:MaxDirectMemorySize=4g"
-```
-
-We want your feedback! Get in touch the [ensime-server gitter room](https://gitter.im/ensime/ensime-server) and direct your comments to `@sugakandrey`.
-
-
 ### Guidelines
 
 We do not have any official style guide. Code formatting is enforced by scalariform. When in doubt, prefer functional idioms encouraged by [Typelevel](http://typelevel.org) such as referential transparency, [typeclass derivation](https://github.com/fommil/shapeless-for-mortals) and immutable data structures. We made a huge mistake depending on akka and we would like to [fix that by replacing it](https://github.com/ensime/ensime-server/issues/1351).
@@ -119,18 +102,16 @@ Because we are at the forefront of the development cycle for new versions of Sca
 
 ### Manual QA Testing
 
-If an `-assembly.jar` file exists in your `.emacs.d/ensime`, `.atom/packages/Ensime` or `.config/ensime-vim` directory (for the expected binary version of scala and ENSIME) then it will be used in preference to the `sbt` auto-update procedure. This is advantageous for developing on ENSIME and also to enable a simple install of the ENSIME server in restricted environments. SNAPSHOT assembly jars are provided at <http://ensime.typelevel.org/> (with many thanks to Typelevel for the use of their servers).
-
-To build your own server jars, do this:
+To build your own server jar:
 
 ```
-git clone https://github.com/ensime/ensime-server.git
 sbt ++2.10.6 ensime/assembly # replace with your version of scala
-cp target/scala-2.10/ensime_2.10-0.9.10-SNAPSHOT-assembly.jar ~/.emacs.d/ensime/
 ```
 
-When you want to swap back to using official releases, delete your `-assembly.jar` files.
+and then use your build tool to provide this information in the `.ensime` file of your project. e.g. if you use `sbt-ensime`
 
-You can also `sbt publishLocal` but make sure you clean up your `~/.ivy2/local` afterwards.
+```scala
+ensimeServerJars in ThisBuild := Seq(file("/path/to/your/ensime-assembly.jar"))
+```
 
-When using `sbt publishLocal` for the first time make sure to remove a cached classpath file in your `.emacs.d/ensime`, `.atom/packages/Ensime` or `.config/ensime-vim` directory (for the expected binary version of scala and ENSIME) if it exists. It will be recreated automatically with new ensime location pointing to `~/.ivy2/local` directory. Make sure to do the same things aftewards.
+make sure you're running the developer version of your editor plugin.
