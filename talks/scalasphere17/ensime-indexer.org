@@ -1,0 +1,78 @@
+#+TITLE: Graphpocalypse: indexing in ENSIME
+#+AUTHOR: Sam Halliday
+#+DATE: Scala Sphere 2017
+
+#+TODO: TODO | RESEARCH | NOTES | CHART | DIAGRAM | DRAWING | CODE | VIDEO
+
+* Introduction
+** Sam Halliday =@fommil=
+
+- Chartered Mathematician
+  - DSP, optimisation, quantum, machine learning, etc
+- Libre Education and Software
+  - 5mil textbooks in South Africa (Siyavula)
+  - FSF Fellow (they fight for BSD / Apache too!)
+  - =netlib-java= (underpinning Spark ML)
+  - ENSIME core developer
+
+#+BEGIN_NOTES
+I am really an applied mathematician by training, this software thing is really just a hobby that pays the bills.
+
+Before the crash, I did industrial research in digital signal processing, multi-high-dimensional optimisation, quantum mechanics, machine learning and a bunch of other stuff that I could just talk about forever.
+
+I'm really into Free or Libre education and software. When I was a student in Cape Town I was one of the founders of an initiative that eventually became Siyavula and has printed 5 million Free textbooks to students in South Africa.
+
+I'm a fellow of the Free Software Foundation. I believe they do really great things and I'd encourage you to join up even if you don't believe in the GPL. They are doing some great lobbying for all of us against legislation that seeks to undermine our right to use or write Free software, which includes the Apache 2.0 and BSD licenses.
+
+My most used free software project is =netlib-java=, which I spoke about at last year's Scala eXchange. It's included in the Spark Machine Learning library.
+
+But my favourite project is ENSIME, which is an alternative development environment to Eclipse and IntelliJ for Scala and now Java.
+
+#+END_NOTES
+
+** TODO Poll of Users
+** TODO What is ENSIME
+** TODO What is an Indexer
+* 1.0
+** TODO Index vs Database
+** TODO What we store and how
+** TODO How we extract the data
+
+#+BEGIN_NOTES
+- throwing stuff away
+- minimal use of scalap
+#+END_NOTES
+
+** TODO What we use the data for
+** TODO Incremental updates
+
+#+BEGIN_NOTES
+perf of fast restarts is a design requirement
+#+END_NOTES
+
+** TODO Horror of the code
+
+* 2.0
+** TODO Graphpocalypse / GSoC
+** TODO What we store now
+** TODO Extra source: scalap
+** TODO New kinds of queries
+** TODO New kinds of features
+
+- find implementations
+- find usages
+- find dead code
+- stats gathering
+- linkage / compilation optimisation
+
+** TODO Performance Considerations
+
+- testing
+
+* Future
+** TODO more granular API
+** TODO perf improvements
+** TODO more data sources
+** TODO FreeMonad / Swave / Monix / scala-async rewrite
+** TODO query language for Lucene index
+
