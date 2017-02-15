@@ -20,30 +20,20 @@ Configure your `~/.m2/settings.xml` file so that maven is aware of the plugin gr
   </pluginGroups>
 ```
 
-**Currently this plugin only supports ENSIME 1.0 and a volunteer is required to upgrade it.**
+Then add the following to your `pom` file:
+
+```xml
+<plugin>
+  <groupId>org.ensime.maven.plugins</groupId>
+  <artifactId>ensime-maven</artifactId>
+  <version>0.0.6</version>
+</plugin>
+```
 
 ## Generate `.ensime` file
-
-### (Optional) Download project sources and javadocs
-
-The ensime-maven plugin will tell ensime about the location of source and javadoc jars, but won't automatically download them for you. You can get maven to do this by running:
-
-```
-mvn dependency:sources dependency:resolve -Dclassifier=javadoc
-```
-
-### Generate the `.ensime` file
 
 To actually generate the `.ensime` file from your pom, run:
 
 ```
 mvn ensime:generate
-```
-
-### (Optional) Initial project compilation
-
-To prevent some surprises when working with a new project in ensime, do a full compile before starting up ensime for the first time:
-
-```
-mvn compile test-compile
 ```
