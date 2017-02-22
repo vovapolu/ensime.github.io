@@ -37,6 +37,8 @@ mv ~/.ivy2 ~/.ivy2.bak
 
 ## Problem with red squiggly lines or broken completion / types
 
+As a side effect, you're probably experiencing hanging, remember to `C-g` or `ESC ESC ESC` to get Emacs back instantly.
+
 1. compile your project, or open all dependent scala files
 1. restart the presentation compiler: `C-c C-c r` (`ensime-reload-open-files`)
 
