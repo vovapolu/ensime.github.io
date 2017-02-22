@@ -48,30 +48,19 @@ Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) whi
 
 ## Spacemacs
 
-We **do not recommend or support** Spacemacs. We would rather that you used stock Emacs with `evil-mode`. However, if you still choose to use Spacemacs, you must add these lines to your `dotspacemacs/user-init` to mimic the configuration above.
+We would rather that you used stock Emacs with `evil-mode`. However, if you still choose to use Spacemacs, you must add these lines to your `dotspacemacs/user-init` to mimic the configuration above.
 
 ```elisp
 (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
 (push '("ensime" . "melpa-stable") package-pinned-packages)
 ```
 
-This is only one example of where Spacemacs does everything differently, you're on your own for the rest. Please do not raise bug reports if you use Spacemacs unless you can reproduce it with stock Emacs. If you would like to change this, please create a full regression test suite running against Spacemacs and offer to maintain it.
-
-
-## Updating
-
-ENSIME uses a continuous release and the developers assume that you are staying up to date with releases.
-
-The server will be automatically upgraded when you upgrade the client, which will result in a short `*ensime-update*` session. You can manually force a server update by typing:
-
-```
-M-x ensime-server-update
-```
+Please do not raise bug reports unless you can reproduce with stock Emacs, because none of the core contributors use or understand Spacemacs.
 
 
 ## Starting
 
-Compile your project with your [build tool](/build_tools) and generate a `.ensime` file. Then navigate to a file or directory in your project and type:
+Compile your project with your [build tool](/build_tools) and generate a `.ensime` file (which also installs / updates the server component). Then navigate to a file or directory in your project and type:
 
 ```
 M-x ensime

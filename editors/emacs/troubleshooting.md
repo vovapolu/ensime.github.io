@@ -55,8 +55,7 @@ To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcpl
 
 1. fully compile your project (did you skip the [User Guide](/editors/emacs/userguide/))? Time to read it, honestly it's full of good stuff.
 1. following the steps in "Problem starting the ENSIME server" to ensure all your software is recent (this solves more than you'd expect)
-1. check the [tickets flagged as FAQ for Emacs](https://github.com/ensime/ensime-emacs/issues?labels=FAQ) and do a quick search.
-1. check the [tickets flagged as FAQ on the server](https://github.com/ensime/ensime-server/issues?labels=FAQ) and do a quick search.
+1. check [all ENSIME FAQ issues](https://github.com/search?utf8=%E2%9C%93&q=user%3Aensime+is%3Aissue+label%3AFAQ&type=Issues&ref=searchresults) and do a quick search.
 
 If that solved your problem, great!
 
