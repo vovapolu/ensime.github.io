@@ -38,7 +38,7 @@ Then add the following to your `pom` file:
   <plugin>
     <groupId>org.ensime.maven.plugins</groupId>
     <artifactId>ensime-maven</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
   </plugin>
 <plugins>
 ```
