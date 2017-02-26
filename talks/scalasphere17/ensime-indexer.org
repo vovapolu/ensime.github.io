@@ -513,14 +513,14 @@ with the line and offset (if we know it).
 - scala language name
 - scalac internal name
 
------
+** Workaround
 
 - convert everything to FQN + descriptor
 
 ** About that caching...
 
 - one big batch index on startup
-  - fast restart in a design requirement
+  - fast restart is a design requirement
 - incremental in response to filewatcher
   - not as important: structure rarely changes
   - debounce, don't handle failures
