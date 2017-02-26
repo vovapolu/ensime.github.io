@@ -378,57 +378,45 @@ Lorg/ensime/Dummy<Ljava/util/List<-Ljava/lang/Number;>;>;
 
 #+BEGIN_SRC scala
 // contributed with SignatureParser by Adam Sznajder
-
-// FIXME: rename RealTypeSignature to simplify
-
-sealed trait SignatureType
-sealed trait RealTypeSignature extends SignatureType
-
-sealed trait BoundType
-object UpperBound extends BoundType
-object LowerBound extends BoundType
-
-final case class GenericClass(
+case class GenericClass(
   params: Seq[GenericParam],
   supers: Seq[GenericClassName]
-) extends SignatureType
+)
 
-final case class GenericParam(
-  name: String,
-  classNames: Seq[RealTypeSignature]
-) extends SignatureType
+case class GenericParam(
+  n: S,
+  classes: Seq[Generic]
+)
+#+END_SRC
+
+-----
+
+#+BEGIN_SRC scala
+sealed trait Generic
+case class GenericArray(className: Generic) extends Generic
+case class GenericVar(name: S) extends Generic
+case class GenericClassName(
+  c: ClassName,
+  args: Seq[GenericArg],
+  inners: Seq[InnerClassName]
+) extends Generic
 #+END_SRC
 
 -----
 
 #+BEGIN_SRC scala
 sealed trait GenericArg
-
-final case class GenericClassName(
-  className: ClassName,
-  genericArg: Seq[GenericArg],
-  innerClass: Seq[InnerClassName],
-) extends RealTypeSignature
-
-final case class InnerClassName(
-  name: String,
-  genericArg: Seq[GenericArg] = Seq.empty
-)
-
-object ExtendsObjectGenericArg
-  extends GenericArg
-
-final case class SpecifiedGenericArg(
-  boundType: Option[BoundType],
-  genericSignature: RealTypeSignature
+object ExtendsObjectGenericArg extends GenericArg
+case class SpecifiedGenericArg(
+  bound: Option[BoundType],
+  sig: Generic
 ) extends GenericArg
 
-final case class GenericArray(className: RealTypeSignature)
-  extends RealTypeSignature
+sealed trait BoundType
+case object UpperBound extends BoundType
+case object LowerBound extends BoundType
 
-final case class GenericVar(name: String)
-  extends RealTypeSignature
-
+case class InnerClassName(n: S, args: Seq[GenericArg])
 #+END_SRC
 
 
