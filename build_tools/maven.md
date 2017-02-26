@@ -40,7 +40,7 @@ Then add the following to your `pom` file:
     <artifactId>ensime-maven</artifactId>
     <version>1.0.3</version>
   </plugin>
-<plugins>
+</plugins>
 ```
 
 ## Generate `.ensime` file
