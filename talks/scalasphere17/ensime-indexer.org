@@ -48,6 +48,8 @@ But my favourite project is ENSIME, which is an alternative development environm
 - import class at point
 - jump to source (classes, methods, fields)
 - CamelCase / substring search
+- +find implementations+
+- +find references+
 
 ** Architecture
 
@@ -135,54 +137,6 @@ parts are the Search Service and the Analyzer:
 - Index
   - human search (CamelCase, simple classname)
   - not needed if you have the FQN
-
-** What we store
-
-#+BEGIN_SRC scala
-  final case class FileCheck(
-      id: Option[Int],
-      filename: String,
-      timestamp: Timestamp
-  )
-#+END_SRC
-
-#+BEGIN_SRC scala
-  final case class FqnSymbol(
-      id: Option[Int],
-      file: String, // the underlying file (class or jar)
-      path: String, // URL to the classfile
-      fqn: String,  // should really be the primary key
-      internal: Option[String], // FQN of a field's type
-      source: Option[String], // URL to the source file
-      line: Option[Int],
-      offset: Option[Int] = None
-  )
-#+END_SRC
-
-#+BEGIN_NOTES
-This is the definition of the very simple SQL schema (we use slick to
-access H2).
-
-We have a TABLE to keep track of the timestamp of every file that we
-are tracking.
-
-And for every FQN in your project, we store the =file= that it is
-contained in, and the URL =path= to that file. There is probably a lot
-of wasted memory here because almost everything will have the same
-prefix.
-
-The =fqn= should probably be the id field to be honest but we had some
-problems with duplicate FQNs in an earlier schema that we've since
-resolved (overloaded methods). This is the bytecode FQN plus the
-method signature if it's a method.q
-
-The =internal= column is for storing the FQN of a field's type (if
-this FQN is a field). With this we can distinguish between fields,
-methods and classes.
-
-The =source= is the full URL of the source code for this FQN, along
-with the line and offset (if we know it).
-#+END_NOTES
 
 ** How we extract the data
 
@@ -405,39 +359,182 @@ case class GenericClassName(
 -----
 
 #+BEGIN_SRC scala
-sealed trait GenericArg
-object ExtendsObjectGenericArg extends GenericArg
-case class SpecifiedGenericArg(
-  bound: Option[BoundType],
-  sig: Generic
-) extends GenericArg
+case class GenericArg(bound: Option[BoundType], sig: Generic)
 
 sealed trait BoundType
 case object UpperBound extends BoundType
 case object LowerBound extends BoundType
 
+// e.g. Lorg/scalatest/SuperEngine<TT;>.Node;
+// (kinda weird that it's a special case...)
 case class InnerClassName(n: S, args: Seq[GenericArg])
 #+END_SRC
 
-
-
 ** ADT
+
+#+BEGIN_SRC scala
+case class RawClassfile(
+  name: ClassName,
+  generics: Option[GenericClass],
+  superClass: Option[ClassName],
+  interfaces: List[ClassName],
+  access: Access,
+  deprecated: Boolean,
+  fields: Queue[RawField],
+  methods: Queue[RawMethod],
+  source: RawSource
+)
+
+case class RawSource(file: Option[S], line: Option[Int])
+#+END_SRC
+
+-----
+
+#+BEGIN_SRC scala
+case class RawField(
+  name: FieldName,
+  clazz: DescriptorType,
+  generics: Option[S],
+  access: Access
+)
+
+case class RawMethod(
+  name: MethodName,
+  access: Access,
+  generics: Option[S],
+  line: Option[Int]
+)
+#+END_SRC
 
 ** Scalap names
 
+#+BEGIN_SRC scala
+case class RawType(
+  fqn: S,
+  access: Access
+)
 
+case class RawScalaClass(
+  javaName: ClassName,
+  scalaName: S,
+  typeSignature: S,
+  access: Access,
+  declaredAs: DeclaredAs,
+  fields: Seq[RawScalaField],
+  methods: Seq[RawScalaMethod]
+)
+#+END_SRC
+
+-----
+
+#+BEGIN_SRC scala
+case class RawScalaField(
+  javaName: FieldName,
+  scalaName: S,
+  typeInfo: S,
+  access: Access
+)
+
+case class RawScalaMethod(
+  scalaName: S,
+  signature: S,
+  access: Access
+)
+#+END_SRC
+
+** What we store
+
+#+BEGIN_SRC scala
+  final case class FileCheck(
+      id: Option[Int],
+      filename: String,
+      timestamp: Timestamp
+  )
+#+END_SRC
+
+#+BEGIN_SRC scala
+  final case class FqnSymbol(
+      id: Option[Int],
+      file: String, // the underlying file (class or jar)
+      path: String, // URL to the classfile
+      fqn: String,  // should really be the primary key
+      internal: Option[String], // FQN of a field's type
+      source: Option[String], // URL to the source file
+      line: Option[Int],
+      offset: Option[Int] = None
+  )
+#+END_SRC
+
+#+BEGIN_NOTES
+This is the definition of the very simple SQL schema (we use slick to
+access H2).
+
+We have a TABLE to keep track of the timestamp of every file that we
+are tracking.
+
+And for every FQN in your project, we store the =file= that it is
+contained in, and the URL =path= to that file. There is probably a lot
+of wasted memory here because almost everything will have the same
+prefix.
+
+The =fqn= should probably be the id field to be honest but we had some
+problems with duplicate FQNs in an earlier schema that we've since
+resolved (overloaded methods). This is the bytecode FQN plus the
+method signature if it's a method.q
+
+The =internal= column is for storing the FQN of a field's type (if
+this FQN is a field). With this we can distinguish between fields,
+methods and classes.
+
+The =source= is the full URL of the source code for this FQN, along
+with the line and offset (if we know it).
+#+END_NOTES
+
+-----
+
+*** does it sound familiar?
+
+** Caching and Naming
+
+#+begin_quote
+"There are only two hard things in Computer Science"
+
+-- Phil Karlton
+#+end_quote
+
+** A rose by any other name
+
+- bytecode FQN
+- descriptor
+- FQN + descriptor
+- name with generics
+- scalap name
+- java language name
+- scala language name
+- scala internal name
+
+-----
+
+- convert everything to FQN + descriptor
+
+** About that caching...
+
+- one big batch index on startup
+  - fast restart in a design requirement
+- incremental in response to filewatcher
+  - not as important: structure rarely changes
+  - debounce, don't handle failures
 
 ** Limitations
+
+- we are throwing away almost everything
+  - references (i.e. find usages)
+  - hierachy (i.e. find implementations)
+  - scala type info (i.e. semantic search)
 
 #+BEGIN_NOTES
 - throwing stuff away
 - minimal use of scalap
-#+END_NOTES
-
-** TODO Incremental updates
-
-#+BEGIN_NOTES
-perf of fast restarts is a design requirement
 #+END_NOTES
 
 ** TODO Horror of the code
