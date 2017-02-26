@@ -511,7 +511,7 @@ with the line and offset (if we know it).
 - scalap name
 - java language name
 - scala language name
-- scala internal name
+- scalac internal name
 
 -----
 
