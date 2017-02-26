@@ -147,9 +147,12 @@ parts are the Search Service and the Analyzer:
     +----+  |    |{io}   |   |  +--------+  |   +-----+
             +--->| class +---+              +-->| ADT |
     +----+  |    |       |   |  +--------+  |   +-----+
-    |dirs+--/    +-------+   \->| scalap +--/
-    +----+                      +--------+
-
+    |dirs+--/    +-------+   \->| scalap +--+
+    +----+  |                   +--------+  |
+            |    +-------+   +--------+     |
+            \--->|{io}   |   |        |     |
+                 |source +-->|resolver+-----/
+                 +-------+   +--------+
 #+END_SRC
 
 #+RESULTS:
@@ -525,6 +528,7 @@ with the line and offset (if we know it).
   - not as important: structure rarely changes
   - debounce, don't handle failures
 
+** TODO Source Resolver
 ** Limitations
 
 - we are throwing away almost everything
