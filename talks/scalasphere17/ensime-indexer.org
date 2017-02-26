@@ -378,6 +378,9 @@ Lorg/ensime/Dummy<Ljava/util/List<-Ljava/lang/Number;>;>;
 
 #+BEGIN_SRC scala
 // contributed with SignatureParser by Adam Sznajder
+
+// FIXME: rename RealTypeSignature to simplify
+
 sealed trait SignatureType
 sealed trait RealTypeSignature extends SignatureType
 
