@@ -528,7 +528,15 @@ with the line and offset (if we know it).
   - not as important: structure rarely changes
   - debounce, don't handle failures
 
-** TODO Source Resolver
+** Source Resolver
+
+- bytecode: =Filename.scala:123=
+- we know the =path/to/the/Clazz.class=
+- infer =path/to/the/Filename.scala=
+- and =path/Filename.scala=
+- but not =some/other/place/Filename.scala=
+- nor multiple sources in different jars
+
 ** Limitations
 
 - we are throwing away almost everything
@@ -541,11 +549,83 @@ with the line and offset (if we know it).
 - minimal use of scalap
 #+END_NOTES
 
-** TODO Horror of the code
+** It all started so well
+
+#+BEGIN_SRC scala
+    for {
+      checks <- db.knownFiles()
+      stale = findStaleFileChecks(checks)
+      deletes <- deleteReferences(stale)
+      bases = findBases()
+      added <- indexBases(bases, checks)
+      _ <- commitIndex()
+    } yield (deletes, added)
+#+END_SRC
+
+** Horror of the code
+
+You know you're in trouble when...
+
+-----
+
+#+BEGIN_SRC scala
+    def global: ExecutionContext = null
+    val ec = dispatchers.lookup("magic-dispatcher")
+
+    Future {
+      blocking {
+        semaphore.acquire() // homebrew backpressure
+
+#+END_SRC
+
+-----
+
+#+BEGIN_SRC scala
+// TODO: make up our mind out being a service or actor...
+class IndexingQueueActor(searchService: SearchService)
+  with ActorLogging {
+ 
+    // FileObject.equals doesn't work, use toString as keys
+    var todo = Map.empty[String, FileObject]
+    // TODO: refactor this into DebounceActor
+    var worker: Cancellable = _
+
+    val advice =
+      "If the problem persists, you may need to restart"
+#+END_SRC
 
 * 2.0
-** TODO Graphpocalypse / GSoC
-** TODO What we store now
+** Google Summer of Code
+
+#+BEGIN_QUOTE
+Several key features are missing from ENSIME that are frequently
+requested by users: *find usages* and *show implementations*.
+#+END_QUOTE
+
+** Graphpocalypse
+
+#+BEGIN_SRC dot :file images/graphpocalypse.png :exports results :cmdline -Kdot -Tpng
+digraph {
+  // graph from left to right
+  rankdir=LR;
+  splines=true;
+  node [shape=box];
+ 
+  id [label="Install Graphviz"]
+  conf [label="Configure org-babel"]
+  dot [label="DOT in org-mode"]
+ 
+  id -> conf
+  conf -> dot
+  dot -> "Profit"
+  dot -> "Success" [style=dotted]
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:images/graphpocalypse.png]]
+
+
 ** TODO Extra source: scalap
 ** TODO New kinds of queries
 ** TODO New kinds of features
