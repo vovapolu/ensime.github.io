@@ -1,0 +1,15 @@
+// dot -Kdot -Tpng graphpocalypse.dot > graphpocalypse.png
+// #+BEGIN_SRC dot :file images/graphpocalypse.png :exports results :cmdline -Kdot -Tpng
+// #+END_SRC
+// #+RESULTS:
+
+digraph { 
+  id [label="Install Graphviz"]
+  conf [label="Configure org-babel"]
+  dot [label="DOT in org-mode"]
+ 
+  id -> conf
+  conf -> dot
+  dot -> "Profit"
+  dot -> "Success" [style=dotted]
+}

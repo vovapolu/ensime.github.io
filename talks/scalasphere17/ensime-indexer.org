@@ -147,10 +147,10 @@ parts are the Search Service and the Analyzer:
     +----+  |    |{io}   |   |  +--------+  |   +-----+
             +--->| class +---+              +-->| ADT |
     +----+  |    |       |   |  +--------+  |   +-----+
-    |dirs+--/    +-------+   \->| scalap +--+
+    |dirs+--+    +-------+   \->| scalap +--+
     +----+  |                   +--------+  |
             |    +-------+   +--------+     |
-            \--->|{io}   |   |        |     |
+            \--->|{io}   |   |{io}    |     |
                  |source +-->|resolver+-----/
                  +-------+   +--------+
 #+END_SRC
@@ -604,29 +604,11 @@ requested by users: *find usages* and *show implementations*.
 
 ** Graphpocalypse
 
-#+BEGIN_SRC dot :file images/graphpocalypse.png :exports results :cmdline -Kdot -Tpng
-digraph {
-  // graph from left to right
-  rankdir=LR;
-  splines=true;
-  node [shape=box];
- 
-  id [label="Install Graphviz"]
-  conf [label="Configure org-babel"]
-  dot [label="DOT in org-mode"]
- 
-  id -> conf
-  conf -> dot
-  dot -> "Profit"
-  dot -> "Success" [style=dotted]
-}
-#+END_SRC
+# WORKAROUND: https://groups.google.com/forum/#!topic/pandoc-discuss/4tw5jY97B9k
+# moved inline dot file into images/graphpocalypse.dot
 
-#+RESULTS:
 [[file:images/graphpocalypse.png]]
 
-
-** TODO Extra source: scalap
 ** TODO New kinds of queries
 ** TODO New kinds of features
 
