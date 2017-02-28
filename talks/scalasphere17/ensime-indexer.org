@@ -657,9 +657,11 @@ requested by users: *find usages* and *show implementations*.
 
 * Future
 
+** Needs Contributors
+
 - more granular API
 - perf improvements
 - more data sources
 - rewrite: FS2 / Swave / Monix / scala-async
 - natural search (type search)
-- needs contributors!
+
