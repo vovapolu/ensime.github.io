@@ -537,6 +537,32 @@ with the line and offset (if we know it).
 - but not =some/other/place/Filename.scala=
 - nor multiple sources in different jars
 
+** Lucene
+
+#+BEGIN_SRC scala
+  class FqnAnalyzer extends DynamicSynonymAnalyzer {
+    private def cases(s: String) = List(s, s.toLowerCase)
+    override def synonyms(term: String): Set[String] = {
+      val (path, name) = term.replaceAll("\\(.*", "").split('.').toList.initLast
+      def camel(s: String) = s.filter(_.isUpper)
+      def spacey(s: String) = List(s, s.replace('.', ' '))
+
+      val shortPkg = path.map(_.charAt(0)).mkString("", ".", "." + name)
+      val innerNames = name.split('$').flatMap(cases)
+
+      Set(term, name, camel(name)) ++ innerNames ++ spacey(shortPkg)
+    }.filter(_.size > 1).flatMap(cases) - term
+  }
+#+END_SRC
+
+-----
+
+- do we really need Lucene?
+  - probably not
+  - one user, we can spend CPU cycles
+- could just index FQNs in-memory
+  - e.g. Emacs `flx-ido`
+
 ** Limitations
 
 - we are throwing away almost everything
@@ -609,22 +635,31 @@ requested by users: *find usages* and *show implementations*.
 
 [[file:images/graphpocalypse.png]]
 
-** TODO New kinds of queries
-** TODO New kinds of features
+** New kinds of data
+
+- scalap attached to the nodes
+- =scala.meta=
+- runtime information (needs agent)
+
+** New kinds of features
 
 - find implementations
 - find usages
 - find dead code
-- stats gathering
-- linkage / compilation optimisation
+- coverage
+- compilation optimisation
 
-** TODO Performance Considerations
+** Performance Considerations
 
-- testing
+- OrientDB 3x slower to index than H2
+- [[https://github.com/ensime/ensime-server/issues/1708][OrientDB are helping us]]
+- Forced us to optimise our CI tests
 
 * Future
-** TODO more granular API
-** TODO perf improvements
-** TODO more data sources
-** TODO FreeMonad / Swave / Monix / scala-async rewrite
-** TODO query language for Lucene index
+
+- more granular API
+- perf improvements
+- more data sources
+- rewrite: FS2 / Swave / Monix / scala-async
+- natural search (type search)
+- needs contributors!
