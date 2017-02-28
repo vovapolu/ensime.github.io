@@ -460,6 +460,34 @@ Lorg/ensime/Dummy&lt;Ljava/util/List&lt;-Ljava/lang/Number;&gt;;&gt;;
 <li class="fragment">but not <code>some/other/place/Filename.scala</code></li>
 <li class="fragment">nor multiple sources in different jars</li>
 </ul>
+</section><section id="lucene" class="slide level2">
+<h2>Lucene</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">class</span> FqnAnalyzer <span class="kw">extends</span> DynamicSynonymAnalyzer {
+  <span class="kw">private</span> <span class="kw">def</span> <span class="fu">cases</span>(s: String) = List(s, s.<span class="fu">toLowerCase</span>)
+  <span class="kw">override</span> <span class="kw">def</span> <span class="fu">synonyms</span>(term: String): Set[String] = {
+    <span class="kw">val</span> (path, name) = term.<span class="fu">replaceAll</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">(.*&quot;</span>, <span class="st">&quot;&quot;</span>).<span class="fu">split</span>(<span class="ch">&#39;.&#39;</span>).<span class="fu">toList</span>.<span class="fu">initLast</span>
+    <span class="kw">def</span> <span class="fu">camel</span>(s: String) = s.<span class="fu">filter</span>(_.<span class="fu">isUpper</span>)
+    <span class="kw">def</span> <span class="fu">spacey</span>(s: String) = List(s, s.<span class="fu">replace</span>(<span class="ch">&#39;.&#39;</span>, <span class="ch">&#39; &#39;</span>))
+
+    <span class="kw">val</span> shortPkg = path.<span class="fu">map</span>(_.<span class="fu">charAt</span>(<span class="dv">0</span>)).<span class="fu">mkString</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;.&quot;</span> + name)
+    <span class="kw">val</span> innerNames = name.<span class="fu">split</span>(<span class="ch">&#39;$&#39;</span>).<span class="fu">flatMap</span>(cases)
+
+    Set(term, name, <span class="fu">camel</span>(name)) ++ innerNames ++ <span class="fu">spacey</span>(shortPkg)
+  }.<span class="fu">filter</span>(_.<span class="fu">size</span> &gt; <span class="dv">1</span>).<span class="fu">flatMap</span>(cases) - term
+}</code></pre></div>
+</section><section class="slide level2">
+
+<ul>
+<li class="fragment">do we really need Lucene?
+<ul>
+<li class="fragment">probably not</li>
+<li class="fragment">one user, we can spend CPU cycles</li>
+</ul></li>
+<li class="fragment">could just index FQNs in-memory
+<ul>
+<li class="fragment">e.g. Emacs `flx-ido`</li>
+</ul></li>
+</ul>
 </section><section id="limitations" class="slide level2">
 <h2>Limitations</h2>
 <ul>
@@ -520,34 +548,31 @@ Future {
 </section><section id="graphpocalypse" class="slide level2">
 <h2>Graphpocalypse</h2>
 <p><img src="images/graphpocalypse.png" /></p>
-</section><section id="new-kinds-of-queries" class="slide level2">
-<h2><span class="todo TODO">TODO</span> New kinds of queries</h2>
+</section><section id="new-kinds-of-data" class="slide level2">
+<h2>New kinds of data</h2>
+<ul>
+<li class="fragment">scalap attached to the nodes</li>
+<li class="fragment"><code>scala.meta</code></li>
+<li class="fragment">runtime information (needs agent)</li>
+</ul>
 </section><section id="new-kinds-of-features" class="slide level2">
-<h2><span class="todo TODO">TODO</span> New kinds of features</h2>
+<h2>New kinds of features</h2>
 <ul>
 <li class="fragment">find implementations</li>
 <li class="fragment">find usages</li>
 <li class="fragment">find dead code</li>
-<li class="fragment">stats gathering</li>
-<li class="fragment">linkage / compilation optimisation</li>
+<li class="fragment">coverage</li>
+<li class="fragment">compilation optimisation</li>
 </ul>
 </section><section id="performance-considerations" class="slide level2">
-<h2><span class="todo TODO">TODO</span> Performance Considerations</h2>
+<h2>Performance Considerations</h2>
 <ul>
-<li class="fragment">testing</li>
+<li class="fragment">OrientDB 3x slower to index than H2</li>
+<li class="fragment"><a href="https://github.com/ensime/ensime-server/issues/1708">OrientDB are helping us</a></li>
+<li class="fragment">Forced us to optimise our CI tests</li>
 </ul>
 </section></section>
-<section><section id="future" class="titleslide slide level1"><h1>Future</h1></section><section id="more-granular-api" class="slide level2">
-<h2><span class="todo TODO">TODO</span> more granular API</h2>
-</section><section id="perf-improvements" class="slide level2">
-<h2><span class="todo TODO">TODO</span> perf improvements</h2>
-</section><section id="more-data-sources" class="slide level2">
-<h2><span class="todo TODO">TODO</span> more data sources</h2>
-</section><section id="freemonad-swave-monix-scala-async-rewrite" class="slide level2">
-<h2><span class="todo TODO">TODO</span> FreeMonad / Swave / Monix / scala-async rewrite</h2>
-</section><section id="query-language-for-lucene-index" class="slide level2">
-<h2><span class="todo TODO">TODO</span> query language for Lucene index</h2>
-</section></section>
+<section><section id="future" class="titleslide slide level1"><h1>Future</h1></section></section>
     </div>
   </div>
 

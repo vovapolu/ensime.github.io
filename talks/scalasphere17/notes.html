@@ -403,6 +403,32 @@ Lorg/ensime/Dummy&lt;Ljava/util/List&lt;-Ljava/lang/Number;&gt;;&gt;;
 <li>but not <code>some/other/place/Filename.scala</code></li>
 <li>nor multiple sources in different jars</li>
 </ul>
+<h2 id="lucene">Lucene</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">class</span> FqnAnalyzer <span class="kw">extends</span> DynamicSynonymAnalyzer {
+  <span class="kw">private</span> <span class="kw">def</span> <span class="fu">cases</span>(s: String) = List(s, s.<span class="fu">toLowerCase</span>)
+  <span class="kw">override</span> <span class="kw">def</span> <span class="fu">synonyms</span>(term: String): Set[String] = {
+    <span class="kw">val</span> (path, name) = term.<span class="fu">replaceAll</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">(.*&quot;</span>, <span class="st">&quot;&quot;</span>).<span class="fu">split</span>(<span class="ch">&#39;.&#39;</span>).<span class="fu">toList</span>.<span class="fu">initLast</span>
+    <span class="kw">def</span> <span class="fu">camel</span>(s: String) = s.<span class="fu">filter</span>(_.<span class="fu">isUpper</span>)
+    <span class="kw">def</span> <span class="fu">spacey</span>(s: String) = List(s, s.<span class="fu">replace</span>(<span class="ch">&#39;.&#39;</span>, <span class="ch">&#39; &#39;</span>))
+
+    <span class="kw">val</span> shortPkg = path.<span class="fu">map</span>(_.<span class="fu">charAt</span>(<span class="dv">0</span>)).<span class="fu">mkString</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;.&quot;</span> + name)
+    <span class="kw">val</span> innerNames = name.<span class="fu">split</span>(<span class="ch">&#39;$&#39;</span>).<span class="fu">flatMap</span>(cases)
+
+    Set(term, name, <span class="fu">camel</span>(name)) ++ innerNames ++ <span class="fu">spacey</span>(shortPkg)
+  }.<span class="fu">filter</span>(_.<span class="fu">size</span> &gt; <span class="dv">1</span>).<span class="fu">flatMap</span>(cases) - term
+}</code></pre></div>
+<hr />
+<ul>
+<li>do we really need Lucene?
+<ul>
+<li>probably not</li>
+<li>one user, we can spend CPU cycles</li>
+</ul></li>
+<li>could just index FQNs in-memory
+<ul>
+<li>e.g. Emacs `flx-ido`</li>
+</ul></li>
+</ul>
 <h2 id="limitations">Limitations</h2>
 <ul>
 <li>we are throwing away almost everything
@@ -456,25 +482,35 @@ Future {
 </blockquote>
 <h2 id="graphpocalypse">Graphpocalypse</h2>
 <p><img src="images/graphpocalypse.png" /></p>
-<h2 id="new-kinds-of-queries"><span class="todo TODO">TODO</span> New kinds of queries</h2>
-<h2 id="new-kinds-of-features"><span class="todo TODO">TODO</span> New kinds of features</h2>
+<h2 id="new-kinds-of-data">New kinds of data</h2>
+<ul>
+<li>scalap attached to the nodes</li>
+<li><code>scala.meta</code></li>
+<li>runtime information (needs agent)</li>
+</ul>
+<h2 id="new-kinds-of-features">New kinds of features</h2>
 <ul>
 <li>find implementations</li>
 <li>find usages</li>
 <li>find dead code</li>
-<li>stats gathering</li>
-<li>linkage / compilation optimisation</li>
+<li>coverage</li>
+<li>compilation optimisation</li>
 </ul>
-<h2 id="performance-considerations"><span class="todo TODO">TODO</span> Performance Considerations</h2>
+<h2 id="performance-considerations">Performance Considerations</h2>
 <ul>
-<li>testing</li>
+<li>OrientDB 3x slower to index than H2</li>
+<li><a href="https://github.com/ensime/ensime-server/issues/1708">OrientDB are helping us</a></li>
+<li>Forced us to optimise our CI tests</li>
 </ul>
 <h1 id="future">Future</h1>
-<h2 id="more-granular-api"><span class="todo TODO">TODO</span> more granular API</h2>
-<h2 id="perf-improvements"><span class="todo TODO">TODO</span> perf improvements</h2>
-<h2 id="more-data-sources"><span class="todo TODO">TODO</span> more data sources</h2>
-<h2 id="freemonad-swave-monix-scala-async-rewrite"><span class="todo TODO">TODO</span> FreeMonad / Swave / Monix / scala-async rewrite</h2>
-<h2 id="query-language-for-lucene-index"><span class="todo TODO">TODO</span> query language for Lucene index</h2>
+<ul>
+<li>more granular API</li>
+<li>perf improvements</li>
+<li>more data sources</li>
+<li>rewrite: FS2 / Swave / Monix / scala-async</li>
+<li>natural search (type search)</li>
+<li>needs contributors!</li>
+</ul>
   <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     $("div").hide();
