@@ -38,7 +38,7 @@ Then add the following to your `pom` file:
   <plugin>
     <groupId>org.ensime.maven.plugins</groupId>
     <artifactId>ensime-maven</artifactId>
-    <version>1.0.3</version>
+    <version>1.1.0</version>
   </plugin>
 </plugins>
 ```
@@ -50,3 +50,26 @@ To actually generate the `.ensime` file from your pom, run:
 ```
 mvn ensime:generate
 ```
+
+
+## Format the Scala sources
+
+Format `.scala` files using Scalariform settings (compatible with, but does not require, `maven-scalariform` plugin).
+
+```
+mvn ensime:scalariform
+```
+
+You can customize it by passing the `salariform` settings to this plugin's `configuration`:
+
+```xml
+<plugin>
+  <groupId>org.ensime.maven.plugins</groupId>
+  <artifactId>ensime-maven</artifactId>
+  <version>1.1.0</version>
+  <configuration>
+    <indentSpaces>2</indentSpaces>
+  </configuration>
+</plugin>
+```
+For the list of options and the default settings, please refer to the `maven-scalariorm` [plugin](https://github.com/mdr/scalariform-maven-plugin).
