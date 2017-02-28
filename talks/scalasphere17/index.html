@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Sam Halliday">
+  <title>Indexing in ENSIME</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js//css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
+  </style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js//css/theme/white.css" id="theme">
+  <link rel="stylesheet" href="overrides.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js//css/print/pdf.css' : 'http://lab.hakim.se/reveal-js//css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js//lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="presentation-copyright">
+  &copy; 2017 Sam Halliday<br/>
+  Content: <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a><br/>
+  Code: <a href="http://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3</a><br/>
+  Theme: <a href="http://directory.fsf.org/wiki/License:Expat">MIT</a>
+</div>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Indexing in ENSIME</h1>
+  <p class="author">Sam Halliday</p>
+  <p class="date">Scala Sphere 2017</p>
+</section>
+
+<section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="sam-halliday-fommil" class="slide level2">
+<h2>Sam Halliday <code>@fommil</code></h2>
+<ul>
+<li class="fragment">Chartered Mathematician
+<ul>
+<li class="fragment">DSP, optimisation, quantum, machine learning, etc</li>
+</ul></li>
+<li class="fragment">Libre Education and Software
+<ul>
+<li class="fragment">5mil textbooks in South Africa (Siyavula)</li>
+<li class="fragment">FSF Fellow (they fight for BSD / Apache too!)</li>
+<li class="fragment"><code>netlib-java</code> (underpinning Spark ML)</li>
+<li class="fragment">ENSIME core developer</li>
+</ul></li>
+</ul>
+<div class="NOTES">
+<p>I am really an applied mathematician by training, this software thing is really just a hobby that pays the bills.</p>
+<p>Before the crash, I did industrial research in digital signal processing, multi-high-dimensional optimisation, quantum mechanics, machine learning and a bunch of other stuff that I could just talk about forever.</p>
+<p>I’m really into Free or Libre education and software. When I was a student in Cape Town I was one of the founders of an initiative that eventually became Siyavula and has printed 5 million Free textbooks to students in South Africa.</p>
+<p>I’m a fellow of the Free Software Foundation. I believe they do really great things and I’d encourage you to join up even if you don’t believe in the GPL. They are doing some great lobbying for all of us against legislation that seeks to undermine our right to use or write Free software, which includes the Apache 2.0 and BSD licenses.</p>
+<p>My most used free software project is <code>netlib-java</code>, which I spoke about at last year’s Scala eXchange. It’s included in the Spark Machine Learning library.</p>
+<p>But my favourite project is ENSIME, which is an alternative development environment to Eclipse and IntelliJ for Scala and now Java.</p>
+</div>
+</section><section id="editor-poll" class="slide level2">
+<h2>Editor Poll</h2>
+<ul>
+<li class="fragment">IntelliJ</li>
+<li class="fragment">ScalaIDE</li>
+<li class="fragment">ENSIME</li>
+<li class="fragment">Other</li>
+</ul>
+</section><section id="what-is-ensime" class="slide level2">
+<h2>What is ENSIME</h2>
+<ul>
+<li class="fragment">language server for Scala (and Java)</li>
+<li class="fragment">build tool plugins (sbt, maven, etc)</li>
+<li class="fragment">text editor plugins (emacs, vim, etc)</li>
+</ul>
+</section><section id="what-is-an-indexer-for" class="slide level2">
+<h2>What is an Indexer for?</h2>
+<ul>
+<li class="fragment">import class at point</li>
+<li class="fragment">jump to source (classes, methods, fields)</li>
+<li class="fragment">CamelCase / substring search</li>
+<li class="fragment"><del>find implementations</del></li>
+<li class="fragment"><del>find references</del></li>
+</ul>
+</section><section id="architecture" class="slide level2">
+<h2>Architecture</h2>
+<p><img src="images/architecture.png" /></p>
+<div class="NOTES">
+<p>This is an architectural overview of the internals of the ensime-server, which is bounded here by the dotted lines.</p>
+<p>The text editor communicates with the server via SWANK, a bidirectional TCP/IP sockets protocol using S-Expressions as the language, or JERKY which is JSON over WebSockets.</p>
+<p>The server runs locally, so it also has direct access to the files on the disc and can watch for changes without needing to be told about them. This is typically used for detecting changes in the compiled files rather than looking for changes in source code.</p>
+<p>And when the server is started, it needs to be given a <code>.ensime</code> file which defines the project layout. This is typically generated by the build tool.</p>
+<p>Inside the server, everything goes via the central Project class which effectively just delegates to the relevant sub-component. The two big parts are the Search Service and the Analyzer:</p>
+<ol>
+<li class="fragment">The Search Service indexes all the binaries related to the project, including third party jars. We use ASM to do the heavy lifting and we persist the results to H2 to enable various types of searches. We also build up an index in Lucene for advanced searching, such as camel case searching of a classname.</li>
+<li class="fragment">The Analyzer is our layer that sits on top of the Scala Presentation Compiler, which is an interactive version of the Scala Compiler but is supposed to be quicker because it shortcuts various stages in order to be responsive. This is the same backend that is used by the Scala IDE, but it is released as part of the official Scala Compiler jar.</li>
+<li class="fragment">We also have the ability to identify source code to binaries, e.g. to relate your third party source zip files to the jars that you’re including. This lets us implement the “jump to source” functionality beyond the user’s project files.</li>
+<li class="fragment">Documentation is hosted via a Spray HTTP server and viewed in a normal web browser.</li>
+<li class="fragment">A debug manager component allows interactive debugging sessions against a running JVM. It manages the state of the threads and allows stepping and inspection.</li>
+</ol>
+</div>
+</section></section>
+<section><section id="section" class="titleslide slide level1"><h1>1.0</h1></section><section id="index-vs-database" class="slide level2">
+<h2>Index vs Database</h2>
+<ul>
+<li class="fragment">Database
+<ul>
+<li class="fragment">retrievable data</li>
+<li class="fragment">fully qualified name</li>
+</ul></li>
+<li class="fragment">Index
+<ul>
+<li class="fragment">human search (CamelCase, simple classname)</li>
+<li class="fragment">not needed if you have the FQN</li>
+</ul></li>
+</ul>
+</section><section id="how-we-extract-the-data" class="slide level2">
+<h2>How we extract the data</h2>
+<p><img src="images/extracting.png" /></p>
+</section><section id="asm-classvisitor" class="slide level2">
+<h2>ASM: ClassVisitor</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> org.<span class="fu">objectweb</span>.<span class="fu">asm</span>._
+<span class="kw">import</span> org.<span class="fu">objectweb</span>.<span class="fu">asm</span>.<span class="fu">Opcodes</span>._
+
+<span class="kw">val</span> receiver = <span class="kw">new</span> <span class="fu">ClassVisitor</span>(ASM5) { ... }
+<span class="kw">val</span> reader = <span class="kw">new</span> <span class="fu">ClassReader</span>(in)
+reader.<span class="fu">accept</span>(receiver, ClassReader.<span class="fu">SKIP_FRAMES</span>)
+receiver <span class="co">// mutated having been visited</span></code></pre></div>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">override</span> <span class="kw">def</span> <span class="fu">visit</span>(
+  version: Int,
+  access: Int,
+  name: String,
+  signature: String,
+  superName: String,
+  interfaces: Array[String]
+): Unit</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">override</span> <span class="kw">def</span> <span class="fu">visitSource</span>(
+  filename: String,
+  debug: String
+): Unit</code></pre></div>
+</section><section id="asm-methodvisitor" class="slide level2">
+<h2>ASM: MethodVisitor</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">override</span> <span class="kw">def</span> <span class="fu">visitMethod</span>(
+  access: Int,
+  region: String,
+  desc: String,
+  signature: String,
+  exceptions: Array[String]
+) = <span class="kw">new</span> MethodVisitor {
+  <span class="kw">override</span> <span class="kw">def</span> <span class="fu">visitMethodInsn</span>(
+    opcode: Int,
+    owner: String,
+    name: String,
+    desc: String,
+    itf: Boolean
+  ): Unit</code></pre></div>
+</section><section id="asm-fieldvisitor" class="slide level2">
+<h2>ASM: FieldVisitor</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">override</span> <span class="kw">def</span> <span class="fu">visitField</span>(
+  access: Int,
+  name: String,
+  desc: String,
+  signature: String,
+  value: AnyRef
+) = <span class="kw">new</span> FieldVisitor {
+  <span class="kw">override</span> <span class="kw">def</span> <span class="fu">visitAnnotation</span>(
+    desc: String,
+    visible: Boolean
+   ): Unit</code></pre></div>
+</section><section id="scalap" class="slide level2">
+<h2>scalap</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> scala.<span class="fu">tools</span>.<span class="fu">scalap</span>.<span class="fu">scalax</span>.<span class="fu">rules</span>.<span class="fu">scalasig</span>._
+
+<span class="kw">val</span> classFile = ClassFileParser.<span class="fu">parse</span>(byteCode)
+ScalaSigParser.<span class="fu">parse</span>(classFile): Option[ScalaSig]</code></pre></div>
+</section><section id="fqns-and-descriptors" class="slide level2">
+<h2>FQNs and Descriptors</h2>
+<pre><code>scala.collection.immutable.List
+scala.collection.immutable.List$
+scala.collection.immutable.$colon$colon
+scala.collection.immutable.$colon$colon$
+scala.collection.immutable.Nil
+scala.collection.immutable.Nil$
+</code></pre>
+</section><section class="slide level2">
+
+<pre><code>scala.collection.convert.package$$anon$1
+scala.collection.convert.package$$anon$2
+scala.collection.convert.package$$anon$3
+scala.collection.convert.package$$anon$4
+scala.collection.convert.package$$anon$5
+scala.collection.convert.package$
+scala.collection.convert.package
+</code></pre>
+</section><section class="slide level2">
+
+<pre><code>java.nio.channels.FileChannel.write // OVERLOADING!
+</code></pre>
+<pre><code>java.nio.channels.FileChannel.write(Ljava/nio/ByteBuffer;)I
+java.nio.channels.FileChannel.write([Ljava/nio/ByteBuffer;II)J
+java.nio.channels.FileChannel.write([Ljava/nio/ByteBuffer;)J
+java.nio.channels.FileChannel.write(Ljava/nio/ByteBuffer;J)I
+</code></pre>
+<div class="NOTES">
+<p>We hit a problem when we get to methods, because overloaded methods have the same FQN in bytecode.</p>
+<p>We have a hack, and we include the descriptor in the FQN.</p>
+<p>But the descriptor is another kind of string with its own format. e.g. slashes instead of dots, and a representation for arrays and primitives, and separating parameters from return values.</p>
+<p>And remember, everything is erased… so an FQN does not include generic information.</p>
+</div>
+</section><section id="model" class="slide level2">
+<h2>Model</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">type</span> S = String
+<span class="kw">sealed</span> <span class="kw">trait</span> Desc { <span class="kw">def</span> desc: S }
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">ArrayDescriptor</span>(fqn: Desc) <span class="kw">extends</span> Desc
+<span class="kw">case</span> <span class="kw">class</span> Descriptor(params: List[Desc], ret: Desc)
+
+<span class="kw">sealed</span> <span class="kw">trait</span> Fqn { <span class="kw">def</span> fqn: S}
+<span class="kw">case</span> <span class="kw">class</span> Package(p: List[S]) <span class="kw">extends</span> Fqn
+<span class="kw">case</span> <span class="kw">class</span> Class(p: Package, n: S) <span class="kw">extends</span> Fqn <span class="kw">with</span> Desc
+
+<span class="kw">sealed</span> <span class="kw">trait</span> Member <span class="kw">extends</span> Fqn
+<span class="kw">case</span> <span class="kw">class</span> Field(o: Class, n: S) <span class="kw">extends</span> Member
+<span class="kw">case</span> <span class="kw">class</span> Method(o: Class, n: S, d: Descriptor) <span class="kw">extends</span> Member</code></pre></div>
+<div class="NOTES">
+<p>This is how we model the core ADT, I’m taking some liberties here to let it fit onto one slide.</p>
+<p>Note that a <code>Desc</code> is an internal bytecode string, and so is an <code>Fqn</code>.</p>
+<p>I could probably have modelled this much cleaner with typeclasses.</p>
+</div>
+</section><section id="generics" class="slide level2">
+<h2>Generics</h2>
+<ul>
+<li class="fragment">Bytecode / Java Generics <strong>not</strong> Scala types</li>
+<li class="fragment">how hard can it be?</li>
+</ul>
+</section><section class="slide level2">
+
+<pre><code>
+class Foo[T]
+&lt;X:Ljava/lang/Object;&gt;Ljava/lang/Object;
+
+&lt;T::Lorg/ensime/TraitOne;:Lorg/ensime/TraitTwo;&gt;Ljava/lang/Object;
+
+&lt;U:Ljava/lang/Object;V:Lorg/ensime/DummyParent&lt;TU;&gt;;&gt;Lorg/ensime/DummyParent&lt;TV;&gt;;
+
+// +- is upper/lower not covariance/contravariance
+Dummy[java.util.List[_ &gt;: Number]]
+Lorg/ensime/Dummy&lt;Ljava/util/List&lt;-Ljava/lang/Number;&gt;;&gt;;
+</code></pre>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// contributed with SignatureParser by Adam Sznajder</span>
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">GenericClass</span>(
+  params: Seq[GenericParam],
+  supers: Seq[GenericClassName]
+)
+
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">GenericParam</span>(
+  n: S,
+  classes: Seq[Generic]
+)</code></pre></div>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">sealed</span> <span class="kw">trait</span> Generic
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">GenericArray</span>(className: Generic) <span class="kw">extends</span> Generic
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">GenericVar</span>(name: S) <span class="kw">extends</span> Generic
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">GenericClassName</span>(
+  c: ClassName,
+  args: Seq[GenericArg],
+  inners: Seq[InnerClassName]
+) <span class="kw">extends</span> Generic</code></pre></div>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">case</span> <span class="kw">class</span> <span class="fu">GenericArg</span>(bound: Option[BoundType], sig: Generic)
+
+<span class="kw">sealed</span> <span class="kw">trait</span> BoundType
+<span class="kw">case</span> <span class="kw">object</span> UpperBound <span class="kw">extends</span> BoundType
+<span class="kw">case</span> <span class="kw">object</span> LowerBound <span class="kw">extends</span> BoundType
+
+<span class="co">// e.g. Lorg/scalatest/SuperEngine&lt;TT;&gt;.Node;</span>
+<span class="co">// (kinda weird that it&#39;s a special case...)</span>
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">InnerClassName</span>(n: S, args: Seq[GenericArg])</code></pre></div>
+</section><section id="adt" class="slide level2">
+<h2>ADT</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">case</span> <span class="kw">class</span> <span class="fu">RawClassfile</span>(
+  name: ClassName,
+  generics: Option[GenericClass],
+  superClass: Option[ClassName],
+  interfaces: List[ClassName],
+  access: Access,
+  deprecated: Boolean,
+  fields: Queue[RawField],
+  methods: Queue[RawMethod],
+  source: RawSource
+)
+
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">RawSource</span>(file: Option[S], line: Option[Int])</code></pre></div>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">case</span> <span class="kw">class</span> <span class="fu">RawField</span>(
+  name: FieldName,
+  clazz: DescriptorType,
+  generics: Option[S],
+  access: Access
+)
+
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">RawMethod</span>(
+  name: MethodName,
+  access: Access,
+  generics: Option[S],
+  line: Option[Int]
+)</code></pre></div>
+</section><section id="scalap-names" class="slide level2">
+<h2>Scalap names</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">case</span> <span class="kw">class</span> <span class="fu">RawType</span>(
+  fqn: S,
+  access: Access
+)
+
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">RawScalaClass</span>(
+  javaName: ClassName,
+  scalaName: S,
+  typeSignature: S,
+  access: Access,
+  declaredAs: DeclaredAs,
+  fields: Seq[RawScalaField],
+  methods: Seq[RawScalaMethod]
+)</code></pre></div>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">case</span> <span class="kw">class</span> <span class="fu">RawScalaField</span>(
+  javaName: FieldName,
+  scalaName: S,
+  typeInfo: S,
+  access: Access
+)
+
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">RawScalaMethod</span>(
+  scalaName: S,
+  signature: S,
+  access: Access
+)</code></pre></div>
+</section><section id="what-we-store" class="slide level2">
+<h2>What we store</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">final</span> <span class="kw">case</span> <span class="kw">class</span> <span class="fu">FileCheck</span>(
+    id: Option[Int],
+    filename: String,
+    timestamp: Timestamp
+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">final</span> <span class="kw">case</span> <span class="kw">class</span> <span class="fu">FqnSymbol</span>(
+    id: Option[Int],
+    file: String, <span class="co">// the underlying file (class or jar)</span>
+    path: String, <span class="co">// URL to the classfile</span>
+    fqn: String,  <span class="co">// should really be the primary key</span>
+    internal: Option[String], <span class="co">// FQN of a field&#39;s type</span>
+    source: Option[String], <span class="co">// URL to the source file</span>
+    line: Option[Int],
+    offset: Option[Int] = None
+)</code></pre></div>
+<div class="NOTES">
+<p>This is the definition of the very simple SQL schema (we use slick to access H2).</p>
+<p>We have a TABLE to keep track of the timestamp of every file that we are tracking.</p>
+<p>And for every FQN in your project, we store the <code>file</code> that it is contained in, and the URL <code>path</code> to that file. There is probably a lot of wasted memory here because almost everything will have the same prefix.</p>
+<p>The <code>fqn</code> should probably be the id field to be honest but we had some problems with duplicate FQNs in an earlier schema that we’ve since resolved (overloaded methods). This is the bytecode FQN plus the method signature if it’s a method.q</p>
+<p>The <code>internal</code> column is for storing the FQN of a field’s type (if this FQN is a field). With this we can distinguish between fields, methods and classes.</p>
+<p>The <code>source</code> is the full URL of the source code for this FQN, along with the line and offset (if we know it).</p>
+</div>
+</section><section class="slide level2">
+
+<h3 id="does-it-sound-familiar">does it sound familiar?</h3>
+</section><section id="caching-and-naming" class="slide level2">
+<h2>Caching and Naming</h2>
+<blockquote>
+<p>“There are only two hard things in Computer Science”</p>
+<p>– Phil Karlton</p>
+</blockquote>
+</section><section id="a-rose-by-any-other-name" class="slide level2">
+<h2>A rose by any other name</h2>
+<ul>
+<li class="fragment">bytecode FQN</li>
+<li class="fragment">descriptor</li>
+<li class="fragment">FQN + descriptor</li>
+<li class="fragment">name with generics</li>
+<li class="fragment">scalap name</li>
+<li class="fragment">java language name</li>
+<li class="fragment">scala language name</li>
+<li class="fragment">scalac internal name</li>
+</ul>
+</section><section id="workaround" class="slide level2">
+<h2>Workaround</h2>
+<ul>
+<li class="fragment">convert everything to FQN + descriptor</li>
+</ul>
+</section><section id="about-that-caching" class="slide level2">
+<h2>About that caching…</h2>
+<ul>
+<li class="fragment">one big batch index on startup
+<ul>
+<li class="fragment">fast restart is a design requirement</li>
+</ul></li>
+<li class="fragment">incremental in response to filewatcher
+<ul>
+<li class="fragment">not as important: structure rarely changes</li>
+<li class="fragment">debounce, don’t handle failures</li>
+</ul></li>
+</ul>
+</section><section id="source-resolver" class="slide level2">
+<h2>Source Resolver</h2>
+<ul>
+<li class="fragment">bytecode: <code>Filename.scala:123</code></li>
+<li class="fragment">we know the <code>path/to/the/Clazz.class</code></li>
+<li class="fragment">infer <code>path/to/the/Filename.scala</code></li>
+<li class="fragment">and <code>path/Filename.scala</code></li>
+<li class="fragment">but not <code>some/other/place/Filename.scala</code></li>
+<li class="fragment">nor multiple sources in different jars</li>
+</ul>
+</section><section id="limitations" class="slide level2">
+<h2>Limitations</h2>
+<ul>
+<li class="fragment">we are throwing away almost everything
+<ul>
+<li class="fragment">references (i.e. find usages)</li>
+<li class="fragment">hierachy (i.e. find implementations)</li>
+<li class="fragment">scala type info (i.e. semantic search)</li>
+</ul></li>
+</ul>
+<div class="NOTES">
+<ul>
+<li class="fragment">throwing stuff away</li>
+<li class="fragment">minimal use of scalap</li>
+</ul>
+</div>
+</section><section id="it-all-started-so-well" class="slide level2">
+<h2>It all started so well</h2>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">for</span> {
+  checks &lt;- db.<span class="fu">knownFiles</span>()
+  stale = <span class="fu">findStaleFileChecks</span>(checks)
+  deletes &lt;- <span class="fu">deleteReferences</span>(stale)
+  bases = <span class="fu">findBases</span>()
+  added &lt;- <span class="fu">indexBases</span>(bases, checks)
+  _ &lt;- <span class="fu">commitIndex</span>()
+} <span class="kw">yield</span> (deletes, added)</code></pre></div>
+</section><section id="horror-of-the-code" class="slide level2">
+<h2>Horror of the code</h2>
+<p>You know you’re in trouble when…</p>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> global: ExecutionContext = <span class="kw">null</span>
+<span class="kw">val</span> ec = dispatchers.<span class="fu">lookup</span>(<span class="st">&quot;magic-dispatcher&quot;</span>)
+
+Future {
+  blocking {
+    semaphore.<span class="fu">acquire</span>() <span class="co">// homebrew backpressure</span>
+</code></pre></div>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// TODO: make up our mind out being a service or actor...</span>
+<span class="kw">class</span> <span class="fu">IndexingQueueActor</span>(searchService: SearchService)
+  <span class="kw">with</span> ActorLogging {
+
+    <span class="co">// FileObject.equals doesn&#39;t work, use toString as keys</span>
+    <span class="kw">var</span> todo = Map.<span class="fu">empty</span>[String, FileObject]
+    <span class="co">// TODO: refactor this into DebounceActor</span>
+    <span class="kw">var</span> worker: Cancellable = _
+
+    <span class="kw">val</span> advice =
+      <span class="st">&quot;If the problem persists, you may need to restart&quot;</span></code></pre></div>
+</section></section>
+<section><section id="section-1" class="titleslide slide level1"><h1>2.0</h1></section><section id="google-summer-of-code" class="slide level2">
+<h2>Google Summer of Code</h2>
+<blockquote>
+<p>Several key features are missing from ENSIME that are frequently requested by users: <strong>find usages</strong> and <strong>show implementations</strong>.</p>
+</blockquote>
+</section><section id="graphpocalypse" class="slide level2">
+<h2>Graphpocalypse</h2>
+<p><img src="images/graphpocalypse.png" /></p>
+</section><section id="new-kinds-of-queries" class="slide level2">
+<h2><span class="todo TODO">TODO</span> New kinds of queries</h2>
+</section><section id="new-kinds-of-features" class="slide level2">
+<h2><span class="todo TODO">TODO</span> New kinds of features</h2>
+<ul>
+<li class="fragment">find implementations</li>
+<li class="fragment">find usages</li>
+<li class="fragment">find dead code</li>
+<li class="fragment">stats gathering</li>
+<li class="fragment">linkage / compilation optimisation</li>
+</ul>
+</section><section id="performance-considerations" class="slide level2">
+<h2><span class="todo TODO">TODO</span> Performance Considerations</h2>
+<ul>
+<li class="fragment">testing</li>
+</ul>
+</section></section>
+<section><section id="future" class="titleslide slide level1"><h1>Future</h1></section><section id="more-granular-api" class="slide level2">
+<h2><span class="todo TODO">TODO</span> more granular API</h2>
+</section><section id="perf-improvements" class="slide level2">
+<h2><span class="todo TODO">TODO</span> perf improvements</h2>
+</section><section id="more-data-sources" class="slide level2">
+<h2><span class="todo TODO">TODO</span> more data sources</h2>
+</section><section id="freemonad-swave-monix-scala-async-rewrite" class="slide level2">
+<h2><span class="todo TODO">TODO</span> FreeMonad / Swave / Monix / scala-async rewrite</h2>
+</section><section id="query-language-for-lucene-index" class="slide level2">
+<h2><span class="todo TODO">TODO</span> query language for Lucene index</h2>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js//lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js//js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1024,
+        height: 768,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js//lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js//plugin/zoom-js/zoom.js', async: true },
+              { src: 'http://lab.hakim.se/reveal-js//plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

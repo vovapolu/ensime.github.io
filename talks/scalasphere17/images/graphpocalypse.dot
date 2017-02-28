@@ -1,15 +1,41 @@
-// dot -Kdot -Tpng graphpocalypse.dot > graphpocalypse.png
+// dot -Gbgcolor=transparent -Kdot -Tpng graphpocalypse.dot > graphpocalypse.png
 // #+BEGIN_SRC dot :file images/graphpocalypse.png :exports results :cmdline -Kdot -Tpng
 // #+END_SRC
 // #+RESULTS:
 
-digraph { 
-  id [label="Install Graphviz"]
-  conf [label="Configure org-babel"]
-  dot [label="DOT in org-mode"]
- 
-  id -> conf
-  conf -> dot
-  dot -> "Profit"
-  dot -> "Success" [style=dotted]
+digraph {
+
+    graph [bgcolor="transparent",layout="circo"]
+
+    file [label="Archive or File",style=filled]
+    src [label="Source\n- line\n- offset",style=filled]
+    class [label="Classfile\n- path\n- FQN",style=filled]
+    field [label="Member\n- FQN",style=filled]
+    method [label="Method\n- FQN",style=filled]
+
+    // source
+    class -> src
+    method -> src
+
+    // defined
+    class -> file
+    src -> file
+    
+    // ownership
+    method -> class [label="parent"]
+    class -> class [label="parent"]
+    field -> class [label="parent"]
+
+    method -> class [label="descriptor"]
+    field -> class [label="type"]
+    
+    // references
+    method -> field [style="dotted"]
+    method -> class [style="dotted"]
+    method -> method [style="dotted"]
+    class -> method [style="dotted"]
+    class -> field [style="dotted"]
+    class -> class [style="dotted"]
+    field -> class [style="dotted"]
+    
 }
