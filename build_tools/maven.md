@@ -66,7 +66,7 @@ You can customize it by passing the `salariform` settings to this plugin's `conf
 <plugin>
   <groupId>org.ensime.maven.plugins</groupId>
   <artifactId>ensime-maven</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <configuration>
     <indentSpaces>2</indentSpaces>
   </configuration>
