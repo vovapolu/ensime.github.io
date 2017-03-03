@@ -48,11 +48,11 @@ or set the sbt command explicitly
 
 ```elisp
 (setq
-  ensime-sbt-command "/path/to/your/sbt.cmd"
-  sbt:program-name "/path/to/your/sbt.cmd")
+  ensime-sbt-command "/path/to/your/sbt.bat"
+  sbt:program-name "/path/to/your/sbt.bat")
 ```
 
-Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) which provides many features specific to Scala major mode editing and sbt support is provided by [`sbt-mode`](/editors/emacs/sbt-mode). Both modes can be used independently of ENSIME and your are encouraged to read their standalone documentation to understand the role that they play.
+Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) which provides many features specific to Scala major mode editing and sbt support is provided by [`sbt-mode`](/editors/emacs/sbt-mode). Both modes can be used independently of ENSIME and you are encouraged to read their standalone documentation to understand the role that they play.
 
 ## Spacemacs
 
