@@ -36,8 +36,6 @@ The recommended way to install ENSIME is via MELPA stable and `use-package`:
 
 If you used the sample Emacs configuration from our [Learning Emacs](/editors/emacs/learning) section, then you can add the above code to the end of your `~/.emacs.d/init.el` file and restart Emacs (or `eval-last-sexp`).
 
-To use the unstable version of ENSIME from MELPA, change to `:pin melpa` (not recommended unless you are contributing to ENSIME) and read the documentation for your build tool plugin for additional steps that you need to make.
-
 For the server installation to work, make sure `sbt` is on your `PATH` environment variable or `exec-path` Emacs variable, e.g. on OS X this may mean adding:
 
 ```elisp
@@ -53,6 +51,24 @@ or set the sbt command explicitly
 ```
 
 Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) which provides many features specific to Scala major mode editing and sbt support is provided by [`sbt-mode`](/editors/emacs/sbt-mode). Both modes can be used independently of ENSIME and you are encouraged to read their standalone documentation to understand the role that they play.
+
+## Unstable / Developer Edition
+
+To use the unstable version of ENSIME from MELPA, change to `:pin melpa` (not recommended unless you are contributing to ENSIME):
+
+```elisp
+(use-package ensime
+  :ensure t
+  :pin melpa)
+
+(use-package sbt-mode
+  :pin melpa)
+
+(use-package scala-mode
+  :pin melpa)
+```
+
+and read the documentation for your build tool plugin (which is now the server installer) for additional steps that you need to make.
 
 ## Spacemacs
 
