@@ -38,27 +38,28 @@ The following chart describes how well ENSIME supports each editor:
 [Advanced type search]: https://github.com/ensime/ensime-server/issues/472
 [Passive suggestions]: https://github.com/ensime/ensime-server/issues/848
 [Whitebox macros]: https://github.com/fommil/imaginary-friend
+[Apache2]: https://www.apache.org/licenses/LICENSE-2.0
 
 | Learn more →           | [Emacs](emacs)            | [Atom](atom)           | [Vim](vim)          | [VSC](vscode)       | [Sublime](sublime)        |
 | ---------------------- | ------------------------- | ---------------------- | ------------------- | ------------------- | ------------------------- |
 | Homepage               | [![Emacs][emacsI]][emacs] | [![Atom][atomI]][atom] | [![Vim][vimI]][vim] | [![VSC][vscI]][vsc] | [![Sublime][sublI]][subl] |
 | Main language          | Emacs Lisp                | Coffeescript           | Python              | Typescript          | Python                    |
-| Upstream Licence       | [GPL]                     | [MIT]                  | [Charityware]       | [MIT]               | Proprietary               |
-| Type at point          | ✔                         | ✔                      | ✔                   |                     | ✔                         |
-| Contextual completion  | ✔                         | ✔                      | ✔                   |                     | ✔                         |
-| Live errors / warnings | ✔                         | ✔                      | ✔                   |                     | ✔                         |
+| Upstream Licence       | [GPL]                     | [MIT]                  | [Charityware]       | [GPL]/[Apache2]     | Proprietary               |
+| Type at point          | ✔                         | ✔                      | ✔                   | ✔                   | ✔                         |
+| Contextual completion  | ✔                         | ✔                      | ✔                   | ✔                   | ✔                         |
+| Live errors / warnings | ✔                         | ✔                      | ✔                   | ✔                   | ✔                         |
 | Semantic highlighting  | ✔                         |                        |                     |                     |                           |
 | Implicit conversions   | ✔                         | ✔                      |                     |                     |                           |
 | Import class at point  | ✔                         | ✔                      | ✔                   |                     | ✔                         |
 | Classpath search       | ✔                         | ✔                      | ✔                   |                     |                           |
-| Jump to source         | ✔                         | ✔                      | ✔                   |                     | ✔                         |
+| Jump to source         | ✔                         | ✔                      | ✔                   | ✔                   | ✔                         |
 | Show documentation     | ✔                         | ✔                      | ✔                   |                     | ✔                         |
 | Rename symbol          | ✔                         |                        | ✔                   |                     | ✔                         |
 | Organise imports       | ✔                         | ✔                      | ✔                   |                     | ✔                         |
 | Debugging              | ✔                         |                        | Partial             |                     | ✔                         |
 | Java Support: ENJIME   | ✔                         |                        |                     |                     |                           |
 | REPL                   | ✔                         |                        |                     |                     |                           |
-| SBT integration        | ✔                         |                        |                     |                     |                           |
+| SBT integration        | ✔                         |                        |                     | ✔                   |                           |
 | [Find usages]          |                           |                        |                     |                     |                           |
 | [Show implementations] |                           |                        |                     |                     |                           |
 | [Advanced type search] |                           |                        |                     |                     |                           |
