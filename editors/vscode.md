@@ -16,8 +16,8 @@ Head over to the repo:
 
 to help out!
 
-## ensime-vcode
+## ensime-vscode
 
-The approach is to take out the atom-based Ensime client and use it from VS Code. This means it uses the ensime wire protocol instead of the LSP, leading to much more Javascript/Typescript code in the client.
+This plugin aims to reuse the Atom-based Ensime client code. The difference is that it uses the Ensime wire protocol instead of the LSP, at the expense of somewhat more Javascript/Typescript code in the client (which is shared between Atom and VS Code).
 
 The [ensime-atom](https://gitter.im/ensime/ensime-atom) gitter room is probably the best place to start asking questions.
