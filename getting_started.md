@@ -15,10 +15,18 @@ ENSIME is not an IDE, it is just one tool in a toolbox. You must also have:
 2. a `.ensime` file describing your project layout. To generate this file, see [our list of build tool plugins](/build_tools/).
 2. a text editor. See [our list of editor plugins](/editors/).
 
+## Getting Help
+
 If things don't work as you expected, please read the [Getting Help](/getting_help) guide before asking for help.
+
+## Contributing
 
 You are invited to read our [Contributing Guide](/contributing) and improve ENSIME. You'll get lots of help from existing contributors. Please take a moment to read [The Open Source Entitlement Complex](https://medium.com/@fommil/the-open-source-entitlement-complex-bcb718e2326d#.tvgf7fn0v) to understand why *we empower, but our contributors do not provide customer support*.
 
+## Sponsoring
+
 Whether or not you can help with direct contributions, [please consider sponsoring a developer](/sponsor).
+
+## Code of Conduct
 
 All interactions in ENSIME are governed by the [Typelevel Code of Conduct](http://typelevel.org/conduct.html).
