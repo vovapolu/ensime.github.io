@@ -11,7 +11,9 @@ This guide assumes no prior knowledge of Scala and will get you set up to the po
 
 We recommend reading [Programming in Scala](http://www.artima.com/shop/programming_in_scala_3ed) to learn the language.
 
-Followed by [Functional Programming in Scala](https://www.manning.com/books/functional-programming-in-scala), aka "the red book".
+Followed by [Functional Programming in Scala](https://www.manning.com/books/functional-programming-in-scala), aka "the red book". Unfortunately, the red book poses many questions that require you to be at a computer (i.e. it's not great for reading when travelling). It also uses an outdated Scala modelling of the approaches. To pick up where the books leaves off, read about the encoding of these concepts in [typeclasses](http://typelevel.org/cats/typeclasses.html) / [datatypes](http://typelevel.org/cats/datatypes.html) and [functional streams](https://github.com/functional-streams-for-scala/fs2). (There is a lack of a suitable book to fill this learning gap).
+
+[Shapeless Guide](http://underscore.io/books/shapeless-guide/) is the best place to learn about advanced generic programming concepts such as making the compiler generate typeclasses for your `case class` objects.
 
 Before installing any software, you can complete exercises online at [scala-exercises.org](https://www.scala-exercises.org/) and execute code in your browser at [scalafiddle.io](https://scalafiddle.io/).
 
