@@ -14,19 +14,19 @@ This [sbt](http://github.com/sbt/sbt) plugin generates a `.ensime` file and prov
 Add these lines to `~/.sbt/0.13/plugins/plugins.sbt` as opposed to `project/plugins.sbt` (the decision to use ENSIME is per-user, rather than per-project):
 
 ```scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.7")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.8")
 ```
 
 **Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
 
-**One more check** we've undergone a few artefact name changes - make sure you copied the full line.
-
+<!--
 If you are following the developer version of ENSIME, add this to your `~/.sbt/0.13/global.sbt`
 
 ```scala
 import org.ensime.EnsimeCoursierKeys._
 ensimeServerVersion in ThisBuild := "2.0.0-SNAPSHOT"
 ```
+-->
 
 Create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
 
