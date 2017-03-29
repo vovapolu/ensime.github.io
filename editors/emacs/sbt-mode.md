@@ -74,7 +74,7 @@ Run the `M-x sbt-hydra` command. This will start new sbt process in sbt buffer (
 
 You will see message:
 ```
-Please wait! Sbt projects are loading. Sbt Hydra will be ready soon.
+Please wait! sbt projects are loading. sbt Hydra will be ready soon.
 ```
 while sbt is launching.
 

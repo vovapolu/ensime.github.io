@@ -8,14 +8,14 @@ title: Troubleshooting
 
 Things go wrong -- we know! Here are some of the main gotchas. If these tips don't solve your problem, [ask on Gitter][gitter] and check the [issue tracker][issues] to see if others have had the same problem.
 
-## Manually Specifying the Location of SBT
+## Manually Specifying the Location of sbt
 
-If Ensime can't find SBT on your PATH, you can hard-code the location in the preferences for the Sublime Text Ensime package:
+If Ensime can't find sbt on your PATH, you can hard-code the location in the preferences for the Sublime Text Ensime package:
 
 - On OS X, choose *Sublime Text Menu / Preferences / Package Settings / Ensime / Settings - User*
 - On Windows and Linux, choose *Preferences Menu / Package Settings / Ensime / Settings - User*
 
-The configuration file will be empty when you open it. Add the path to your SBT executable as follows:
+The configuration file will be empty when you open it. Add the path to your sbt executable as follows:
 
 ~~~json
 {
@@ -34,9 +34,9 @@ Nuke old versions of the ENSIME server and try again
 - `rm -rf ~/.ivy2/local/org.ensime`
 
 
-## Checking Java and SBT Visibility
+## Checking Java and sbt Visibility
 
-Unsure whether Sublime Text can see Java and SBT on your system application path? Try pasting the following commands one at a time into the Sublime Text console (*View menu / Show Console*).
+Unsure whether Sublime Text can see Java and sbt on your system application path? Try pasting the following commands one at a time into the Sublime Text console (*View menu / Show Console*).
 
 On Linux or OS X:
 
@@ -44,7 +44,7 @@ On Linux or OS X:
 # Check the visibility of Java:
 import subprocess; print(subprocess.check_output(['which', 'java'], stderr=subprocess.STDOUT).decode("utf-8"))
 
-# Check the visibility of SBT:
+# Check the visibility of sbt:
 import subprocess; print(subprocess.check_output(['which', 'sbt'], stderr=subprocess.STDOUT).decode("utf-8"))
 ~~~
 
@@ -54,7 +54,7 @@ On Windows:
 # Check the visibility of Java:
 import subprocess; print(subprocess.check_output(['where', 'java'], stderr=subprocess.STDOUT).decode("utf-8"))
 
-# Check the visibility of SBT:
+# Check the visibility of sbt:
 import subprocess; print(subprocess.check_output(['where', 'sbt'], stderr=subprocess.STDOUT).decode("utf-8"))
 ~~~
 
@@ -73,15 +73,15 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['which', 'java']' returned non-zero exit status 1
 ~~~
 
-## Checking Java and SBT Versions
+## Checking Java and sbt Versions
 
-Ideally you should be using Java 8 and SBT 0.13.x. To check this, paste the following commands one at a time into the console (*View Menu / Show Console*):
+Ideally you should be using Java 8 and sbt 0.13.x. To check this, paste the following commands one at a time into the console (*View Menu / Show Console*):
 
 ~~~ python
 # Check the Java version:
 import subprocess; print(subprocess.check_output(['java', '-version'], stderr=subprocess.STDOUT).decode("utf-8"))
 
-# Check the SBT version:
+# Check the sbt version:
 import subprocess; print(subprocess.check_output(['sbt', 'sbtVersion'], stderr=subprocess.STDOUT).decode("utf-8"))
 ~~~
 

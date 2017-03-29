@@ -27,7 +27,7 @@ Install OpenJDK using your system package manager:
   * `sudo pacman -S openjdk8-src` ([ArchLinux](https://wiki.archlinux.org/index.php/java))
   * `sudo apt-get install openjdk-8-source` ([Debian](https://wiki.debian.org/Java/))
   * [Zulu Java](http://www.azul.com/downloads/zulu/) for all other systems
-2. **Install SBT**: The Scala Build Tool (`sbt`) will install all the build tooling you need, *including Scala*.
+2. **Install sbt**: sbt will install all the build tooling you need, *including Scala*.
   * `sudo pacman -S sbt` (ArchLinux)
   * [Lightbend instructions](http://www.scala-sbt.org/0.13/docs/Setup.html) for all other systems
 3. (GNU / BSD, *Optional*): If you anticipate using multiple versions of Java, install [jenv](http://jenv.be).

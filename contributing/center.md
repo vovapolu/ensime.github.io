@@ -41,7 +41,7 @@ The ENSIME authors have set up an exploratory project, with the goal of raising 
 It would be beneficial to all ENSIME and Scala IDE users if the Scala Center were to improve the support for macros inside the presentation compiler. The first step could be to create a lightweight testing library that macro authors use to test the behaviour of their macros in the presentation compiler. Once tests are easy to write, a standalone regression suite could be produced, allowing for improvements in the presentation compiler itself.
 
 
-# Investment in SBT
+# Investment in sbt
 
 It is no secret that the Scala compiler is slow. An efficient incremental compiler is the low hanging fruit that could speed up the workflow for developers.
 

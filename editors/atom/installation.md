@@ -36,7 +36,7 @@ Finally, you need to tell Atom where sbt is installed:
 - Open _Preferences_ in Atom
 - In _Packages_, search for _ENSIME_.
 - Click _Settings_.
-- In the _Sbt Exec_ box, enter the path to the _sbt_ command.
+- In the _sbt Exec_ box, enter the path to the _sbt_ command.
 
 For example, enter _/usr/local/bin/sbt_ if there's where sbt is for you.
 

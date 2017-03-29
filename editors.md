@@ -59,7 +59,7 @@ The following chart describes how well ENSIME supports each editor:
 | Debugging              | ✔                         |                        | Partial             |                     | ✔                         |
 | Java Support: ENJIME   | ✔                         |                        |                     |                     |                           |
 | REPL                   | ✔                         |                        |                     |                     |                           |
-| SBT integration        | ✔                         |                        |                     | ✔                   |                           |
+| sbt integration        | ✔                         |                        |                     | ✔                   |                           |
 | [Find usages]          |                           |                        |                     |                     |                           |
 | [Show implementations] |                           |                        |                     |                     |                           |
 | [Advanced type search] |                           |                        |                     |                     |                           |

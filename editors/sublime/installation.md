@@ -8,7 +8,7 @@ title: Installation
 
 Before you start make sure you have:
 
-- [installed SBT][sbt];
+- [installed sbt][sbt];
 - [generated a `.ensime` file][ensimeConfig] for your project;
 - [installed Sublime Text][sublime].
 
@@ -24,7 +24,7 @@ The recommended way to install *ENSIME Sublime* is via [Package Control][package
 
 4. After a few seconds a second command palette will appear, asking you which package you'd like to install. Type/select *"Ensime"* and press *Enter*.
 
-Sublime Text and ENSIME Sublime should now be correctly configured. The next step is to install ENSIME SBT.
+Sublime Text and ENSIME Sublime should now be correctly configured. The next step is to install ENSIME sbt.
 
 ## Launching ENSIME
 
@@ -32,7 +32,7 @@ Once you have [a `.ensime` file][ensimeConfig] for your project, start an ENSIME
 
 1. Open the root folder of your project (the one containing the `.ensime` file) in Sublime Text. If you are already viewing a project file in Sublime, you can open the root folder by selecting *Project Menu / Add Folder to Project...* and selecting the project root directory.
 
-2. Next you need to add SBT to your Sublime path, within Sublime Text, go to the Preferences > Package Settings > Settings > Ensime and select Settings - User to open the Ensime.sublime-settings file. Now add the following to this file.
+2. Next you need to add sbt to your Sublime path, within Sublime Text, go to the Preferences > Package Settings > Settings > Ensime and select Settings - User to open the Ensime.sublime-settings file. Now add the following to this file.
 
 ~~~json
 {
@@ -48,7 +48,7 @@ Once you have [a `.ensime` file][ensimeConfig] for your project, start an ENSIME
 
 5. The first time you start ENSIME it will take a few minutes to download dependencies and get set up (it'll be much faster on subsequent runs).
 
-   If you get an error message saying Ensime can't find SBT on your PATH, you can manually specify the location in your preferences. Check the [Troubleshooting][troubleshooting] section for details.
+   If you get an error message saying Ensime can't find sbt on your PATH, you can manually specify the location in your preferences. Check the [Troubleshooting][troubleshooting] section for details.
 
    How do you tell when it's initialised?
    Open one of your scala source files and break the code by simply adding a whitespace to a function or class name and then save the file, you will then see the error highlighted within Sublime Text.

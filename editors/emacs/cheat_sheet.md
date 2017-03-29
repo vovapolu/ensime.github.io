@@ -70,13 +70,13 @@ To customise your ENSIME Emacs experience, don't forget to read through the user
 |-------------|-------------|
 | `C-c C-v d` | Browse the documentation of the symbol under the cursor |
 
-## SBT
+## sbt
 
 Much of this is a wrapper over [`sbt-mode`](https://github.com/hvesalai/sbt-mode), so don't forget that you also have commands provided as-is by that package.
 
 | Shortcut    | Description |
 |-------------|-------------|
-| `C-c C-b s` or `C-c C-v s` | Start a SBT process, or switch to an existing one |
+| `C-c C-b s` or `C-c C-v s` | Start a sbt process, or switch to an existing one |
 | `C-c C-b S` | Switch to buffer containing the stack trace parser |
 | `C-c C-b c` | Compile |
 | `C-c C-b n` | Clean |

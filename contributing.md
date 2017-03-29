@@ -46,7 +46,7 @@ If you want to add support for an editor not listed here, please get in touch at
 
 If you want to work on build tool support, there may be documentation at these locations:
 
-- [SBT](/build_tools/sbt#contributing)
+- [sbt](/build_tools/sbt#contributing)
 - [Maven](/build_tools/maven#contributing)
 - [Gradle](/build_tools/gradle#contributing)
 
@@ -72,7 +72,7 @@ with example JSON payloads in [org/ensime/jerky](https://github.com/ensime/ensim
 
 Make sure you have 0.13.13+ of the `sbt` start script, otherwise project compilation will fail with a `java.lang.OutOfMemoryError` or `java.lang.StackOverflowError`.
 
-Before you start, run this SBT command on your `ensime-server` repository as the `.ensime` file is required to run the integration tests (even if you are not using ENSIME to hack on ENSIME).
+Before you start, run this sbt command on your `ensime-server` repository as the `.ensime` file is required to run the integration tests (even if you are not using ENSIME to hack on ENSIME).
 
 ```
 sbt ensimeConfig

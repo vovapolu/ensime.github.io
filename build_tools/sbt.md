@@ -1,7 +1,7 @@
 ---
 layout: section
 order: 2
-title: SBT
+title: sbt
 ---
 
 - TOC
@@ -30,7 +30,7 @@ ensimeServerVersion in ThisBuild := "2.0.0-SNAPSHOT"
 
 Create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
 
-## Learn to use SBT
+## Learn to use sbt
 
 If you've come from an IDE you might not be aware of the power of `sbt`. Please take the time to read the [sbt Getting Started Guide](http://www.scala-sbt.org/0.13/docs/Getting-Started.html) before proceeding and appreciate that `sbt` is responsible for building your project, not ENSIME.
 
@@ -161,7 +161,7 @@ cancelable in Global := true
 Emacs users should recall that in order to send a control sequence to the `sbt-mode` subprocess, first run `sbt-clear` (bound to `C-c C-v` by default) then `C-c`. i.e. to send `C-c` to `sbt`, type `C-c C-v C-c C-c` (you probably want to bind this to something easier).
 
 
-### SBT Version
+### sbt Version
 
 Your `project/build.properties` needs to use a version newer than 0.13.5 of sbt due to a [breaking AutoPlugin change](https://github.com/ensime/ensime-server/issues/672), e.g.
 
