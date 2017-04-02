@@ -20,7 +20,7 @@ title: Installation
 
 - JDK 1.8+
 - Emacs 24.5+
-- Scala 2.10.6+ / 2.11.8+
+- Scala 2.10.6+ / 2.11.8+ / 2.12.1+
 
 ## Installing
 
