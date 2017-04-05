@@ -12,7 +12,7 @@ The general architecture of ENSIME looks like this:
 
 ![architecture](http://ensime.org/talks/scalasphere16/images/architecture.png)
 
-which is explained in a recent [talk about ENSIME](/talks/scalasphere16/) by @rorygraves and @fommil. All our code is hosted at [github.com/ensime](https://github.com/ensime/).
+which is explained in a recent [talk about ENSIME](/talks/scalasphere16/) by @rorygraves and @fommil and an [even more recent one](/talks/scalasphere17/) by @fommil (both are still relevant). All our code is hosted at [github.com/ensime](https://github.com/ensime/).
 
 ## Where to Start
 

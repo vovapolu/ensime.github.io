@@ -1,6 +1,6 @@
 #+TITLE: Indexing in ENSIME
 #+AUTHOR: Sam Halliday
-#+DATE: Scala Sphere 2017
+#+DATE: [[https://www.youtube.com/watch?v=0VMAqpIgddg][Scala Sphere 2017]] (click for video)
 
 #+TODO: TODO | RESEARCH | NOTES | CHART | DIAGRAM | DRAWING | CODE | VIDEO
 
