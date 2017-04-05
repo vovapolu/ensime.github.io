@@ -10,7 +10,7 @@ site_nav_entry: true # this is an entry in the main site nav
 
 The general architecture of ENSIME looks like this:
 
-![architecture](./talks/scalasphere16/images/architecture.png)
+![architecture](http://ensime.org/talks/scalasphere16/images/architecture.png)
 
 which is explained in a recent [talk about ENSIME](/talks/scalasphere16/) by @rorygraves and @fommil. All our code is hosted at [github.com/ensime](https://github.com/ensime/).
 
