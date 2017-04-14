@@ -39,7 +39,7 @@ class AddEnsimePlugin  implements Plugin<Gradle> {
               }
             }
             dependencies {
-              classpath 'net.coacoas.gradle:ensime-gradle:0.2.8'
+              classpath 'net.coacoas.gradle:ensime-gradle:0.3.0-SNAPSHOT'
             }
           }
         }
@@ -92,7 +92,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'net.coacoas.gradle:ensime-gradle:0.2.8-SNAPSHOT'
+    classpath 'net.coacoas.gradle:ensime-gradle:0.3.0-SNAPSHOT'
   }
 }
 ```
@@ -151,3 +151,5 @@ Each time the task is executed, the .ensime file will be regenerated.
 ## Requirements
 
 As of version 0.2.0, the ensime plugin requires Gradle 2.x. 
+
+If you are using Gradle 3.4+, there was a breaking change. Please use version 0.3.0-SNAPSHOT.
