@@ -24,4 +24,7 @@ We'd like to extend a special thank you to the following sponsors:
 ### Notable Sponsors
 
 - Sam Halliday
-- IntelliJ for a gratis license to [YourKit](https://www.yourkit.com/)
+
+### Supporters
+
+- [![YourKit](https://www.yourkit.com/images/yklogo.png)](https://www.yourkit.com/) supports ENSIME with gratis licences to core developers.
