@@ -24,3 +24,4 @@ We'd like to extend a special thank you to the following sponsors:
 ### Notable Sponsors
 
 - Sam Halliday
+- IntelliJ for a gratis license to [YourKit](https://www.yourkit.com/)
