@@ -19,16 +19,18 @@ addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.9")
 
 **Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
 
-<!--
-If you are following the developer version of ENSIME, add this to your `~/.sbt/0.13/global.sbt`
+Create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
+
+## Server Version
+
+By default, `sbt-ensime` downloads the latest developer version of the ENSIME server. Note that some of the clients ignore this information and hard-code the server version (e.g. Sublime, `melpa-stable` Emacs).
+
+If you need to revert to a previous stable or milestone, add this to your `~/.sbt/0.13/global.sbt` or (per project) `ensime.sbt`:
 
 ```scala
 import org.ensime.EnsimeCoursierKeys._
-ensimeServerVersion in ThisBuild := "2.0.0-SNAPSHOT"
+ensimeServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
 ```
--->
-
-Create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
 
 ## Learn to use sbt
 
