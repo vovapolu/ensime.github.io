@@ -4,6 +4,8 @@ order: 6
 title: Gradle
 ---
 
+**This plugin does not currently support the Developer Version of ENSIME** Please get involved at https://github.com/ensime/ensime-gradle
+
 This [Gradle](https://gradle.org) plugin will create .ensime configuration files for projects using the [`java`](https://docs.gradle.org/current/userguide/java_plugin.html), [`scala`](https://docs.gradle.org/current/userguide/scala_plugin.html) or [`gradle-android-scala-plugin`](https://github.com/saturday06/gradle-android-scala-plugin) plugins for use with an [ENSIME server](https://github.com/ensime/ensime-server)
 
 Note that this does not support the new [software model](https://docs.gradle.org/current/userguide/pt06.html) configuration or the [Play Framework](https://playframework.com) [plugin](https://docs.gradle.org/current/userguide/play_plugin.html).  Yet.

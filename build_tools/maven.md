@@ -4,6 +4,8 @@ order: 4
 title: Maven
 ---
 
+**This plugin does not currently document how to use the Developer Version of ENSIME** Please get involved at https://github.com/ensime/ensime-maven
+
 This maven plugin generates a `.ensime` file and provides various convenience commands for interacting with [ENSIME](http://github.com/ensime/ensime-server). The source code can be found at in it's own project: [ensime-maven](https://github.com/ensime/ensime-maven/).
 
 # ENSIME Maven Plugin
