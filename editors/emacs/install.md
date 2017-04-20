@@ -36,6 +36,8 @@ The recommended way to install ENSIME is via MELPA stable and `use-package`:
 
 If you used the sample Emacs configuration from our [Learning Emacs](/editors/emacs/learning) section, then you can add the above code to the end of your `~/.emacs.d/init.el` file and restart Emacs (or `eval-last-sexp`).
 
+If you already installed `ensime` from `melpa` (not `melpa-stable`) using `M-x list-packages`, then you need to delete your `~/.emacs.d/elpa/ensime*` folder, restart Emacs, and follow these instructions.
+
 For the server installation to work, make sure `sbt` is on your `PATH` environment variable or `exec-path` Emacs variable, e.g. on OS X this may mean adding:
 
 ```elisp
