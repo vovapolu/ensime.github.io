@@ -8,7 +8,7 @@ title: Installation
 {:toc}
 
 
-## System requirements
+## System Requirements
 
 ### Stable
 

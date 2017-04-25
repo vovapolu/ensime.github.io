@@ -60,7 +60,7 @@ The extra sbt integration enables some convenient workflow options:
 
 ## Editing
 
-### Error Highlighting
+### Error highlighting
 
 ENSIME will highlight errors and warnings in source files through the use of the Scala presentation compiler, a lightweight version of the Scala compiler. This is triggered in several ways:
 
@@ -71,7 +71,7 @@ feature can be disabled by setting `ensime-typecheck-when-idle` to `nil`.
 
 Typing `C-c C-c e` lists all errors and warnings in a separate window. Hovering the mouse over a highlighted error or typing `C-c C-v e` displays the error details in the echo area.
 
-### Semantic Highlighting
+### Semantic highlighting
 
 ENSIME's semantic highlighting adds true colour-coding based on the compiler's analysis of the source code.
 
@@ -83,7 +83,7 @@ To customise the colours used during semantic highlighting, change the value of 
 
 ENSIME highlights implicit conversions during semantic highlighting. Hover over a highlighted area or type `C-c C-v e` to see the details of the implicit conversion.
 
-### Code Completion
+### Code completion
 
 ENSIME completion is initiated automatically (via the `company-mode` backend) or by pressing the `TAB` key. Currently this works for local variables, method parameters, unqualified method names, and type names. An alternative completion backend is provided for users of the `ac` (auto complete) package, but it is unmaintained.
 
@@ -91,7 +91,7 @@ ENSIME completion is initiated automatically (via the `company-mode` backend) or
 
 ENSIME provides an `imenu`-compatible summary of your source file, accessible through `M-x imenu` and compatible viewers. We recommend [`popup-imenu`](https://github.com/ancane/popup-imenu) as it gives a visual overview of your file.
 
-### Source Formatting
+### Source formatting
 
 ENSIME uses the Scalariform library to format Scala sources. Type `C-c C-v f` to format the current buffer. Your build tool should provide options to enable you to provide the exact formatting rules to use.
 
@@ -108,15 +108,15 @@ Place your cursor over the symbol you'd like to add the type and type `C-c C-r a
 
 Place your cursor over the symbol you'd like to rename. Type `C-c C-r r` and follow the minibuffer instructions.
 
-### Organize Imports
+### Organize imports
 
 Type `C-c C-r o` in a Scala source buffer. Follow the minibuffer instructions.
 
-### Extract Method
+### Extract method
 
-Select a region by setting the mark using `C-SPACE` and then placing the point at the end of the region. All selected code will be extracted into a helper method. Type `C-c C-r m` and follow the minibuffer instructions.
+Select a region by setting the mark using `C-SPC` and then placing the point at the end of the region. All selected code will be extracted into a helper method. Type `C-c C-r m` and follow the minibuffer instructions.
 
-### Inline Local
+### Inline local
 
 Place your cursor over the local val whose value you'd like to inline. Type `C-c C-r i` and follow the minibuffer instructions.
 
@@ -125,23 +125,23 @@ Place your cursor over the local val whose value you'd like to inline. Type `C-c
 
 Most things in the inspector are hyper-linked. You can click these links with the mouse or position your cursor over them and press ENTER. A history is kept of all the pages you view in the inspector. Go back in this history by typing `,` and forward by typing `.`.
 
-### Documentation Browsing
+### Documentation browsing
 
 Type `C-c C-v d` to browse a symbol's Javadocs / Scaladocs in your browser.
 
 You can also view a list of all the documentation available for your project by typing `M-x ensime-project-docs`.
 
-### Type and Method Search
+### Type and method search
 
 Type `C-c C-v v` to start a global search. This should provide a live search view with support for camel case. We'd really like to integrate this search with more conventional search feedback systems (e.g. ido / helm), see [ensime-emacs#186](https://github.com/ensime/ensime-emacs/issues/186).
 
-### Jump to Test
+### Jump to test
 
 ENSIME allows you to quickly jump to a class' unit test. With the cursor inside a class definition, type `C-c C-t t` to go to the corresponding test class. If the class doesn't exist, a new file will be created. With the cursor inside a test class, type `C-c C-t i` to go to the corresponding implementation class.
 
 If your project uses an unusual convention, you must customize `ensime-goto-test-configs` or `ensime-goto-test-config-defaults`. These variables also specify the template to use when creating new test classes.
 
-### Jump to Definition
+### Jump to definition
 
 Press `M-.` with the cursor on a variable, method, type, or package to visit that object's definition. `M-,` returns to where you were.
 
@@ -153,11 +153,11 @@ If this doesn't work for you, please try to create a fully reproducible example 
 
 Typing `C-c C-v i` while the point is over a symbol will launch the type inspector. Typing `C-c C-v o` will open the inspector on the current project's main package. `C-c C-v p` will inspect the package of the current source file. Use the command `M-x ensime-inspect-by-path` to inspect an arbitrary type or package.
 
-### Package Inspector
+### Package inspector
 
 Displays a hierarchical view of a package, including all top-level types. Select a type to open the Type Inspector. This doesn't show implementing classes, but we would like to do that in [ensime-server#339](https://github.com/ensime/ensime-server/issues/339).
 
-### Type Inspector
+### Type inspector
 
 Lists the interfaces that contribute members to the inspected type. List each interface's methods, with full type signatures. If the type has a companion object/class, a link to the companion will appear under the heading.
 
@@ -167,24 +167,24 @@ To enable helm support use `(setq ensime-use-helm t)` in your configuration. Ala
 
 ## Debugging
 
-### Break Points
+### Breakpoints
 
 With your cursor on a line of Scala source, type `C-c C-d b` to set a breakpoint. Type `C-c C-d u` to remove the breakpoint. Note that breakpoints can be added and removed outside of any debug session. Breakpoints are not, however, persisted between runs of ENSIME.
 
-### Launching the Debugger
+### Launching the debugger
 
 Launch your application using your build tool with debugging enabled. e.g. via the [sbt-ensime debugging](http://ensime.github.io/build_tools/sbt/#debugging-example) support.
 
 Then attach ENSIME to the running process with `M-x ensime-db-attach`. The first breakpoint your program hits will be highlighted and centered in Emacs.
 
-### Run Control
+### Run control
 
 Type `C-c C-d c` to continue after hitting a breakpoint, or `C-c C-d s` to step into the current line, or `C-c C-d n` to step to the next line, or `C-c C-d o` to step out of the current function.
 
-### Value Inspection
+### Value inspection
 
 When execution is paused, with your cursor over a local variable, type `C-c C-d i` to inspect the runtime value of a variable.
 
-### Show Backtrace
+### Show backtrace
 
 When execution is paused, type `C-c C-d t` to display the current backtrace.

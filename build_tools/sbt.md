@@ -32,7 +32,7 @@ import org.ensime.EnsimeCoursierKeys._
 ensimeServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
 ```
 
-## Learn to use sbt
+## Learn to Use sbt
 
 If you've come from an IDE you might not be aware of the power of `sbt`. Please take the time to read the [sbt Getting Started Guide](http://www.scala-sbt.org/0.13/docs/Getting-Started.html) before proceeding and appreciate that `sbt` is responsible for building your project, not ENSIME.
 

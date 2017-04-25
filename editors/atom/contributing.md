@@ -70,7 +70,7 @@ ln -s target/scala-2.11/ensime_2.11-0.9.10-SNAPSHOT-assembly.jar ~/.atom/package
 When you want to swap back to using official releases, delete your `-assembly.jar` files.
 
 
-## Tricks and tips
+## Tricks and Tips
 
 ### Access ENSIME from the console
 

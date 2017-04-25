@@ -86,7 +86,7 @@ Much of this is a wrapper over [`sbt-mode`](https://github.com/hvesalai/sbt-mode
 | `C-c C-b T` | Run all tests |
 | `C-c C-b t` | Run "quick" tests (tests impacted by recent changes) |
 
-## Type/package inspector
+## Type/package Inspector
 
 | Shortcut    | Description |
 |-------------|-------------|

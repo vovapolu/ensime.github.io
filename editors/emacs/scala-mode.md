@@ -102,7 +102,7 @@ ENSIME users have access to the compiler's summary of the file and this `scala-m
 
 scala-mode supports imenu, a library for accessing locations in documents that is included in emacs 24. The custom variable `scala-imenu:should-flatten-index` controls whether or not the imenu index will be hierarchical or completely flat. The current iMenu implementation only goes one level deep i.e. nested classes are not traversed. scala-mode's imenu support depends heavily on the `scala-syntax:end-of-definition` and `scala-syntax:beginning-of-definition` functions, and as such, it shares their limitations.
 
-## Joinin lines (delete indentation) and removing horizontal whitespace
+## Joining lines (delete indentation) and removing horizontal whitespace
 
 Scala-mode defines its own `scala-indent:join-line` and `scala-indent:fixup-whitespace` functions.
 
@@ -193,7 +193,7 @@ val x = try {
 
 Provided by `scala-indent:align-parameters`
 
-When this variable is set to `nil` (default), parameters and run-on lines in parameter lists will not align under or acording to the first parameter.
+When this variable is set to `nil` (default), parameters and run-on lines in parameter lists will not align under or according to the first parameter.
 
 ```scala
 val y = List( "Alpha", "Bravo",
