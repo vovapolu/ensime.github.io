@@ -11,11 +11,11 @@ site_nav_entry: true # this is an entry in the main site nav
 [pants]: https://pantsbuild.github.io/
 [pantsI]: https://pantsbuild.github.io/logo.ico
 [lein]: http://leiningen.org/
-[leinI]: public/ensime-leiningen-logo.png
+[leinI]: /public/ensime-leiningen-logo.png
 [mvn]: https://maven.apache.org/
 [mvnI]: https://maven.apache.org/images/maven-logo-black-on-white.png
 [gradle]: http://gradle.org/
-[gradleI]: public/ensime-gradle-logo.png
+[gradleI]: /public/ensime-gradle-logo.png
 
 - [sbt](sbt) ([homepage][sbt])
 - [CBT](cbt) ([homepage][cbt])
