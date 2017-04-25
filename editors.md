@@ -20,15 +20,15 @@ If you really want to use a particular editor but some feature is missing, take 
 The following chart describes how well ENSIME supports each editor:
 
 [emacs]: http://www.gnu.org/software/emacs/
-[emacsI]: /talks/scalasphere16/images/emacs.svg
+[emacsI]: talks/scalasphere16/images/emacs.svg
 [atom]: https://atom.io/
-[atomI]: /talks/scalasphere16/images/atom-logo.svg
+[atomI]: talks/scalasphere16/images/atom-logo.svg
 [vim]: http://www.vim.org/
-[vimI]: /talks/scalasphere16/images/vim-logo.svg
+[vimI]: talks/scalasphere16/images/vim-logo.svg
 [vsc]: https://code.visualstudio.com/
 [vscI]: https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png
 [subl]: https://www.sublimetext.com/
-[sublI]: /talks/scalasphere16/images/sublime-logo.svg
+[sublI]: talks/scalasphere16/images/sublime-logo.svg
 [GPL]: http://www.gnu.org/licenses/gpl.en.html
 [MIT]: https://opensource.org/licenses/MIT
 [Charityware]: http://vimdoc.sourceforge.net/htmldoc/uganda.html#license
