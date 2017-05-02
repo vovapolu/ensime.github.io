@@ -28,7 +28,7 @@ By default, `sbt-ensime` downloads the latest developer version of the ENSIME se
 If you need to revert to a previous stable or milestone, add this to your `~/.sbt/0.13/global.sbt` or (per project) `ensime.sbt`:
 
 ```scala
-import org.ensime.EnsimeCoursierKeys._
+import org.ensime.EnsimeKeys._
 ensimeServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
 ensimeProjectServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
 ```
