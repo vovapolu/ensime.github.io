@@ -55,8 +55,14 @@ The extra sbt integration enables some convenient workflow options:
 - For small projects, typing `C-c C-c a` may save you from having to use the build tool (fire and forget).
 - For small to medium projects, you can customize `ensime-sbt-perform-on-save` to `"compile"`. This is much more efficient than using sbt's `~compile` polling support.
 - For larger projects, compiling on every save may not be practical. You can type `C-c C-b c` every once in a while.
-- If your workflow involves running tests often, this will keep your project compiled as a side effect.
+- If your workflow involves running tests often, this will keep your project compiled as a side effect:
+  - Type `C-c C-b t` to run all or one of the test suites.  If in a test source file, only its test suite is run.
+  - Type `C-c C-b o` to run only one unit test.  This is the "testOnly" command in sbt.  When visitng a test source file and running this command, ENSIME automatically determines its name and only runs that test.
+  -  Type `C-c C-b q` to run "testQuick", which only runs the recently failed tests, the tests that weren't run or need to be run next.
 
+For more information on the sbt testing commands, see [sbt Testing](http://www.scala-sbt.org/0.13/docs/Testing.html)
+
+- Type `C-c C-b r` and ENSIME will execute the main "run" tasks in sbt for the project.
 
 ## Editing
 
