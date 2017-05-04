@@ -64,6 +64,12 @@ It is advised when typing multi-line code snippets, use `comint-accumulate` inst
 
 You can also send a region of code from an other buffer in the same project. First set the mark to the other end of the region to send and the point (cursor) the other. Then run the `M-x sbt-send-region` command. `sbt-paste-region` will enter `:paste` mode of Scala REPL, so that multiline statement/expression will work as expected.
 
+### Triggered execution
+
+Triggered execution in sbt, the `~compile` or `~test` commands (when sbt is waiting with the message "press enter to interrupt"), can be interrupted by typing `C-c C-j` in `sbt-mode` (and `C-c C-b C-j` anywhere else).  Hitting just `RET` in an sbt buffer doesn't interrupt sbt because there isn't a recognized sbt prompt in `sbt-mode`.  Instead, hitting `RET` in an `sbt-mode` buffer will cause Emacs to complain that "Text is read-only".
+
+However, you should consider using the more granular and lightweight commands of ENSIME to trigger actions interactively or with Emacs save hooks.  Triggered execution in sbt uses filesystem polling which is shown to be inefficient and expensive to use, especially on a large codebase. 
+
 ## Hydra
 
 `sbt-mode` also offers [hydra](https://github.com/abo-abo/hydra) to speed up sbt interaction. This is focused mainly on running usual sbt commands `compile`, `test:compile`, `test`, `run` etc. on multiproject build. Hydra allows to execute these commands on per project basis.
