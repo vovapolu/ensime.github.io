@@ -80,11 +80,12 @@ Much of this is a wrapper over [`sbt-mode`](https://github.com/hvesalai/sbt-mode
 | `C-c C-b S` | Switch to buffer containing the stack trace parser |
 | `C-c C-b c` | Compile |
 | `C-c C-b n` | Clean |
-| `C-c C-b o` | Run the current test |
 | `C-c C-b p` | Package |
 | `C-c C-b r` | Run |
 | `C-c C-b T` | Run all tests |
-| `C-c C-b t` | Run "quick" tests (tests impacted by recent changes) |
+| `C-c C-b t` | Run the current module/suite tests |
+| `C-c C-b q` | Run "quick" tests (tests impacted by recent changes) |
+| `C-c C-b o` | Run only the current test |
 
 ## Type/package Inspector
 
