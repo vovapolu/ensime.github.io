@@ -108,7 +108,9 @@ To build your own server jar:
 sbt ++2.10.6 ensime/assembly # replace with your version of scala
 ```
 
-and then use your build tool to provide this information in the `.ensime` file of your project. e.g. if you use `sbt-ensime`, put this in your `~/.sbt/0.13/global.sbt` (all projects) or `ensime.sbt` (just one project):
+**check that again**: Make sure the Scala major version matches the Scala major version of the project in which you wish to use the ensime-server snapshot build.
+
+Next, use your build tool to provide this information in the `.ensime` file of your project. e.g. if you use `sbt-ensime`, put this in your `~/.sbt/0.13/global.sbt` (all projects) or `ensime.sbt` (just one project):
 
 ```scala
 import org.ensime.EnsimeKeys._
