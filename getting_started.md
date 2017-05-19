@@ -27,6 +27,6 @@ You are invited to read our [Contributing Guide](/contributing) and improve ENSI
 
 Whether or not you can help with direct contributions, [please consider sponsoring a developer](/sponsor).
 
-## Code of Conduct
+## Typelevel Membership
 
-All interactions in ENSIME are governed by the [Typelevel Code of Conduct](http://typelevel.org/conduct.html).
+ENSIME is proudly a [Typelevel project](http://typelevel.org/projects/). We agree with the [Typelevel Mission Statement](https://github.com/typelevel/general/issues/36): "Remove barriers to doing functional programming in Scala", including keeping an inclusive, welcoming and safe environment. See [Civility](/civility) for details.

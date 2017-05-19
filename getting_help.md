@@ -22,6 +22,6 @@ Read the Troubleshooting Guide for the component you are using.
 - [maven](/build_tools/maven/#troubleshooting)
 - [gradle](/build_tools/gradle/#troubleshooting)
 
-## OSS and fixing bugs
+## Freedom to fix bugs
 
 If you are impacted by a bug and are frustrated that it is not being addressed, please take a moment to read [The Open Source Entitlement Complex](https://medium.com/@fommil/the-open-source-entitlement-complex-bcb718e2326d#.tvgf7fn0v). You may find that reading the [Contributing Guide](/contributing) will empower you to fix whatever bug you are encountering.

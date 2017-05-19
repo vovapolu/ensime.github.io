@@ -55,19 +55,7 @@ where `ensime-node` is my checked out git repo.
 
 ### Use server assembly jars
 
-If an `-assembly.jar` file exists in your `.atom/packages/Ensime` directory (for the expected binary version of scala and ENSIME) then it will always be used in preference to the `coursier` auto-update procedure.
-
-This is advantageous for developing on ENSIME and also to enable a simple install of the ENSIME server in restricted environments. SNAPSHOT assembly jars are provided at http://ensime.typelevel.org/ (with many thanks to typelevel for the use of their servers).
-
-To build your own server jars, do this:
-
-```
-git clone https://github.com/ensime/ensime-server.git
-sbt ++2.11.8 ensime/assembly # replace with your version of scala
-ln -s target/scala-2.11/ensime_2.11-0.9.10-SNAPSHOT-assembly.jar ~/.atom/packages/Ensime
-```
-
-When you want to swap back to using official releases, delete your `-assembly.jar` files.
+See [the server docs](/contributing/#manual-qa-testing) if you need to build your own server.
 
 
 ## Tricks and Tips
