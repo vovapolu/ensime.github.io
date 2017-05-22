@@ -27,6 +27,14 @@ You are invited to read our [Contributing Guide](/contributing) and improve ENSI
 
 Whether or not you can help with direct contributions, [please consider sponsoring a developer](/sponsor).
 
-## Typelevel Membership
+## Conduct
 
-ENSIME is proudly a [Typelevel project](http://typelevel.org/projects/). We agree with the [Typelevel Mission Statement](https://github.com/typelevel/general/issues/36): "Remove barriers to doing functional programming in Scala", including keeping an inclusive, welcoming and safe environment. See [Civility](/civility) for details.
+Following our Emacs heritage, we use a trimmed version of [Emacs Conduct](https://www.emacswiki.org/emacs/EmacsChannel#toc3) (some rules are redundant):
+
+- These rules cover gitter channels, github issues and pull requests.
+- Treat people with respect. No sexism, racism, homophobia, or discrimination.
+- Don’t put other people down, insult them, or threaten them.
+- Be patient. You might not get an answer right away. People are not actively watching the channel all the time.
+- Be friendly to newbies. They might not know what things are called or where to look for help, so you may want to suggest links or keywords to help them learn more.
+- Don't start or participate in flame wars. If a discussion gets out of hand, feel free to temporarily block the other user. If an off-topic discussion gets heated or starts to drown out on-topic discussion, please take it elsewhere.
+- Violators of this code of conduct may be temporarily or permanently banned from the channel.
