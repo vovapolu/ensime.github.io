@@ -36,5 +36,4 @@ Following our Emacs heritage, we use a trimmed version of [Emacs Conduct](https:
 - Don’t put other people down, insult them, or threaten them.
 - Be patient. You might not get an answer right away. People are not actively watching the channel all the time.
 - Be friendly to newbies. They might not know what things are called or where to look for help, so you may want to suggest links or keywords to help them learn more.
-- Don't start or participate in flame wars. If a discussion gets out of hand, feel free to temporarily block the other user. If an off-topic discussion gets heated or starts to drown out on-topic discussion, please take it elsewhere.
 - Violators of this code of conduct may be temporarily or permanently banned from the channel.
