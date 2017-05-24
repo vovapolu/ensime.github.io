@@ -32,7 +32,8 @@ Whether or not you can help with direct contributions, [please consider sponsori
 Following our Emacs heritage, we use an adapted version of [Emacs Conduct](https://www.emacswiki.org/emacs/EmacsChannel#toc3), covering `gitter.im/ensime/*` and `github.com/ensime/*`:
 
 - Be helpful: Others may not know where to look.
-- Please contribute code: submit bug fixes or features if you are able.
+- Please contribute: submit bug fixes or features if you are able.
 - Be respectful: Don't insult or threaten others.
 - Be civil: No racism, sexism or any other form of discrimination.
-- Intentional violators may be temporarily banned.
+
+Intentional violators may be temporarily banned.
