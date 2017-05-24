@@ -29,12 +29,10 @@ Whether or not you can help with direct contributions, [please consider sponsori
 
 ## Conduct
 
-Following our Emacs heritage, we use a modified version of [Emacs Conduct](https://www.emacswiki.org/emacs/EmacsChannel#toc3):
+Following our Emacs heritage, we use an adapted version of [Emacs Conduct](https://www.emacswiki.org/emacs/EmacsChannel#toc3), covering `gitter.im/ensime/*` and `github.com/ensime/*`:
 
-- These rules cover gitter channels, github issues and pull requests.
-- Treat people with respect. No sexism, racism, homophobia, or discrimination.
-- Don't put other people down, insult them, or threaten them.
-- Be patient. People are not actively watching the channel all the time.
-- Be friendly to newcomers. They might not know what things are called or where to look for help.
-- Be respectful of the contributors' priorities: bugs may not be fixed due to lack of time.
-- Violators of this code of conduct may be temporarily or permanently banned from the channel.
+- Be helpful: Others may not know where to look.
+- Please contribute code: submit bug fixes or features if you are able.
+- Be respectful: Don't insult or threaten others.
+- Be civil: No racism, sexism or any other form of discrimination.
+- Intentional violators may be temporarily banned.
