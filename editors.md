@@ -45,6 +45,7 @@ The following chart describes how well ENSIME supports each editor:
 | Homepage               | [![Emacs][emacsI]][emacs] | [![Atom][atomI]][atom] | [![Vim][vimI]][vim] | [![VSC][vscI]][vsc] | [![Sublime][sublI]][subl] |
 | Main language          | Emacs Lisp                | Coffeescript           | Python              | Typescript          | Python                    |
 | Upstream Licence       | [GPL]                     | [MIT]                  | [Charityware]       | [GPL]/[Apache2]     | Proprietary               |
+| Greetings              | ✔                         |                        |                     |                     |                           |
 | Type at point          | ✔                         | ✔                      | ✔                   | ✔                   | ✔                         |
 | Contextual completion  | ✔                         | ✔                      | ✔                   | ✔                   | ✔                         |
 | Live errors / warnings | ✔                         | ✔                      | ✔                   | ✔                   | ✔                         |
