@@ -21,18 +21,6 @@ addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.12")
 
 In order to create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
 
-## Server Version
-
-By default, `sbt-ensime` downloads the latest developer version of the ENSIME server. Note that some of the clients ignore this information and hard-code the server version (e.g. Sublime, `melpa-stable` Emacs).
-
-If you need to revert to a previous stable or milestone, add this to your `~/.sbt/0.13/global.sbt` or (per project) `ensime.sbt`:
-
-```scala
-import org.ensime.EnsimeKeys._
-ensimeServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
-ensimeProjectServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
-```
-
 ## Learn to Use sbt
 
 If you've come from an IDE you might not be aware of the power of `sbt`. Please take the time to read the [sbt Getting Started Guide](http://www.scala-sbt.org/0.13/docs/Getting-Started.html) before proceeding and appreciate that `sbt` is responsible for building your project, not ENSIME.
@@ -133,6 +121,13 @@ another, for Android projects:
 ```scala
 ensimeJavacOptions ++= (javacOptions in (core, Compile)).value,
 ensimeScalacOptions ++= (scalacOptions in (core, Compile)).value
+```
+
+another, to revert to a previous stable or milestone of the server:
+
+```scala
+ensimeServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
+ensimeProjectServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
 ```
 
 ## Troubleshooting
