@@ -109,6 +109,12 @@ another, to use ENSIME on a Java 6 or 7 project (the server needs JDK 8). This i
 ensimeJavaHome in ThisBuild := file("/usr/lib/jvm/java-8-openjdk")
 ```
 
+another, to add the kind-projector plugin to your entire build (will be mostly irrelevant after [Analyzer per Module](https://github.com/ensime/ensime-server/issues/1152))
+
+```scala
+addEnsimeScalaPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
+```
+
 another, to use the assembly jar which you build locally:
 
 ```scala
