@@ -17,12 +17,14 @@ This [maven](https://maven.apache.org/) plugin generates a `.ensime` file for us
 Configure your `~/.m2/settings.xml` file so that maven is aware of the plugin group `org.ensime.maven.plugins`:
 
 ```xml
+<build>
   <pluginGroups>
     <pluginGroup>org.ensime.maven.plugins</pluginGroup>
   </pluginGroups>
+</build>
 ```
 
-Then add the following to your `pom` file:
+Or you can add the following to your `pom` file:
 
 ```xml
 <distributionManagement>
@@ -36,6 +38,7 @@ Then add the following to your `pom` file:
   </repository>
 </distributionManagement>
 
+<build>
 <plugins>
   <plugin>
     <groupId>org.ensime.maven.plugins</groupId>
@@ -43,8 +46,9 @@ Then add the following to your `pom` file:
     <version>1.1.0</version>
   </plugin>
 </plugins>
+</build>
 ```
-
+Note usually you don't need to add **DistributionManagement** part.
 ## Generate `.ensime` file
 
 To actually generate the `.ensime` file from your pom, run:
