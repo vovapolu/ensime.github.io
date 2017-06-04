@@ -35,6 +35,5 @@ Following our Emacs heritage, we use an adapted version of [Emacs Conduct](https
 - Be proactive: read the documentation.
 - Please contribute: submit reproducible bug reports, and fixes / features if you are able.
 - Be respectful: Don't insult or threaten others.
-- Be civil: No racism, sexism or any other form of discrimination.
 
 Intentional violators may be temporarily banned.
