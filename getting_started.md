@@ -26,14 +26,3 @@ You are invited to read our [Contributing Guide](/contributing) and improve ENSI
 ## Sponsoring
 
 Whether or not you can help with direct contributions, [please consider sponsoring a developer](/sponsor).
-
-## Conduct
-
-Following our Emacs heritage, we use an adapted version of [Emacs Conduct](https://www.emacswiki.org/emacs/EmacsChannel#toc3), covering `gitter.im/ensime/*` and `github.com/ensime/*`:
-
-- Be helpful: others may not know where to look.
-- Be proactive: read the documentation.
-- Please contribute: submit reproducible bug reports, and fixes / features if you are able.
-- Be respectful: Don't insult or threaten others.
-
-Intentional violators may be temporarily banned.
