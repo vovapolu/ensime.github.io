@@ -8,7 +8,7 @@ site_nav_entry: true # this is an entry in the main site nav
 Following our Emacs heritage, we use an adapted version of [Emacs Conduct](https://www.emacswiki.org/emacs/EmacsChannel#toc3), covering `gitter.im/ensime/*` and `github.com/ensime/*`:
 
 - Be helpful: others may not know where to look.
-- Be proactive: fix it if its broken and read the documentation.
+- Be proactive: fix it if it's broken and read the documentation.
 - Be useful: submit bug reports by following the template.
 - Be respectful: don't insult or threaten others (intentional violators may be temporarily banned).
 
