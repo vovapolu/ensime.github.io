@@ -13,22 +13,18 @@ To customise your ENSIME Emacs experience, don't forget to read through the user
 | Shortcut    | Description |
 |-------------|-------------|
 | `C-c C-v f` | Format the current source file |
-| `C-c C-v r` | List all references to the symbol under the cursor |
-| `C-c C-v i` or `Control+Right-click` | Inspect the type of the expression under the cursor |
-| `C-c C-v 5 i` | Inspect the type of the expression under the cursor, in other frame |
+| `C-c C-v r` | List all references to the symbol under the cursor (slow, help out with [#1753](https://github.com/ensime/ensime-server/issues/1753)) |
 | `C-c C-v t` or hover mouse | Show the type of the symbol under the cursor |
+| `C-c C-v T` | Show the fully qualified type of the symbol under the cursor |
+| `C-u C-c C-v t` | (universal argument adds to the kill ring) |
 | `C-c C-v e` or hover mouse | Show compile warnings under the cursor ; show implicit conversions when applicable |
-| `C-c C-v p` | Inspect the package of the current source file, or the package under the cursor |
-| `C-c C-v o` | Inspect the package specified in .ensime as :project-package. |
-| `C-c C-v u` | Undo a refactoring or formatting change |
 
 ## Presentation Compiler
 
 | Shortcut    | Description |
 |-------------|-------------|
-| `C-c C-c c` | Typecheck the current file |
-| `C-c C-c a` | Typecheck all files in the project |
-| `C-c C-c r` | Reset the typechecker then typecheck all open files in the project |
+| `C-c C-c c` | Re-typecheck the current file |
+| `C-c C-c r` | Restart the presentation compiler for all open files |
 | `C-c C-c e` | Show all errors and warnings from the last typecheck or compilation |
 
 
@@ -87,15 +83,6 @@ Much of this is a wrapper over [`sbt-mode`](https://github.com/hvesalai/sbt-mode
 | `C-c C-b q` | Run "quick" tests (tests impacted by recent changes) |
 | `C-c C-b o` | Run only the current test |
 
-## Type/package Inspector
-
-| Shortcut    | Description |
-|-------------|-------------|
-| `TAB` or `M-n` | Forward page |
-| `M-p` | Backward page |
-| `RET` or `Left-Click` | If the cursor is over a type, inspect that type. If the cursor is over a method, go to its source code |
-| `,` | Go back in the inspector history|
-| `.` | Go forward in the inspector history|
 
 ## Debugger
 
@@ -130,5 +117,5 @@ Much of this is a wrapper over [`sbt-mode`](https://github.com/hvesalai/sbt-mode
 | `C-c C-b S` | Create a "stacktrace" buffer or switch to it |
 | `M-x ensime-shutdown` | Shut down ENSIME |
 | `M-x ensime-reload` | Reload the .ensime file and recompile the project |
-| `M-x ensime-inspect-by-path` | Prompt for a type or package and inspect it |
+
 

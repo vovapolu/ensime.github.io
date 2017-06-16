@@ -127,10 +127,6 @@ Select a region by setting the mark using `C-SPC` and then placing the point at 
 Place your cursor over the local val whose value you'd like to inline. Type `C-c C-r i` and follow the minibuffer instructions.
 
 
-## Navigating
-
-Most things in the inspector are hyper-linked. You can click these links with the mouse or position your cursor over them and press ENTER. A history is kept of all the pages you view in the inspector. Go back in this history by typing `,` and forward by typing `.`.
-
 ### Documentation browsing
 
 Type `C-c C-v d` to browse a symbol's Javadocs / Scaladocs in your browser.
@@ -152,20 +148,6 @@ If your project uses an unusual convention, you must customize `ensime-goto-test
 Press `M-.` with the cursor on a variable, method, type, or package to visit that object's definition. `M-,` returns to where you were.
 
 If this doesn't work for you, please try to create a fully reproducible example and submit it as a ticket on the server at [ensime-server#492](https://github.com/ensime/ensime-server/issues/492). We know it sometimes breaks, but we need solid reproduction cases to investigate further.
-
-## Inspector
-
-### Invocation
-
-Typing `C-c C-v i` while the point is over a symbol will launch the type inspector. Typing `C-c C-v o` will open the inspector on the current project's main package. `C-c C-v p` will inspect the package of the current source file. Use the command `M-x ensime-inspect-by-path` to inspect an arbitrary type or package.
-
-### Package inspector
-
-Displays a hierarchical view of a package, including all top-level types. Select a type to open the Type Inspector. This doesn't show implementing classes, but we would like to do that in [ensime-server#339](https://github.com/ensime/ensime-server/issues/339).
-
-### Type inspector
-
-Lists the interfaces that contribute members to the inspected type. List each interface's methods, with full type signatures. If the type has a companion object/class, a link to the companion will appear under the heading.
 
 ## ElDoc
 
