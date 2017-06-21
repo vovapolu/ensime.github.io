@@ -24,6 +24,8 @@ title: Installation
 
 ## Installing
 
+**If you use Scala 2.12 you must install the Unstable / Developer edition**
+
 We assume that you already have [MELPA](http://melpa.org) set up as per our [Learning Emacs](/editors/emacs/learning) guide.
 
 The recommended way to install ENSIME is via MELPA stable and `use-package`:
