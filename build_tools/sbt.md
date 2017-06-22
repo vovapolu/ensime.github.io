@@ -14,7 +14,7 @@ This [sbt](http://github.com/sbt/sbt) plugin generates a `.ensime` file and prov
 Add these lines to `~/.sbt/0.13/plugins/plugins.sbt` as opposed to `project/plugins.sbt` (the decision to use ENSIME is per-user, rather than per-project):
 
 ```scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.12")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.13")
 ```
 
 **Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
@@ -40,7 +40,7 @@ Also bundled are extra workflow tasks, which are used by ENSIME clients:
 
 | `ensimeRunMain`              | Alternative to `runMain` allowing environment variables and jvm arguments to be used, e.g. `a/ensimeRunMain FOO=BAR -Xmx2g foo.Bar baz`. |
 | `c/ensimeLaunch MyApp`       | A launch manager that lets you define canned `ensimeRunMain` applications (analogous to IntelliJ's "Run Configurations"---[see below](#launch-configurations)). |
-| `b/ensimeCompileOnly`        | Compile a single fully-qualified `.scala` file using `b`'s classpath. Takes custom flags, e.g. `scalacOptions in (Test, ensimeCompileOnly) ++= Seq("-Xshow-phases")`. |
+| `b/ensimeCompileOnly`        | Compile a single fully-qualified `.scala` file using `b`'s classpath. Very useful to avoid triggering a full compile or to see the AST during a phase of the compile. e.g. `a/ensimeCompileOnly -Xprint:type /path/to/Foo.scala` |
 | `b/ensimeScalariformOnly`    | Format a single fully-qualified `.scala` file using `b`'s Scalariform settings (compatible with, but does not require, `sbt-scalariform`). |
 | `ensimeRunDebug`             | Like `ensimeRunMain` but adds debugging flags automatically. |
 | `debugging` / `debuggingOff` | Mutates the default `javaOptions` to include debugging flags ([see below](#debugging-example)). |
@@ -109,10 +109,10 @@ another, to use ENSIME on a Java 6 or 7 project (the server needs JDK 8). This i
 ensimeJavaHome in ThisBuild := file("/usr/lib/jvm/java-8-openjdk")
 ```
 
-another, to add the kind-projector plugin to your entire build (will be mostly irrelevant after [Analyzer per Module](https://github.com/ensime/ensime-server/issues/1152))
+another, to add a custom compiler plugin to your entire build (this is just an example, it's not available yet. You can write your own simpler compiler plugins to replace larger, slower, and buggy corporate plugins should the need arise)
 
 ```scala
-addEnsimeScalaPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
+addEnsimeScalaPlugin("org.ensime" %% "ensime-plugin-implicits" % "1.0.0")
 ```
 
 another, to use the assembly jar which you build locally:
