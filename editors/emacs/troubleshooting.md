@@ -20,13 +20,20 @@ Check the `*ENSIME-...*` server buffer for exceptions. If there is anything susp
 If that doesn't work, escalate matters: nuke old versions of ENSIME and restart Emacs:
 
 ```
-rm -rf ~/.ivy2/cache/org.ensime \
-       ~/.ivy2/local \
-       ~/.coursier/cache/v1/https/oss.sonatype.org/content/repositories/snapshots \
-       ~/.emacs.d/ensime \
+rm -rf ~/.coursier/cache/v1/https/oss.sonatype.org/content/repositories/snapshots \
        ~/.emacs.d/elpa/ensime* \
        ~/.emacs.d/elpa/scala-mode* \
        ~/.emacs.d/elpa/sbt-mode*
+```
+
+If that doesn't work, try nuking your build tool's cache. e.g. if you're using `sbt`
+
+```
+rm -rf ~/.ivy2/cache/org.ensime \
+       ~/.ivy2/local \
+       project/target \
+       ~/.sbt/0.13/target \
+       ~/.sbt/0.13/plugins/target
 ```
 
 If **that** doesn't work, move your ivy folder aside, it has probably become corrupted:
