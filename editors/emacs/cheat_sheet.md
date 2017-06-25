@@ -52,6 +52,7 @@ To customise your ENSIME Emacs experience, don't forget to read through the user
 | Shortcut    | Description |
 |-------------|-------------|
 | `M-.` or `Control+Left-Click` | Jump to the definition of the symbol under the cursor |
+| `C-u M-.` | Jump to the definition of the type of the symbol under the cursor |
 | `M-x ensime-edit-definition-other-window` | Jump to the definition of the symbol under the cursor, into another window |
 | `M-x ensime-edit-definition-other-frame` | Jump to the definition of the symbol under the cursor, into another frame |
 | `M-,` | Pop back to the previously visited position |
@@ -75,6 +76,8 @@ Much of this is a wrapper over [`sbt-mode`](https://github.com/hvesalai/sbt-mode
 | `C-c C-b s` or `C-c C-v s` | Start a sbt process, or switch to an existing one |
 | `C-c C-b S` | Switch to buffer containing the stack trace parser |
 | `C-c C-b c` | Compile |
+| `C-c C-b C` | Compile just this file |
+| `C-u C-c C-b C` | Compile just this file and print its AST |
 | `C-c C-b n` | Clean |
 | `C-c C-b p` | Package |
 | `C-c C-b r` | Run |
