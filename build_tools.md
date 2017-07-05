@@ -34,10 +34,10 @@ The following chart describes how well ENSIME supports each build tool:
 | Homepage               | [![sbt][sbtI]][sbt] | [CBT][cbt] | [![Pants][pantsI]][pants] | [![Leiningen][leinI]][lein] | [![Maven][mvnI]][mvn] | [![Gradle][gradleI]][gradle] | -                |
 | Upstream Licence       | BSD-3               | Apache 2.0 | Apache 2.0                | EPL                         | Apache 2.0            | Apache 2.0                   | -                |
 | Recommended            | ✔                   |            |                           |                             |                       |                              |                  |
-| `.ensime` project file | ✔                   |            |                           |                             | ✔                     | ✔                            | ✔                |
-| source fetching        | ✔                   |            |                           |                             | ✔                     | ✔                            |                  |
-| docs fetching          | ✔                   |            |                           |                             | ✔                     | ✔                            |                  |
+| `.ensime` project file | ✔                   | ✔          |                           |                             | ✔                     | ✔                            | ✔                |
+| source fetching        | ✔                   | ✔          |                           |                             | ✔                     | ✔                            |                  |
+| docs fetching          | ✔                   | ✔          |                           |                             | ✔                     | ✔                            |                  |
 | launch manager         | ✔                   |            |                           |                             |                       |                              |                  |
 | debug launcher         | ✔                   |            |                           |                             |                       |                              |                  |
 | single file compile    | ✔                   |            |                           |                             |                       |                              |                  |
-| formatting             | ✔                   |            |                           |                             |                       | ✔                            |                  |
+| formatting             | ✔                   | ✔          |                           |                             |                       | ✔                            |                  |
