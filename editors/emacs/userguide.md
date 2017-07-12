@@ -75,7 +75,7 @@ ENSIME will highlight errors and warnings in source files through the use of the
 - after a short pause in typing. The frequency of these checks is controlled through the variables `ensime-typecheck-idle-interval` and `ensime-typecheck-interval`. This 
 feature can be disabled by setting `ensime-typecheck-when-idle` to `nil`.
 
-Typing `C-c C-c e` lists all errors and warnings in a separate window. Hovering the mouse over a highlighted error or typing `C-c C-v e` displays the error details in the echo area.
+Hovering the mouse over a highlighted error or typing `C-c C-v e` displays the error details in the echo area.
 
 ### Semantic highlighting
 

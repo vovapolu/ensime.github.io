@@ -25,7 +25,6 @@ To customise your ENSIME Emacs experience, don't forget to read through the user
 |-------------|-------------|
 | `C-c C-c c` | Re-typecheck the current file |
 | `C-c C-c r` | Restart the presentation compiler for all open files |
-| `C-c C-c e` | Show all errors and warnings from the last typecheck or compilation |
 
 
 ## Testing
