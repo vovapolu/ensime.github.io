@@ -21,6 +21,7 @@ If that doesn't work, escalate matters: nuke old versions of ENSIME and restart 
 
 ```
 rm -rf ~/.coursier/cache/v1/https/oss.sonatype.org/content/repositories/snapshots \
+       ~/.emacs.d/ensime* \
        ~/.emacs.d/elpa/ensime* \
        ~/.emacs.d/elpa/scala-mode* \
        ~/.emacs.d/elpa/sbt-mode*
