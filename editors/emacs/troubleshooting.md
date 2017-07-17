@@ -61,6 +61,8 @@ Compiler and it is known to issue false positives. But it is easier than you mig
 
 To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcplod). The first thing you can do is to write a PC Plod unit test for the library that you are using to raise awareness with the author of that library that they not compatible with the presentation compiler (and error reporter).
 
+We are also experimenting with a workaround to the specific problem of red squiggly lines due to complex implicit resolutions. If you'd like to get involved, come over to [github.com/ensime/ensime-plugin-implicits](https://github.com/ensime/ensime-plugin-implicits).
+
 ## Anything else
 
 1. fully compile your project (did you skip the [User Guide](/editors/emacs/userguide/))? Time to read it, honestly it's full of good stuff.
