@@ -11,7 +11,7 @@ ENSIME will always be free / libre software and primarily rely on our community 
 
 The following major features have been implemented under the sponsorship programme:
 
-- [Graph Based Indexer](https://github.com/ensime/ensime-server/pull/1747) [watch a talk about it](/talks/scalasphere17/)
+- [Graph Based Indexer](https://github.com/ensime/ensime-server/pull/1747) ([watch a talk about it](/talks/scalasphere17/))
 - [Scala 2.12 support](https://github.com/ensime/ensime-server/pull/1703)
 - [Analyzer per Project](https://github.com/ensime/ensime-server/pull/1807)
 - [rewrite sublime plugin](https://github.com/ensime/ensime-server/issues/1778)
