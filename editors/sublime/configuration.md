@@ -10,12 +10,15 @@ Windows users should ensure the `Line Endings` setting is set to `Unix`. Go to *
 
 ## Mouse Clicks
 
-ENSIME Sublime customizes mouse bindings. It makes `Ctrl+Click`/`Cmd+Click` invoke `Go to Definition` and `Alt+Click` stand for `Inspect Type at Point`.
+ENSIME Sublime customizes mouse bindings. It makes `Ctrl+Click`/`Cmd+Click` invoke `Go to Definition` and `Shift+Click` stand for `Inspect Type at Point`.
 
 These bindings can be altered in the the config: *Preferences Menu / Package Settings / Ensime / Mousemap - Default*.
 
 ## Key Bindings
 
-`Ctrl+Space` invokes code completion by default.
+`Ctrl+Alt+e` invokes `Show errors and warnings` which displays the error and warning messages below the highlighted areas.
+`Ctrl+Alt+i` invokes `Add import`
+`Ctrl+Alt+o` invokes `Organise imports`
+`Ctrl+Space` on Windows/OS X and `Alt+/` on GNU/Linux invokes code completion by default.
 
 Other keybindings can be enabled in the config: *Preferences Menu / Package Settings / Ensime / Keymap - Default*.

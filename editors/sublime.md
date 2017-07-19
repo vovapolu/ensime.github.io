@@ -16,8 +16,8 @@ ENSIME Sublime is in active development. Supported features include the followin
 - code completion;
 - goto definition;
 - type hints;
-- extract local, extract method;
-- "add-" and "organize imports" functions;
+- inline local;
+- "add import" and "organize imports" functions;
 - support for Scala 2.10 and 2.11.
 
 *ENSIME Sublime is in active development. Watch this page for news and submit issues to our [issue tracker][issues].*

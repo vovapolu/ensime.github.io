@@ -15,11 +15,11 @@ ENSIME enriches your Sublime experience with the following features:
 
 - Right-clicking yields useful context menu items.
 - `Ctrl-Click` or `Cmd-Click` invokes *Go to Definition*.
-- `Alt-Click` invokes *Inspect Type at Point*.
+- `Shift-Click` invokes *Inspect Type at Point*.
 
 ### Keyboard
 
-- Typing `Ctrl-Space` will show an autocomplete menu.
+- Typing `Ctrl-Space` on Windows/OS X and `Alt+/` on GNU/Linux will show an autocomplete menu.
 - Other keybindings can be added [via keymaps][configuration].
 
 ### Command palette

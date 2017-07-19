@@ -8,22 +8,15 @@ title: Troubleshooting
 
 Things go wrong -- we know! Here are some of the main gotchas. If these tips don't solve your problem, [ask on Gitter][gitter] and check the [issue tracker][issues] to see if others have had the same problem.
 
-## Manually Specifying the Location of sbt
+## Let's get this out of the way first
 
-If Ensime can't find sbt on your PATH, you can hard-code the location in the preferences for the Sublime Text Ensime package:
+- Ensure you have created a `.ensime` file using the `ensimeConfig` command.
 
-- On OS X, choose *Sublime Text Menu / Preferences / Package Settings / Ensime / Settings - User*
-- On Windows and Linux, choose *Preferences Menu / Package Settings / Ensime / Settings - User*
+  If you have recently (re)generated your `.ensime` file, you may have to quit and restart Sublime Text to pick up the changes.
 
-The configuration file will be empty when you open it. Add the path to your sbt executable as follows:
+- Ensure the top-most item in the Side Bar (*View Menu / Side Bar / Show Side Bar*) is your project directory (the one containing the `.ensime` file).
 
-~~~json
-{
-  "sbt_binary": "/path/to/sbt"
-}
-~~~
-
-After that you should be able to run the *Ensime: Startup* command from the Command Palette. If it doesn't work immediately, try restarting Sublime Text.
+  If not, choose *Project Menu / Add Folder to Project...* and select the project root directory. You'll be able to continue working in the same file.
 
 
 ## Server out of date
@@ -34,18 +27,15 @@ Nuke old versions of the ENSIME server and try again
 - `rm -rf ~/.ivy2/local/org.ensime`
 
 
-## Checking Java and sbt Visibility
+## Checking Java Visibility
 
-Unsure whether Sublime Text can see Java and sbt on your system application path? Try pasting the following commands one at a time into the Sublime Text console (*View menu / Show Console*).
+Unsure whether Sublime Text can see Java on your system application path? Try pasting the following commands one at a time into the Sublime Text console (*View menu / Show Console*).
 
 On Linux or OS X:
 
 ~~~ python
 # Check the visibility of Java:
 import subprocess; print(subprocess.check_output(['which', 'java'], stderr=subprocess.STDOUT).decode("utf-8"))
-
-# Check the visibility of sbt:
-import subprocess; print(subprocess.check_output(['which', 'sbt'], stderr=subprocess.STDOUT).decode("utf-8"))
 ~~~
 
 On Windows:
@@ -53,9 +43,6 @@ On Windows:
 ~~~ python
 # Check the visibility of Java:
 import subprocess; print(subprocess.check_output(['where', 'java'], stderr=subprocess.STDOUT).decode("utf-8"))
-
-# Check the visibility of sbt:
-import subprocess; print(subprocess.check_output(['where', 'sbt'], stderr=subprocess.STDOUT).decode("utf-8"))
 ~~~
 
 In each case you should see a path string, something like this:
@@ -73,29 +60,21 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['which', 'java']' returned non-zero exit status 1
 ~~~
 
-## Checking Java and sbt Versions
+## Checking Java Versions
 
-Ideally you should be using Java 8 and sbt 0.13.x. To check this, paste the following commands one at a time into the console (*View Menu / Show Console*):
+Ideally you should be using Java 8. To check this, paste the following commands one at a time into the console (*View Menu / Show Console*):
 
 ~~~ python
 # Check the Java version:
 import subprocess; print(subprocess.check_output(['java', '-version'], stderr=subprocess.STDOUT).decode("utf-8"))
-
-# Check the sbt version:
-import subprocess; print(subprocess.check_output(['sbt', 'sbtVersion'], stderr=subprocess.STDOUT).decode("utf-8"))
 ~~~
 
-## No Commands in the Command Palette?
 
-If your command palette doesn't contain the *Ensime: Startup* menu item, it is most likely because ENSIME Sublime can't find your `.ensime` file:
+## None of the commands in the context menu are clickable ?
 
-- Ensure you have created a `.ensime` file using the `ensimeConfig` command.
+If all the commands in the context menu are greyed out, it is most likely because ENSIME is still indexing your files or encountered some error while doing so. Once the indexing is complete you a get a message in the console saying "Indexer is ready! ...". 
 
-  If you have recently (re)generated your `.ensime` file, you may have to quit and restart Sublime Text to pick up the changes.
-
-- Ensure the top-most item in the Side Bar (*View Menu / Side Bar / Show Side Bar*) is your project directory (the one containing the `.ensime` file).
-
-  If not, choose *Project Menu / Add Folder to Project...* and select the project root directory. You'll be able to continue working in the same file.
+If it's been too long and the log files show no indexing messages or any error, deleting the `.ensime_cache` folder in your project directory and restarting ENSIME is worth a try. This will lead to a fresh start and re-index all the files. It only takes a while the first time you Startup ENSIME and is much faster in the subsequent runs.
 
 ## Line Endings
 

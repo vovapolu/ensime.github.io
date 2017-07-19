@@ -24,21 +24,6 @@ Rather than installing ENSIME Sublime via Package Control, check out the [Git re
 
 This will Sublime Text to pick up changes in the plugin codebase live as you edit it!
 
-### Additional Configuration
-
-By default, when you run the *Ensime: Startup* command, ENSIME Sublime starts a new instance of ENSIME Server. If you are hacking on ENSIME Server, you may find it useful to disable this behaviour.
-
-To get ENSIME to connect to a pre-existing server instead, go to *Preferences / Package Settings / Ensime / Settings - User* and add the following config entry:
-
-~~~ javascript
-{
-  // other config entries...
-  "connect_to_external_server": false
-}
-~~~
-
-To revert to the default behaviour, set the entry back to `true`.
-
 
 
 [ensime-site]: https://github.com/ensime/ensime.github.io
