@@ -12,7 +12,7 @@ This plugin takes the approach of providing a native [Language Server Protocol](
 
 Head over to the repo:
 
-- https://github.com/dragos/dragos-vscode-scala
+- [https://github.com/dragos/dragos-vscode-scala](https://github.com/dragos/dragos-vscode-scala)
 
 to help out!
 
