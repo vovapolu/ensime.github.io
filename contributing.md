@@ -75,7 +75,7 @@ Setting up `sbt` and `jenv` is documented in [Learning Scala](/learning_scala).
 - without the `sbt` 0.13.13+ official start script (**not** the short bash script), project compilation will fail.
 - without `jenv` the tests will fail to pass: we require more knowledge about JDK than typical projects.
 
-Before you start, run this sbt command on your `ensime-server` repository as the `.ensime` file is required to run the integration tests (even if you are not using ENSIME to hack on ENSIME).
+Before you start, run this sbt command on your `ensime-server` repository as the `.ensime` file is required by the integration tests (even if you are not using ENSIME to hack on ENSIME).
 
 ```
 sbt ensimeConfig
@@ -87,7 +87,7 @@ Don't forget to compile the integration tests as well as the tests, e.g.
 sbt test:compile it:compile
 ```
 
-The integration tests will be slow to run unless you generate a cache.
+The integration tests will be very slow unless you generate a cache.
 
 
 ```
