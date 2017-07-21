@@ -72,8 +72,8 @@ with example JSON payloads in [org/ensime/jerky](https://github.com/ensime/ensim
 
 Setting up `sbt` and `jenv` is documented in [Learning Scala](/learning_scala).
 
-- without the `sbt` 0.13.13 official start script (**not** the short bash script), or `sbt-extras`, project compilation will fail with a `java.lang.StackOverflowError`.
-- without `jenv` the tests will fail to pass: we require knowledge about the file locations within the JDK installation.
+- without the `sbt` 0.13.13+ official start script (**not** the short bash script), project compilation will fail.
+- without `jenv` the tests will fail to pass: we require more knowledge about JDK than typical projects.
 
 Before you start, run this sbt command on your `ensime-server` repository as the `.ensime` file is required to run the integration tests (even if you are not using ENSIME to hack on ENSIME).
 
