@@ -22,7 +22,7 @@ If you are looking for a small task to pick up, have a look at our [latest miles
 
 Anything with the **Low Hanging Fruit** or **Needs Reproduction** labels are suitable for a new contributor. Please contact us on the github issue directly if you want to contribute something: this avoids duplication of efforts, and also lets us discuss the best way to do it.
 
-We have regular [Hack Days in London](http://hackthetower.co.uk/). If you can set aside the time to join us, they are a fun and exciting way to contribute to ENSIME.
+If you still don't know, join the conversation at [gitter.im/ensime/ensime-server](https://gitter.im/ensime/ensime-server).
 
 If you can't come to a hack day but you'd really like to have some live help from somebody, please ask. We can use the libre software [meet.jit.si](https://meet.jit.si/) to screen share and discuss tickets anytime that is convenient.
 
