@@ -70,9 +70,10 @@ with example JSON payloads in [org/ensime/jerky](https://github.com/ensime/ensim
 
 ### Compiling and Tests
 
-Make sure you have 0.13.13+ of the `sbt` start script, otherwise project compilation will fail with a `java.lang.OutOfMemoryError` or `java.lang.StackOverflowError`.
+Setting up `sbt` and `jenv` is documented in [Learning Scala](/learning_scala).
 
-You should also use `jenv` to manage your Java installation and set necessary environment variables, as per [Learning Scala](/learning) or you'll encounter problems related to the `JAVA_HOME` location.
+- without the `sbt` 0.13.13 official start script (**not** the short bash script), or `sbt-extras`, project compilation will fail with a `java.lang.StackOverflowError`.
+- without `jenv` the tests will fail to pass: we require knowledge about the file locations within the JDK installation.
 
 Before you start, run this sbt command on your `ensime-server` repository as the `.ensime` file is required to run the integration tests (even if you are not using ENSIME to hack on ENSIME).
 
@@ -86,7 +87,7 @@ Don't forget to compile the integration tests as well as the tests, e.g.
 sbt test:compile it:compile
 ```
 
-The integration tests will be extremely slow to run unless you generate a cache.
+The integration tests will be slow to run unless you generate a cache.
 
 
 ```
@@ -95,7 +96,7 @@ cd testing/cache && sbt ++2.12.2 ensimeConfig ensimeServerIndex && cd ../..
 
 This must be repeated if you change anything that will impact the indexing (e.g. anything in `SearchService` or its dependencies).
 
-The `.drone.yml` file documents the exact commands that we use during our CI and should serve as a good reference on how to do this.
+The `.drone.yml` file documents the exact commands that we use during our CI and should serve as a good reference.
 
 ### Implementing a Feature or Bugfix
 
