@@ -60,7 +60,7 @@ Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) whi
 
 ## Unstable Edition
 
-Note that "unstable" means "it does not have versioned release jars", not "it will crash a lot".
+Note that "unstable" means "it does not have versioned releases", not "it will crash a lot".
 
 To use the unstable version of ENSIME from MELPA, change to `:pin melpa`:
 
