@@ -26,7 +26,7 @@ title: Installation
 
 **If you use Scala 2.12 you must install the Unstable edition**
 
-Note that "stable" means "versioned release jars exist", not "it has less bugs".
+Note that "stable" means "versioned release jars exist", not "it has less bugs". Indeed, bugs are considered "documented behaviour".
 
 We assume that you already have [MELPA](http://melpa.org) set up as per our [Learning Emacs](/editors/emacs/learning) guide.
 
@@ -60,7 +60,7 @@ Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) whi
 
 ## Unstable Edition
 
-Note that "unstable" means "it does not have versioned releases", not "it will crash a lot".
+Note that "unstable" means "it does not have versioned releases", not "it will crash a lot". You are expected to fix bugs you encounter.
 
 To use the unstable version of ENSIME from MELPA, change to `:pin melpa`:
 
