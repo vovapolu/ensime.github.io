@@ -26,6 +26,8 @@ title: Installation
 
 **If you use Scala 2.12 you must install the Unstable edition**
 
+Note that "stable" means "versioned release jars exist", not "it has less bugs".
+
 We assume that you already have [MELPA](http://melpa.org) set up as per our [Learning Emacs](/editors/emacs/learning) guide.
 
 The recommended way to install ENSIME is via MELPA stable and `use-package`:
@@ -56,9 +58,9 @@ or set the sbt command explicitly
 
 Basic Scala support is provided by [`scala-mode`](/editors/emacs/scala-mode) which provides many features specific to Scala major mode editing and sbt support is provided by [`sbt-mode`](/editors/emacs/sbt-mode). Both modes can be used independently of ENSIME and you are encouraged to read their standalone documentation to understand the role that they play.
 
-Note that "stable" means "versioned release jars exist", not "it has less bugs".
-
 ## Unstable Edition
+
+Note that "unstable" means "it does not have versioned release jars", not "it will crash a lot".
 
 To use the unstable version of ENSIME from MELPA, change to `:pin melpa`:
 
