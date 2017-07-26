@@ -132,27 +132,17 @@ ensimeScalacOptions ++= (scalacOptions in (core, Compile)).value
 another, to revert to a previous stable or milestone of the server:
 
 ```scala
-ensimeServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
-ensimeProjectServerVersion in ThisBuild := "2.0.0-M1" // or "1.0.1"
+ensimeServerVersion in ThisBuild := "2.0.0-M2" // or "1.0.1"
+ensimeProjectServerVersion in ThisBuild := "2.0.0-M2" // or "1.0.1"
 ```
 
 ## Troubleshooting
 
 Always check the [tickets flagged as FAQ](https://github.com/ensime/ensime-sbt/issues?q=label%3AFAQ) before reporting a new issue.
 
-Tickets are extremely hard to reproduce unless you create a minimal example project and share with us the steps to reproduce the problem.
+Tickets are hard to reproduce unless you create a minimal example project and share with us the steps to reproduce the problem.
 
-Bug reports in the form of a pull request into the `src/sbt-test/ensime-sbt` directory are well received, which is our suite of integration tests using the [sbt scripted](http://eed3si9n.com/testing-sbt-plugins) framework (its very simple to use). Pull requests with tests and fixes are living the dream.
-
-You can follow snapshot releases by using the following instead of the stable release
-
-```scala
-// or clone this repo and type `sbt publishLocal`
-resolvers += Resolver.sonatypeRepo("snapshots")
-
-// update to the latest development version, see project/EnsimeSbtBuild.scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "<WHATEVER IS LATEST>")
-```
+Bug reports in the form of a pull request into the `src/sbt-test/ensime-sbt` directory are well received, which is our suite of integration tests using the [sbt scripted](http://eed3si9n.com/testing-sbt-plugins) framework. Pull requests with tests and fixes are living the dream.
 
 ### Cancel Processes
 
