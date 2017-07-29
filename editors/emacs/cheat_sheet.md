@@ -52,10 +52,8 @@ To customise your ENSIME Emacs experience, don't forget to read through the user
 | `M-.` or `Control+Left-Click` | Jump to the definition of the symbol under the cursor |
 | `C-u M-.` | Jump to the definition of the type of the symbol under the cursor |
 | `C-c C-v r` | Find usage of symbol at point |
-| `M-x ensime-show-hierarchy-of-type-at-point` | Find implementations of type at point |
+| `C-c C-v h` | Find implementations of type at point |
 | `M-,` | Pop back to the previously visited position |
-| `M-n` | Go to the next compilation note in the current buffer |
-| `M-p` | Go to the previous compilation note in the current buffer |
 | `C-c C-v .` | Select the surrounding syntactic context. Subsequent taps of '.' and ',' will grow and shrink the selection, respectively |
 | `C-c C-v v` | Search globally for methods or types |
 
