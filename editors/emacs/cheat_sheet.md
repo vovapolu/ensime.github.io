@@ -13,7 +13,6 @@ To customise your ENSIME Emacs experience, don't forget to read through the user
 | Shortcut    | Description |
 |-------------|-------------|
 | `C-c C-v f` | Format the current source file |
-| `C-c C-v r` | List all references to the symbol under the cursor (slow, help out with [#1753](https://github.com/ensime/ensime-server/issues/1753)) |
 | `C-c C-v t` or hover mouse | Show the type of the symbol under the cursor |
 | `C-c C-v T` | Show the fully qualified type of the symbol under the cursor |
 | `C-u C-c C-v t` | (universal argument adds to the kill ring) |
@@ -52,8 +51,8 @@ To customise your ENSIME Emacs experience, don't forget to read through the user
 |-------------|-------------|
 | `M-.` or `Control+Left-Click` | Jump to the definition of the symbol under the cursor |
 | `C-u M-.` | Jump to the definition of the type of the symbol under the cursor |
-| `M-x ensime-edit-definition-other-window` | Jump to the definition of the symbol under the cursor, into another window |
-| `M-x ensime-edit-definition-other-frame` | Jump to the definition of the symbol under the cursor, into another frame |
+| `C-c C-v r` | Find usage of symbol at point |
+| `M-x ensime-show-hierarchy-of-type-at-point` | Find implementations of type at point |
 | `M-,` | Pop back to the previously visited position |
 | `M-n` | Go to the next compilation note in the current buffer |
 | `M-p` | Go to the previous compilation note in the current buffer |
