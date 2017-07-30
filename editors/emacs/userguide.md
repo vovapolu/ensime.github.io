@@ -21,26 +21,11 @@ The SCALA REPL mode highlights stacktraces and lets you jump to source locations
 
 ENSIME uses the Scala presentation compiler, a light-weight version of the full compiler that only performs the first few stages of a compilation. It returns syntax/type errors, as well as the type of every expression, in fractions of a second rather than several seconds. This is how you receive instant feedback when you edit a `.scala` file.
 
-In order to parse a source file correctly, the presentation compiler needs to know the type of every external class or object the source file uses. That information must be kept up-to-date whenever you make changes. There are two ways to accomplish this: load all source files, or depend on the project being compiled.
+In order to parse a source file correctly, the presentation compiler needs to know the type of every external class or object the source file uses. That information must be kept up-to-date whenever you make changes.
 
-### Loading all source files
+The presentation compiler loads type information from `.class` files, and only load the source files that are being edited. This only works if your project has been compiled, otherwise ENSIME will show you lots of spurious errors.
 
-This is the simplest mode to understand but it has a few drawbacks. Type `C-c C-c a` to activate it. In this mode, every `.scala` file in your project is parsed. Editing a file causes everything to be reparsed again (starting with the file you just modified). The presentation compiler is always in sync with the state of your project.
-
-The major disadvantage is that re-parsing everything takes too long for anything except the smallest of projects.
-
-### The project's .class files
-
-This is ENSIME's default mode of operation. In this mode, the presentation compiler loads type information from `.class` files, and only load the source files that are being edited. This means that reparsing is always very fast. This only works if your project has been compiled, otherwise ENSIME will show you lots of spurious errors.
-
-This mode works well if you spend most of your time editing a small number of files. The compiler's state will be up to date regarding the file being edited. You should recompile whenever you want to see the effects of inter-file dependencies. When you recompile, ENSIME notices the change and reloads all open file.
-
-You can revert from the "load all sources" mode to the default mode by typing `C-c C-c r`. Also try that key combination whenever the typechecker seems to produce wrong information.
-
-### Caveat: refactor features only in "source" mode
-
-You must type `C-c C-c a` before using "Refactor/Rename" (`C-c C-r r`) and "Source/Find all references" (`C-c C-v r`). At the moment, these two commands will give incomplete results unless all source files are parsed. We plan to fix this in [ensime-server#425](https://github.com/ensime/ensime-server/issues/425).
-
+The compiler's state will be up to date regarding the file being edited. You should recompile whenever you want to see the effects of inter-file dependencies. When you recompile, ENSIME notices and reloads the new classes.
 
 ## sbt
 
@@ -52,12 +37,11 @@ Commands beginning `C-c C-b` are used to communicate with sbt. Type `C-c C-b C-h
 
 The extra sbt integration enables some convenient workflow options:
 
-- For small projects, typing `C-c C-c a` may save you from having to use the build tool (fire and forget).
 - For small to medium projects, you can customize `ensime-sbt-perform-on-save` to `"compile"`. This is much more efficient than using sbt's `~compile` polling support.
 - For larger projects, compiling on every save may not be practical. You can type `C-c C-b c` every once in a while.
 - If your workflow involves running tests often, this will keep your project compiled as a side effect:
   - Type `C-c C-b t` to run all or one of the test suites.  If in a test source file, only its test suite is run.
-  - Type `C-c C-b o` to run only one unit test.  This is the "testOnly" command in sbt.  When visitng a test source file and running this command, ENSIME automatically determines its name and only runs that test.
+  - Type `C-c C-b o` to run only one unit test.  This is the `testOnly` command in sbt.  When visitng a test source file and running this command, ENSIME automatically determines its name and only runs that test.
   -  Type `C-c C-b q` to run "testQuick", which only runs the recently failed tests, the tests that weren't run or need to be run next.
 
 For more information on the sbt testing commands, see [sbt Testing](http://www.scala-sbt.org/0.13/docs/Testing.html)
