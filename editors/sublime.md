@@ -15,6 +15,9 @@ ENSIME Sublime is in active development. Supported features include the followin
 - error highlighting;
 - code completion;
 - goto definition;
+- find usages;
+- show implementations;
+- classpath search;
 - type hints;
 - inline local;
 - "add import" and "organize imports" functions;

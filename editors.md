@@ -52,7 +52,7 @@ The following chart describes how well ENSIME supports each editor:
 | Semantic highlighting  | ✔                         |                        |                     |                     |                           |
 | Implicit conversions   | ✔                         | ✔                      |                     |                     |                           |
 | Import class at point  | ✔                         | ✔                      | ✔                   |                     | ✔                         |
-| Classpath search       | ✔                         | ✔                      | ✔                   |                     |                           |
+| Classpath search       | ✔                         | ✔                      | ✔                   |                     | ✔                         |
 | Jump to source         | ✔                         | ✔                      | ✔                   | ✔                   | ✔                         |
 | Show documentation     | ✔                         | ✔                      | ✔                   |                     | ✔                         |
 | Rename symbol          | ✔                         |                        | ✔                   |                     | ✔                         |
@@ -61,7 +61,7 @@ The following chart describes how well ENSIME supports each editor:
 | Java Support: ENJIME   | ✔                         |                        |                     |                     |                           |
 | REPL                   | ✔                         |                        |                     |                     |                           |
 | sbt integration        | ✔                         |                        |                     | ✔                   |                           |
-| Find usages            | ✔ (unstable)              |                        |                     |                     |                           |
-| Show implementations   | ✔ (unstable)              |                        |                     |                     |                           |
+| Find usages            | ✔ (unstable)              |                        |                     |                     | ✔              |
+| Show implementations   | ✔ (unstable)              |                        |                     |                     | ✔              |
 | [Advanced type search] |                           |                        |                     |                     |                           |
 | [Passive suggestions]  |                           |                        |                     |                     |                           |
