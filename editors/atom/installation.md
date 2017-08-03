@@ -62,10 +62,8 @@ This can be turned off via a setting if you for personal preference would like t
 ### These are recommended:
 
 - [Project manager] which is handy to keep track of projects.
+- A plugin to navigate back to last cursor position when "code surfing" is useful. Something like [last-cursor-position], [cursor-history] or [navigation-history].
 
-- A plugin to navigate back to last cursor position when "code surfing" is useful. Something like https://github.com/fcharron/last-cursor-position or https://atom.io/packages/navigation-history
-  
- None of which has many downloads though…
 
 [sbt]: http://www.scala-sbt.org/download.html
 [ensimeConfig]: /build_tools/sbt/
@@ -74,5 +72,7 @@ This can be turned off via a setting if you for personal preference would like t
 [hyperclick]: https://atom.io/packages/hyperclick
 [browser-plus]: https://atom.io/packages/browser-plus
 [Project manager]: https://github.com/danielbrodin/atom-project-manager
-[last cursor position]: https://atom.io/packages/last-cursor-position
+[last-cursor-position]: https://atom.io/packages/last-cursor-position
+[navigation-history]: https://atom.io/packages/navigation-history
+[cursor-history]: https://atom.io/packages/cursor-history
 [Atom]: https://atom.io/
