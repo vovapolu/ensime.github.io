@@ -42,7 +42,7 @@ Depending on your preferences, you may want to add some of the following to your
  - Easy Type Inspection
 
     ```
-    nnoremap <localleader>t :EnTypeCheck<CR>
+    nnoremap <localleader>t :EnType<CR>
     ```
  - Customize the browser used for `:EnDocBrowse` by setting an environment variable, in your shell initialization
 
