@@ -68,6 +68,7 @@ We are also experimenting with a workaround to the specific problem of red squig
 1. fully compile your project (did you skip the [User Guide](/editors/emacs/userguide/))? Time to read it, honestly it's full of good stuff.
 1. following the steps in "Problem starting the ENSIME server" to ensure all your software is recent (this solves more than you'd expect)
 1. check [all ENSIME FAQ issues](https://github.com/search?utf8=%E2%9C%93&q=user%3Aensime+is%3Aissue+label%3AFAQ&type=Issues&ref=searchresults) and do a quick search.
+1. get more information by [debugging emacs](/editors/emacs/contributing/)
 
 If that solved your problem, great!
 
