@@ -20,16 +20,6 @@ with more in [the current roadmap](https://github.com/ensime/ensime-server/proje
 
 Please consider setting up a monthly donation at [salt.bountysource.com/teams/ensime](https://salt.bountysource.com/teams/ensime) (a [libre platform](https://github.com/bountysource/core)).
 
-We'd like to extend a special thank you to the following sponsors:
-
-### Benefactors
-
-[![47 Degrees](https://pbs.twimg.com/profile_images/575659950430535680/2ER-ouLq_200x200.png)](http://www.47deg.com/)
-
-### Patrons
-
-[![Scalanator.io](https://pbs.twimg.com/profile_images/731137083545391104/kAlT908G_200x200.jpg)](https://www.scalanator.io/)
-
 ### Supporters
 
 - [![YourKit](https://www.yourkit.com/images/yklogo.png)](https://www.yourkit.com/) YourKit LLC supports ENSIME with gratis licences for core developers.

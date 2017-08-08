@@ -23,4 +23,4 @@ If you would like to learn more, please read our [Getting Started](getting_start
 
 ## Sponsors
 
-ENSIME is sponsored by [47 Degrees](http://www.47deg.com/) and others. Please consider [sponsoring a developer](sponsor) to ensure that ENSIME remains sustainable.
+Please consider [sponsoring a developer](sponsor) to ensure that ENSIME remains sustainable.
