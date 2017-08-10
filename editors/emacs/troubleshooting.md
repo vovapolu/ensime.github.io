@@ -50,11 +50,7 @@ As a side effect, you're probably experiencing hanging, remember to `C-g` or `ES
 1. compile your project, or open all dependent scala files
 1. restart the presentation compiler: `C-c C-c r` (`ensime-reload-open-files`)
 
-If that doesn't work, try a few more things:
-
-1. restart the server with `M-x ensime-reload`
-1. if macro related, close the file defining the macro ([known and sponsored issue](https://github.com/ensime/ensime-server/issues/1152))
-1. if compiler plugin related, ensure plugins are in your `.ensime` (via your [build tool](/build_tools))
+If that doesn't work, try restarting the server with `M-x ensime-reload`.
 
 As documented in more detail in our [Contributing Guide](/contributing/#scala-compiler-and-refactoring), ENSIME relies on type information provided by Scala's Presentation
 Compiler and it is known to issue false positives. But it is easier than you might think to fix the problems upstream.
