@@ -57,8 +57,8 @@ Compiler and it is known to issue false positives. To help you diagnose problems
 
 We are also experimenting with workarounds to the specific problem of complex implicit resolutions. These will require you to get involved as a contributor:
 
-1. [ensime/ensime-plugin-implicits](https://github.com/ensime/ensime-plugin-implicits).
-1. prefer [semi-auto derivation](https://github.com/fommil/stalagmite/issues/38) to full generic derivation
+1. [ensime/ensime-plugin-implicits](https://github.com/ensime/ensime-plugin-implicits)
+1. prefer [semi-auto derivation](https://github.com/fommil/stalagmite/issues/38) to [full generic derivation](http://fommil.com/scalax15/)
 1. [SCP-010 Compiler Profiling](https://github.com/scalacenter/advisoryboard/blob/master/proposals/010-compiler-profiling.md)
 1. [inductive implicits](https://github.com/scala/scala/pull/5649)
 
