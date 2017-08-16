@@ -49,15 +49,18 @@ As a side effect, you're probably experiencing hanging, remember to `C-g` or `ES
 
 1. compile your project, or open all dependent scala files
 1. restart the presentation compiler: `C-c C-c r` (`ensime-reload-open-files`)
-1. try restarting the server with `M-x ensime-reload`.
+1. try restarting the server with `M-x ensime-reload`
 1. give the server more RAM ([known defect](https://github.com/ensime/ensime-server/issues/1756))
 
 As documented in more detail in our [Contributing Guide](/contributing/#scala-compiler-and-refactoring), ENSIME relies on type information provided by Scala's Presentation
-Compiler and it is known to issue false positives. But it is easier than you might think to fix the problems upstream.
+Compiler and it is known to issue false positives. To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcplod). You can write a PC Plod unit test for the library that you are using to raise awareness with the author of that library that they not compatible with the presentation compiler (and error reporter).
 
-To help you diagnose problems, we wrote [PC Plod](https://github.com/ensime/pcplod). The first thing you can do is to write a PC Plod unit test for the library that you are using to raise awareness with the author of that library that they not compatible with the presentation compiler (and error reporter).
+We are also experimenting with workarounds to the specific problem of complex implicit resolutions. These will require you to get involved as a contributor:
 
-We are also experimenting with a workaround to the specific problem of red squiggly lines due to complex implicit resolutions. If you'd like to get involved, come over to [github.com/ensime/ensime-plugin-implicits](https://github.com/ensime/ensime-plugin-implicits).
+1. [ensime/ensime-plugin-implicits](https://github.com/ensime/ensime-plugin-implicits).
+1. prefer [semi-auto derivation](https://github.com/fommil/stalagmite/issues/38) to full generic derivation
+1. [SCP-010 Compiler Profiling](https://github.com/scalacenter/advisoryboard/blob/master/proposals/010-compiler-profiling.md)
+1. [inductive implicits](https://github.com/scala/scala/pull/5649)
 
 ## Anything else
 
