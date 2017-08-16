@@ -43,14 +43,14 @@ If **that** doesn't work, move your ivy folder aside, it has probably become cor
 mv ~/.ivy2 ~/.ivy2.bak
 ```
 
-## Problem with red squiggly lines or broken completion / types
+## Problem with red squiggly lines and broken completion / types
 
 As a side effect, you're probably experiencing hanging, remember to `C-g` or `ESC ESC ESC` to get Emacs back instantly.
 
 1. compile your project, or open all dependent scala files
 1. restart the presentation compiler: `C-c C-c r` (`ensime-reload-open-files`)
-
-If that doesn't work, try restarting the server with `M-x ensime-reload`.
+1. try restarting the server with `M-x ensime-reload`.
+1. give the server more RAM ([known defect](https://github.com/ensime/ensime-server/issues/1756))
 
 As documented in more detail in our [Contributing Guide](/contributing/#scala-compiler-and-refactoring), ENSIME relies on type information provided by Scala's Presentation
 Compiler and it is known to issue false positives. But it is easier than you might think to fix the problems upstream.
