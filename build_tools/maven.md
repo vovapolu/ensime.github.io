@@ -4,9 +4,9 @@ order: 4
 title: Maven
 ---
 
-**This plugin does not currently document how to use the Developer Version of ENSIME** Please get involved at https://github.com/ensime/ensime-maven
-
 This maven plugin generates a `.ensime` file and provides various convenience commands for interacting with [ENSIME](http://github.com/ensime/ensime-server). The source code can be found at in it's own project: [ensime-maven](https://github.com/ensime/ensime-maven/).
+
+If you wish to use the Developer Version of ENSIME, you may need to run an unreleased version of the plugin.  See [Contributing](#contributing) for details.
 
 # ENSIME Maven Plugin
 
@@ -79,3 +79,19 @@ You can customize it by passing the `salariform` settings to this plugin's `conf
 </plugin>
 ```
 For the list of options and the default settings, please refer to the `maven-scalariorm` [plugin](https://github.com/mdr/scalariform-maven-plugin).
+
+## Contributing
+
+The source code is available at https://github.com/ensime/ensime-maven.  To use a locally built version of the plugin, first build and install it:
+
+```
+mvn -Dgpg.skip install
+```
+
+Then run it with:
+
+```
+mvn org.ensime.maven.plugins:ensime-maven:1.1.2-SNAPSHOT:generate
+```
+
+(substituting the latest version number if necessary)
