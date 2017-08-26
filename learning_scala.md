@@ -11,11 +11,7 @@ This guide assumes no prior knowledge of Scala and will get you set up to the po
 
 We recommend reading [Programming in Scala](http://www.artima.com/shop/programming_in_scala_3ed) to learn the language.
 
-If you come from an object oriented background, you will hear people talk about *Functional Programming* (FP), monads and typeclasses, and it will be confusing. Some gentle introductions are [All Roads Lead to Lambda](https://skillsmatter.com/skillscasts/9904-london-scala-march-meetup), [Understanding Free Monads](http://perevillega.com/understanding-free-monads) and [A Beginner-Friendly Tour](http://degoes.net/articles/easy-monads).
-
-Scala is sadly missing a comprehensive text on the topic of FP. The standard text is [Functional Programming in Scala](https://www.manning.com/books/functional-programming-in-scala), aka "the red book", but it is very much outdated. To pick up where the book leaves off, read about Typelevel's [typeclasses](http://typelevel.org/cats/typeclasses.html) / [datatypes](http://typelevel.org/cats/datatypes.html) and [functional streams](https://github.com/functional-streams-for-scala/fs2).
-
-[Shapeless Guide](http://underscore.io/books/shapeless-guide/) is the best place to learn about advanced generic programming concepts such as making the compiler generate typeclasses for your `case class` objects.
+If you come from an object oriented background, you will hear people talk about *Functional Programming* (FP), monads and typeclasses. Learn about them by getting [Functional Programming in Scala for Mortals](https://leanpub.com/fp-scala-mortals) by `@fommil`.
 
 Before installing any software, you can complete exercises online at [scala-exercises.org](https://www.scala-exercises.org/) and execute code in your browser at [scalafiddle.io](https://scalafiddle.io/).
 
