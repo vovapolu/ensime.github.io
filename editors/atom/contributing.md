@@ -8,13 +8,20 @@ title: Contributing
 
 The basic cycle for interactive hacking on Atom ENSIME is: checkout the project (or a fork), install the package from your fork. Then: make edits, re-load Atom, repeat. Feel free to chat on gitter, and send a pull request.
 
-In detail:
+Atoms package manager `apm` has a convenience command for woking on Atom
+packages. By running `apm develop ensime <path-to-clone-to>` it will clone
+`ensime/atom-ensime` to the specified location, install its dependencies, and
+link it into Atoms package directory.
+
+Alternatively you can perform these steps manually:
 
 - Checkout the project from: https://github.com/ensime/ensime-atom
 
-- Either checkout straight into _.atom/packages_ (or `ln -s` from there to your checkout). You need to have the right name on the folder: "Ensime".
+- Install the library dependencies: `apm install`
 
-- From that directory run: `apm install`.
+- Link the package into Atoms package directory: `apm link`
+
+Once you've cloned and linked the code you can start developing
 
 - In Atom: "Window: reload" (ctrl-option-cmd l) to reload plugin from source while developing.  Then start ENSIME in Atom as usual.
 
