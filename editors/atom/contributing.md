@@ -40,7 +40,7 @@ Specific example of these follow.
 
 Notice that as part of pulling these things out, the ensime-client is no longer depending on Atom's automatic compilation of coffeescript. It instead uses grunt to compile the coffescript into js that is exported. Therefore you'll need to set up a watch task as well.
 
-- `git clone https://github.com/hedefalk/ensime-node`
+- `git clone https://github.com/ensime/ensime-node`
 - `cd ensime-node`
 - `npm install`
 - `npm link` (this creates a softlink from npm registry to this working directory)
