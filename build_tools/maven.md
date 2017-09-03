@@ -43,12 +43,21 @@ Or you can add the following to your `pom` file:
   <plugin>
     <groupId>org.ensime.maven.plugins</groupId>
     <artifactId>ensime-maven</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
   </plugin>
 </plugins>
 </build>
 ```
 Note usually you don't need to add **DistributionManagement** part.
+
+The default ensime server version is 2.0.0-M4, but you can customize it like:
+
+```
+<configuration>
+    <ensime.server.version>2.0.0-M4</ensime.server.version>
+<configuration>
+```
+
 ## Generate `.ensime` file
 
 To actually generate the `.ensime` file from your pom, run:
@@ -72,7 +81,7 @@ You can customize it by passing the `salariform` settings to this plugin's `conf
 <plugin>
   <groupId>org.ensime.maven.plugins</groupId>
   <artifactId>ensime-maven</artifactId>
-  <version>1.1.1</version>
+  <version>1.2.0</version>
   <configuration>
     <indentSpaces>2</indentSpaces>
   </configuration>
@@ -91,7 +100,7 @@ mvn -Dgpg.skip install
 Then run it with:
 
 ```
-mvn org.ensime.maven.plugins:ensime-maven:1.1.2-SNAPSHOT:generate
+mvn org.ensime.maven.plugins:ensime-maven:1.3.0-SNAPSHOT:generate
 ```
 
 (substituting the latest version number if necessary)
