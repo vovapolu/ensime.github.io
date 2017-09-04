@@ -14,12 +14,16 @@ If you're a Vim-fidel wanting to try out Emacs, you may feel at home in [Evil Mo
 
 Some useful resources to learn Emacs:
 
+- The built in tutorial! Start Emacs and type `C-h t` (Control and `h`, then `t`)
+- [GNU Emacs Manual](https://www.gnu.org/software/emacs/manual/emacs.html)
 - [Visual tutorial](http://sachachua.com/blog/2013/05/how-to-learn-emacs-a-hand-drawn-one-pager-for-beginners/)
 - [Mastering Emacs](https://www.masteringemacs.org/)
 - [GNU Emacs Reference Card (pdf)](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf)
 - [Sacha's .emacs.d](http://pages.sachachua.com/.emacs.d/Sacha.html)
 
 The use of [EmacsWiki](http://www.emacswiki.org/) is discouraged as much of the content is out of date.
+
+To truly feel comfortable with Emacs, you are recommended to read the [Emacs Lisp Manual](https://www.gnu.org/software/emacs/manual/elisp.html) (at least the language and core libraries). It will set you free.
 
 The following is intended to set some built-in Emacs variables that often confuse / annoy new users and is by no means a fully functional development environment. Put this into your `~/.emacs.d/init.el` and restart Emacs. Make sure you do not have a stale `~/.emacs` file left over from a previous attempt to use Emacs.
 
