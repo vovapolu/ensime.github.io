@@ -40,4 +40,4 @@ The following chart describes how well ENSIME supports each build tool:
 | launch manager         | ✔                   |            |                           |                             |                       |                              |                  |
 | debug launcher         | ✔                   |            |                           |                             |                       |                              |                  |
 | single file compile    | ✔                   |            |                           |                             |                       |                              |                  |
-| formatting             | ✔                   | ✔          |                           |                             |                       | ✔                            |                  |
+| formatting             | ✔                   | ✔          |                           |                             | ✔                     | ✔                            |                  |
