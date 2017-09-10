@@ -13,7 +13,7 @@ ENSIME supports several editors. Your choice of editor is a very personal thing 
 - [VSC](vscode) ([homepage][vsc])
 - [Sublime](sublime) ([homepage][subl])
 
-If you really want to use a particular editor but some feature is missing, take it from us that you will find it incredibly rewarding to get it working! Head over to [Contributing](/contributing) to find out more.
+If you really want to use a particular editor but some feature is missing, take it from us that you will find it incredibly rewarding to get it working! Head over to [`ensime-server` Contributing Guide](/server/contributing) to find out more.
 
 ## Feature Matrix
 

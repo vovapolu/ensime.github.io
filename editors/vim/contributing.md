@@ -189,7 +189,7 @@ As always, code style is a guideline, not a rule. Readability trumps dogma. If y
 Useful References
 -----------------
 
-- [ENSIME Contributing](/contributing/)
+- [`ensime-server` Contributing Guide](/server/contributing)
 - [ENSIME API Source](https://github.com/ensime/ensime-server)
 - [Learn VimScript The Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
 - Vim Documentation (`:h <your-term-here>`) – some useful tags for how Vim plugins should work are `write-plugin` and `write-filetype-plugin`, as well as `python` for the Python plugin API supported by both Vim and Neovim)

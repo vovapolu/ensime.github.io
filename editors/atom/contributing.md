@@ -62,7 +62,7 @@ where `ensime-node` is my checked out git repo.
 
 ### Use server assembly jars
 
-See [the server docs](/contributing/#manual-qa-testing) if you need to build your own server.
+See [the server docs](/server/contributing/#manual-qa-testing) if you need to build your own server.
 
 
 ## Tricks and Tips

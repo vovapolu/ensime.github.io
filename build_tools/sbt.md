@@ -21,7 +21,7 @@ addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.14")
 
 In order to create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
 
-If it says `command not found` then ensure that the sbt version in `project/build.properties` is `0.13.16` [until sbt 1.0 support is added](https://github.com/ensime/ensime-sbt/issues/237). For further details, see [sbt Version](http://ensime.org/build_tools/sbt/#sbt-version) under [Troubleshooting](http://ensime.org/build_tools/sbt/#troubleshooting).
+If it says `command not found` then ensure that the sbt version in `project/build.properties` is `0.13.16` [until sbt 1.0 support is added](https://github.com/ensime/ensime-sbt/issues/237).
 
 ## Learn to Use sbt
 
@@ -142,9 +142,34 @@ ensimeProjectServerVersion in ThisBuild := "2.0.0-M2" // or "1.0.1"
 
 Always check the [tickets flagged as FAQ](https://github.com/ensime/ensime-sbt/issues?q=label%3AFAQ) before reporting a new issue.
 
-Tickets are hard to reproduce unless you create a minimal example project and share with us the steps to reproduce the problem.
+Tickets are hard to reproduce unless you create an example project and share with us the steps to reproduce the problem.
 
 Bug reports in the form of a pull request into the `src/sbt-test/ensime-sbt` directory are well received, which is our suite of integration tests using the [sbt scripted](http://eed3si9n.com/testing-sbt-plugins) framework. Pull requests with tests and fixes are living the dream.
+
+### Starting the Server
+
+1. Update this plugin and re-run the `.ensime` generator
+1. If that doesn't work: exit `sbt`, clear out the sbt caches and recreate `.ensime`:
+
+```
+sbt> exit
+
+rm -rf ~/.coursier/cache/v1/https/oss.sonatype.org/content/repositories/snapshots \
+       ~/.ivy2/cache/org.ensime \
+       ~/.ivy2/local \
+       project/target \
+       ~/.sbt/0.13/target \
+       ~/.sbt/0.13/plugins/target
+
+$ sbt
+sbt> ensimeConfig
+```
+
+If **that** doesn't work, move your ivy folder aside, it has probably become corrupted:
+
+```
+mv ~/.ivy2 ~/.ivy2.bak
+```
 
 ### Cancel Processes
 
@@ -162,8 +187,10 @@ Emacs users should recall that in order to send a control sequence to the `sbt-m
 Your `project/build.properties` needs to use a version newer than 0.13.5 of sbt due to a [breaking AutoPlugin change](https://github.com/ensime/ensime-server/issues/672), e.g.
 
 ```
-sbt.version=0.13.12
+sbt.version=0.13.16
 ```
+
+[sbt 1.0 is not yet supported](https://github.com/ensime/ensime-sbt/issues/237).
 
 
 ## Contributing
