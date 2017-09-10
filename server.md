@@ -20,9 +20,6 @@ ensime {
     collapseExclude = ["scala"]
     maxIndividualImports = 4
   }
-  index {
-    batchSize = 100
-  }
 }
 ```
 
