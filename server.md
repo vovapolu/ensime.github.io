@@ -5,6 +5,8 @@ title: Server
 site_nav_entry: true # this is an entry in the main site nav
 ---
 
+## Customisation
+
 As of version 2.0.0, the `ensime-server` process can be customised, both at a user and a project level via `.ensime-server.conf` HOCON files in your project's directory or your home directory. Project configuration takes priority over user settings, which take priority over [the defaults](https://github.com/ensime/ensime-server/blob/2.0/core/src/main/resources/application.conf).
 
 For example, to customise organise imports to have specific orderings and wildcard rules, use
@@ -33,3 +35,11 @@ ensime {
   }
 }
 ```
+
+## Contributing
+
+Please see the [Contributing Guide](/server/contributing)
+
+## Troubleshooting
+
+Please see the [Troubleshooting Guide](/server/troubleshooting)
