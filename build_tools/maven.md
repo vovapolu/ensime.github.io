@@ -55,7 +55,7 @@ The default ensime server version is 2.0.0-M4, but you can customize it like:
 ```
 <configuration>
     <ensimeServerVersion>2.0.0-M4</ensimeServerVersion>
-<configuration>
+</configuration>
 ```
 
 ## Generate `.ensime` file
