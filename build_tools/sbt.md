@@ -14,7 +14,7 @@ This [sbt](http://github.com/sbt/sbt) plugin generates a `.ensime` file and prov
 Add these lines to `~/.sbt/0.13/plugins/plugins.sbt` as opposed to `project/plugins.sbt` (the decision to use ENSIME is per-user, rather than per-project):
 
 ```scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.14")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.15")
 ```
 
 **Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
@@ -45,7 +45,7 @@ Also bundled are extra workflow tasks, which are used by ENSIME clients:
 | `b/ensimeCompileOnly`        | Compile a single fully-qualified `.scala` file using `b`'s classpath. Very useful to avoid triggering a full compile or to see the AST during a phase of the compile. e.g. `a/ensimeCompileOnly -Xprint:type /path/to/Foo.scala` |
 | `b/ensimeScalariformOnly`    | Format a single fully-qualified `.scala` file using `b`'s Scalariform settings (compatible with, but does not require, `sbt-scalariform`). |
 | `ensimeRunDebug`             | Like `ensimeRunMain` but adds debugging flags automatically. |
-| `debugging` / `debuggingOff` | Mutates the default `javaOptions` to include debugging flags ([see below](#debugging-example)). |
+| `ensimeTestOnlyDebug` | `...debug` extension to `testOnly`. Has the same logic as `ensimeRunDebug` in regard of `ensimeRunMain`. See debugging example [below](#debugging-example).|
 {: .sbt-tasks}
 
 
@@ -72,26 +72,12 @@ An untracked `ensime.sbt` file is [advised](#customise) for this, assuming you h
 
 ### Debugging Example
 
-Debugging an application is the easiest:
+Ensime plugin has two helpful comands for debugging: `ensimeRunDebug` for applications and `ensimeTestOnlyDebug` for tests. 
 
 ```
 > ensimeRunDebug foo.Bar
+> ensimeTestOnlyDebug foo.BarTest
 ```
-
-but debugging tests are trickier.
-
-If you do not `fork` your tests from `sbt` you may be able to attach a remote debugger to the entire session by starting like `sbt -jvm-debug 1337` (check the docs of your `sbt` script). However, if you have `fork in Test := true` then you can use our `debugging` task to mutate the java options to include the necessary flags:
-
-```
-crossbuild ~/Projects/ensime-server sbt
-> debugging
-[warn] Enabling debugging for all forked processes
-[info] Only one JVM can use the port and it will await a connection before proceeding.
-> jerk/test-only *JerkFormatsSpec
-Listening for transport dt_socket at address: 5005
-```
-
-at which point, the test will hang until you connect a remote debugger to port 5005. When you are finished debugging, cancel the test or let it run to completion, and then type `debuggingOff`.
 
 ## Customise
 
