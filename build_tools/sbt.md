@@ -21,7 +21,7 @@ addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.15")
 
 In order to create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
 
-If it says `command not found` then ensure that the sbt version in `project/build.properties` is `0.13.16` [until sbt 1.0 support is added](https://github.com/ensime/ensime-sbt/issues/237).
+If it says `unresolved dependency` or `command not found` then ensure that the sbt version in `project/build.properties` is `0.13.16` [until sbt 1.0 support is added](https://github.com/ensime/ensime-sbt/issues/237).
 
 ## Learn to Use sbt
 
