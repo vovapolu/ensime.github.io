@@ -7,21 +7,32 @@ title: sbt
 - TOC
 {:toc}
 
-This [sbt](http://github.com/sbt/sbt) plugin generates a `.ensime` file and provides various convenience commands for interacting with [ENSIME](http://github.com/ensime/ensime-server).
+[sbt-ensime]: https://github.com/ensime/ensime-sbt
+[ensime/ensime-sbt#237]: https://github.com/ensime/ensime-sbt/issues/237
+
+The integration of ENSIME with [sbt](http://github.com/sbt/sbt) is provided by [sbt-ensime][], whose primary function is generating the `.ensime` file by inspecting the sbt build setup. In addition [sbt-ensime][] provides various convenience commands for interacting with the [ENSIME server](http://github.com/ensime/ensime-server).
 
 ## Install
 
-Add these lines to `~/.sbt/0.13/plugins/plugins.sbt` as opposed to `project/plugins.sbt` (the decision to use ENSIME is per-user, rather than per-project):
+[sbt-ensime][] is an editor integration plugin and isn't a strict requirement of the build.
+
+Therefore it is recommended to install it as a [global plugin](http://www.scala-sbt.org/0.13/docs/Using-Plugins.html) so that it's always available.
+
+To do so, add it to `~/.sbt/0.13/plugins/plugins.sbt` (create if necessary) as such:
 
 ```scala
 addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.15")
 ```
 
-**Check that again**, if you incorrectly used `~/.sbt/0.13/plugins.sbt` you'll get an sbt resolution error, it really has to be in the `plugins` folder.
+**NOTE**: Currently [sbt-ensime][] only supports sbt 0.13. See [ensime/ensime-sbt#237][] for more information, to track progress and to get involved in adding sbt 1 compatibility to [sbt-ensime][].
 
-In order to create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
+Then in order to create the `.ensime` file for you project, start `sbt` (in the terminal or your editor's `sbt` mode) and run the `ensimeConfig` command.
 
-If it says `unresolved dependency` or `command not found` then ensure that the sbt version in `project/build.properties` is `0.13.16` [until sbt 1.0 support is added](https://github.com/ensime/ensime-sbt/issues/237).
+### Common Mistakes
+
+1. If you accidentally use `~/.sbt/0.13/plugins.sbt` instead of `~/.sbt/0.13/plugins/plugins.sbt` you'll get an sbt resolution error - make sure you're defining the plugin at the right path.
+
+2. If your project is using sbt 1 you'll also get `unresolved dependency` or `command not found` error messages, make sure that the sbt version in `project/build.properties` is `0.13.16`. See [ensime/ensime-sbt#237][] for more information, to track progress and to get involved in adding sbt 1 compatibility to [sbt-ensime][].
 
 ## Learn to Use sbt
 
