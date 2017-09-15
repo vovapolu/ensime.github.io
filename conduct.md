@@ -10,8 +10,8 @@ Following our Emacs heritage, we use an adapted version of [Emacs Conduct](https
 - Be helpful: others may not know where to look.
 - Be proactive: fix it if it's broken and read the documentation.
 - Be useful: submit bug reports by following the template.
-- Be reasonable: do not demand the assistance or time of others.
-- Be respectful: don't insult or threaten others.
+- Be respectful: do not demand the assistance or time of others.
+- Be civil: don't insult or threaten others.
 
 Intentional violators may be temporarily banned.
 
