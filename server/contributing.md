@@ -25,7 +25,7 @@ If you still don't know, join the conversation at [gitter.im/ensime/ensime-serve
 
 If you can't come to a hack day but you'd really like to have some live help from somebody, please ask. We can use the libre software [meet.jit.si](https://meet.jit.si/) to screen share and discuss tickets anytime that is convenient.
 
-If you'd like an ENSIME logo sticker for your laptop, let us know in your PR and privately email your postal address (or feel literally [free](http://www.gnu.org/philosophy/free-sw.en.html) to print your own, the logo is [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) and is not trademarked).
+If you'd like an ENSIME logo sticker for your laptop, let us know in your PR and privately email your postal address (or feel literally [free](http://www.gnu.org/philosophy/free-sw.en.html) to print your own, the logo is [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) and is not trademarked).
 
 
 ## Editors
