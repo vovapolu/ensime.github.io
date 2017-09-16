@@ -30,10 +30,12 @@ quality.
 
 The ENSIME contributor base is absolutely fantastic and it is a
 genuine pleasure to hack with the great people who come through these
-revolving doors. There is an energy in the center of a loved part of
-the scala ecosystem, whilst being a banner for [Free (libre)
-Software](https://www.gnu.org/philosophy/floss-and-foss.en.html), and
-empowering users to hack their workflow to their exact requirements.
+revolving doors. There is an energy to being closely involved with
+this critical part of the scala ecosystem, whilst being a banner for
+[Free (libre)
+Software](https://www.gnu.org/philosophy/floss-and-foss.en.html),
+empowering power users to hack their workflow to their exact
+requirements.
 
 It is addictive to contribute to a project where **you are the
 customer**, not somebody else. Unlike at your day job, where projects
