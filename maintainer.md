@@ -115,18 +115,6 @@ I'd have done:
    time and help each other out. ENSIME is a technical project and the
    only politics we subscribe to are those of the Free Software
    Foundation.
-1. Everything you say publicly will be criticised by the twitter mob
-   and you could suffer the same witch-burning fate as [Ashley
-   Williams or Rod
-   Vagg](https://theoutline.com/post/2206/the-node-js-code-of-conduct-diversity-tech).
-   I have personally experienced blocking / muting / "polite" ignoring
-   / tone-policing by prominent people in our Scala community who
-   believe in the imaginary Nazi revolution, because I have opposed
-   their paternalistic approach to community management. For example,
-   there are some in the wider community who feel it is appropriate to
-   contact employers over a twitter argument. The mobs are real, they
-   can impact your livelihood, don't get involved, this is just a
-   hobby.
 1. managing the sponsorship programme and the cash funds available
    there. We are currently generating about $350 / month, which means
    we can afford to hire a part time student for two months a year. By
