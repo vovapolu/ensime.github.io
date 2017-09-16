@@ -136,19 +136,20 @@ I'd have done:
    want to consider canning the sponsorship programme because of the
    admin burden, and give what little remains to the Free Software
    Foundation.
-1. This position is obviously so desirable that you are expected to
-   contribute financially. The cost of appveyor (Windows CI) is $300 /
-   year. Your choice of CI and worker agents varies, currently running
-   at about $350 / year plus Chip's machine (which does the lion's
-   share of the work). You may be expected to top up the sponsorship
-   funds if they are running low and the developer needs to be paid
-   because of timing. I recommend canning the Windows CI and letting a
-   Windows user contribute the funds and effort to keep the Windows
-   build running, unless the gratis AppVeyor service has improved in
-   the last two years (which you will need to spend a weekend
-   investigating). I will try to move us over to gitlab before my
-   tenure is up so that the CI cost is removed, but we will still be
-   reliant on Chip's machine doing the work.
+1. The cost of appveyor (Windows CI) is $300 / year. Your choice of CI
+   and worker agents varies, currently running at about $350 / year
+   plus Chip's machine (which does the lion's share of the work).
+   Stickers (everybody loves stickers!) cost around $100 a batch. You
+   can take money out of the sponsorship pot for this, I didn't. You
+   may be expected to top up the sponsorship funds if they are running
+   low and the developer needs to be paid because of timing. I
+   recommend canning the Windows CI and letting a Windows user
+   contribute the funds and effort to keep the Windows build running,
+   unless the gratis AppVeyor service has improved in the last two
+   years (which you will need to spend a weekend investigating). I
+   will try to move us over to gitlab before my tenure is up so that
+   the CI cost is removed, but we will still be reliant on Chip's
+   machine doing the work.
 
 Applicants need not apply, I will grant admin permissions to some core
 contributors over the coming months and somebody will eventually step
