@@ -34,6 +34,17 @@ Then in order to create the `.ensime` file for you project, start `sbt` (in the 
 
 2. If your project is using sbt 1 you'll also get `unresolved dependency` or `command not found` error messages, make sure that the sbt version in `project/build.properties` is `0.13.16`. See [ensime/ensime-sbt#237][] for more information, to track progress and to get involved in adding sbt 1 compatibility to [sbt-ensime][].
 
+### Unstable Server
+
+The latest stable release of the server is downloaded by default. If you wish to follow the *unstable* (continuously released) server, add the following to `~/.sbt/0.13/global.sbt`
+
+```scala
+import org.ensime.EnsimeKeys._
+
+ensimeServerVersion in ThisBuild := "2.0.0-SNAPSHOT"
+ensimeProjectServerVersion in ThisBuild := "2.0.0-SNAPSHOT"
+```
+
 ## Learn to Use sbt
 
 If you've come from an IDE you might not be aware of the power of `sbt`. Please take the time to read the [sbt Getting Started Guide](http://www.scala-sbt.org/0.13/docs/Getting-Started.html) before proceeding and appreciate that `sbt` is responsible for building your project, not ENSIME.
