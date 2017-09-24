@@ -12,19 +12,17 @@ title: Installation
 
 ### Stable
 
-- JDK 1.6+
-- Emacs 24.3+
-- Scala 2.10.4+ / 2.11.5+
+- JDK 1.8+
+- Emacs 24.5+
+- Scala 2.10.6+ / 2.11.11+ / 2.12.3+
 
 ### Unstable
 
 - JDK 1.8+
 - Emacs 24.5+
-- Scala 2.10.6+ / 2.11.8+ / 2.12.1+
+- Scala 2.11.11+ / 2.12.3+
 
 ## Installing
-
-**If you use Scala 2.12 you must install the Unstable edition**
 
 Note that "stable" means "versioned release jars exist", not "it has less bugs". Indeed, bugs are considered "documented behaviour".
 
@@ -77,6 +75,8 @@ To use the unstable version of ENSIME from MELPA, change to `:pin melpa`:
 ```
 
 and read the documentation for your build tool plugin (which is now the server installer) for additional steps that you need to make.
+
+Note that the ensime-server `3.0.0-SNAPSHOT` releases are incompatible with the emacs client, blocked by [use SWANKY](https://github.com/ensime/ensime-emacs/issues/316).
 
 ## Spacemacs
 
