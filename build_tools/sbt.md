@@ -41,8 +41,9 @@ The latest stable release of the server is downloaded by default. If you wish to
 ```scala
 import org.ensime.EnsimeKeys._
 
-ensimeServerVersion in ThisBuild := "2.0.0-SNAPSHOT"
-ensimeProjectServerVersion in ThisBuild := "2.0.0-SNAPSHOT"
+ensimeRepositoryUrls += "https://oss.sonatype.org/content/repositories/snapshots/"
+ensimeServerVersion in ThisBuild := "3.0.0-SNAPSHOT"
+ensimeProjectServerVersion in ThisBuild := "3.0.0-SNAPSHOT"
 ```
 
 ## Learn to Use sbt
