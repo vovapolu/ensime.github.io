@@ -197,8 +197,11 @@ Your `project/build.properties` needs to use a version newer than 0.13.5 of sbt 
 sbt.version=0.13.16
 ```
 
-[sbt 1.0 is not yet supported](https://github.com/ensime/ensime-sbt/issues/237).
+or even 
 
+```
+sbt.version=1.0.2
+```
 
 ## Contributing
 
